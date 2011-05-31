@@ -1,0 +1,102 @@
+#account_container
+{
+  float:            left;
+  margin:           20px 0 20px 10px;
+  padding:          5px;
+  min-height:       400px;
+  width:            600px;
+}
+
+#account_picture
+{
+  float:            left;
+  margin:           20px 0;
+  max-width:        200px;
+}
+
+#account_links
+{
+  float:            right;
+  margin:           20px 0;
+  background:       #F2F2F2;
+  border:           2px solid #DDDDDD;
+  min-height:       400px;
+  width:            220px;
+}
+
+#account_links_title
+{
+  font-family:    'nu-century-gothic', 'sans-serif';
+  font-size:      25px;
+  letter-spacing: -1px;
+  word-spacing:   -5px;
+  margin:         10px 0 0 10px;
+}
+
+#account_links ul
+{
+  font-size:      16px;
+  line-height:    30px;
+  margin:         30px 0 30px 0;
+  list-style-position:inside;
+  width:            220px;
+}
+
+#account_links li
+{
+  padding-left:     10px;
+  padding-right:    10px;
+}
+
+.account_highlight
+{
+  background:       #fff7d9;
+  border-top:       1px solid #cdc57a;
+  border-bottom:    1px solid #cdc57a;
+}
+
+#account_title
+{
+  font-family:    'nu-century-gothic', 'sans-serif';
+  font-size:      25px;
+  letter-spacing: -1px;
+  color:          #222222;
+  word-spacing:   -5px;
+  width:            600px;
+  padding:         0 0 5px 3px;
+  margin:          0 0 30px 0;
+  border-bottom:   2px solid #222222;
+}
+
+.account_content
+{
+  padding:        0 20px 0 3px;
+  margin:         10px 0 10px 0;
+  line-height:    18px;
+  font-size:      14px;
+}
+
+.content_row
+{
+  margin:         15px 20px;
+  font-size:      14px;
+}
+
+.content_row_label
+{
+  float:          left;
+  width:          220px;
+}
+
+.content_row_data
+{
+  float:          left;
+  font-size:      20px;
+  font-weight:    bold;
+  margin:         0;
+}
+
+.secret
+{
+  color:          #DADADA;
+}

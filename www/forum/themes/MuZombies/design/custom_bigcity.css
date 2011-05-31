@@ -1,0 +1,717 @@
+/*
+Vanilla Big City
+Color scheme based on a kuler thmeme kuler.adobe.com
+
+*/
+   
+   
+/* ============================================== General Styles & Typography */
+body {
+   color: #000;
+   background: #fff;
+}
+h1, h2, h3, h4, h5, h6 {
+   color: #000;
+}
+h1, h2 {
+   border-bottom:1px solid #bbb;
+}
+h4 {
+   color: #6C6C6C;
+}
+h5 {
+   color: #6C6C6C;
+}
+a,
+a:link,
+a:visited,
+a:active {
+   color: #596664;
+}
+a:hover {
+   color: #ff8a00;
+}
+input.DateBox,
+input.InputBox,
+input.SmallInput,
+textarea {
+   color: #333;
+   border: 1px solid #aaa;
+}
+input.SmallInput:focus,
+input.InputBox:focus,
+textarea:focus {
+   background: #ffe;
+}
+select {
+   color: #222;
+   }
+a.Button,
+.Button {
+     background: #faf6e6;
+   color: #2C2B33;
+	text-shadow: 0 1px 0 #fff;
+   border: 1px solid #CCC08D;
+	box-shadow: 0px 0px 2px #2C2B33;
+	-moz-box-shadow: 0px 0px 2px #2C2B33;
+	-webkit-box-shadow: 0px 0px 2px #2C2B33;  
+   }
+.Button:hover {
+   color: #2C2B33;
+   border: 1px solid #2C2B33;
+}
+.Button:focus {
+   background: #CCC08D;
+}
+div.Messages ul {
+   background: #ff9 !important;
+	box-shadow: 0px 0px 2px #333;
+	-moz-box-shadow: 0px 0px 2px #333;
+	-webkit-box-shadow: 0px 0px 2px #333;  
+}
+div.Messages ul li {
+    color: #000 !important;
+}
+div.Errors ul {
+   background: #d50a0a !important;
+}
+div.Errors ul li {
+   color: #fff !important;
+   background: #d50a0a !important;
+}
+
+div.Deleted {
+	background: #f5f5f5;
+	border: 1px solid #dddddd;
+}
+/* Note: Warning, Alert & Info are simple boxes that can be used to wrap message
+   strings & imply importance. */
+.Warning {
+   background: #ffc;
+   border: 1px solid #ff9;
+   color: #000;
+
+}
+.Alert {
+   background: #d00;
+   border: 1px solid #b00;
+   color: #fff;
+}
+.Alert a {
+   color: #fff;
+}
+
+div.Info {
+   background: #fafafa;
+   border: 1px solid #eee;
+   color: #888;
+}
+div.DismissMessage a.Dismiss {
+   color: #2c2b33;
+}
+div.DismissMessage a.Dismiss:hover {
+	color: #ff0084;
+}
+/* Note: The close class is used on the "close" anchor in popups. */
+a.Close {
+	color:#fff;
+}
+a.Close:hover {
+	color: #777;
+}
+.NumberedPager span,
+.NumberedPager a.Highlight {
+	color: #777;
+}
+
+/* =================================================================== Header */
+#Head {
+   background: #596664;
+}
+#Head h1 a span {
+   color:#eee5bd;
+   text-shadow:0 1px 0 #2c2b33;   
+}
+#Head h1 a:hover span {
+   color:#ccc08d;
+}
+#Head form {
+   background: #fff;
+}
+#Head form input.InputBox {
+   background: #fff;
+   color: #969696;
+}
+#Head form input.Button {
+   background: #ccc08d;
+   color: #2c2b33;    	
+}
+
+ul.Options li.Parent strong {
+    background:#FAF6E6 none repeat scroll 0 0;
+	border:1px solid #CCC08D;
+	color:#2C2B33;
+
+}
+ul.Options li.Parent strong:focus,
+ul.Options li.Parent strong:hover {
+   color: #ff8a00;
+   border: 1px solid #2C2B33;
+}
+ul.Options li.Parent strong:focus {
+   background: #FAF6E6;
+}
+ul.Options li.Active strong:hover,
+ul.Options li.Active strong {
+   color: #2C2B33;
+   background: #FAF6E6 !important;
+   border: 1px solid #FAF6E6;
+   -moz-border-radius-bottomleft: 0;
+   -moz-border-radius-bottomright: 0;
+   -webkit-border-bottom-left-radius: 0;
+   -webkit-border-bottom-right-radius: 0;
+}
+
+ul.Options li.Active ul {
+   border: 1px solid #FAF6E6;
+   background: #FAF6E6;
+
+}
+ul.Options li.Active a {
+   background: #FAF6E6;
+   color: #2C2B33;
+}
+ul.Options li.Active a:hover {
+   background: #FAF6E6;
+   color: #ff8a00;
+}
+ul.Options li.Parent strong:hover,
+ul.Options li.Active strong:hover,
+ul.Options li.Active strong,
+ul.Options li.Active ul {
+  	box-shadow: 0px 0px 2px #2c2b33;
+	-moz-box-shadow: 0 0 2px #2c2b33;
+	-webkit-box-shadow: 0px 0px 2px #2c2b33;     
+}
+
+/* ================================================================ Main Menu */
+#Menu ul,
+#Menu li.Active {
+   background: #596664;
+}
+#Menu a,
+#Menu li.Active a {
+   color: #eee5bd;
+}
+#Menu a:hover {
+   background: #909980;
+}
+#Menu a:hover,
+#Menu li.NonTab a:hover {
+   color: #2c2b33 !important;
+}
+/* Numbers next to menu items */
+#Menu a span,
+#Menu li.Active a span,
+#Menu li.Highlight a:hover span {
+   background: #ff8a00;
+   color: #2c2b33;
+}
+
+
+/* ======================================================== Panels / Sidebars */
+div.Box {
+   background: #909980;
+   color: #888;
+	box-shadow: 0px 0px 2px #2c2b33;
+	-moz-box-shadow: 0px 0px 2px #2c2b33;
+	-webkit-box-shadow: 0px 0px 2px #2c2b33;  
+}
+div.Box h4 {
+   color: #EEE5BD ;
+}
+div.Box dl {
+   border-top: 1px solid #596664;
+   border-bottom: 1px solid #596664;
+   background: #FAF6E6 ;
+}
+div.Box dl dt {
+   color: #555;
+}
+div.Box p {
+   color: #faf6e6;
+}
+ul.PanelActivity {
+   border-top: 1px solid #ccc08d;
+}
+ul.PanelActivity li {
+   background: #e3f4ff;
+   border-bottom: 1px solid #ccc08d;
+	color: #555;
+}
+ul.PanelActivity li em {
+	color: #777;
+}
+
+ul.PanelInfo li {
+   background: #FAF6E6 ;
+   border-bottom: 1px solid #ccc08d;
+}
+ul.PanelInfo {
+   border-top: 1px solid #ccc08d;
+}
+ul.PanelInfo div.Meta strong {
+	background: #FF8A00;
+	color:#fff;
+}
+ul.PanelInfo li.Active {
+   background: #fff;
+   border-bottom: 1px solid #ccc08d;
+}
+ul.PanelInfo li.Active a {
+   color: #596664;
+}
+
+body.Profile ul.PanelInfo {
+   border-bottom: 1px solid #596664;
+}
+a.BigButton {
+   background: #f8f8f8;
+   color: #596664;
+	text-shadow: 0 1px 0 #fff;
+   border: 1px solid #2c2b33;
+	box-shadow: 0px 0px 2px #2c2b33;
+	-moz-box-shadow: 0px 0px 2px #2c2b33;
+	-webkit-box-shadow: 0px 0px 2px #2c2b33;  
+   }
+a.BigButton:hover {
+   color: #596664;
+   border: 1px solid #2c2b33;
+	box-shadow: 0px 0px 5px #2c2b33;
+	-moz-box-shadow: 0px 0px 5px #2c2b33;
+	-webkit-box-shadow: 0px 0px 5px #2c2b33;  
+}
+a.BigButton:focus {
+   background: #f8f8f8;
+	box-shadow: 0px 0px 2px #2c2b33;
+	-moz-box-shadow: 0px 0px 2px #2c2b33;
+	-webkit-box-shadow: 0px 0px 2px #2c2b33;  
+}
+
+
+/* ============================================================= Entry Screen */
+body#dashboard_entrycontroller_handshake ul.NewAccount {
+	border-right: 1px solid #A5D0E7;
+}
+body#dashboard_entrycontroller_handshake div.Info {
+	border: 1px solid #A5D0E7;
+	background: #D3F0FF;
+	color: #02475A;
+}
+body.Entry #Content div.Box {
+   background: #faf6e6;
+}
+
+body.Entry #Content h1 {
+   color: #2c2b33;
+}
+body#dashboard_entrycontroller_handshake #Content h2 {
+   color: #02475A;
+}
+body.Entry form ul li label {
+	color: #2c2b33;
+}
+
+/* ================================================ DataList (Search Results) */
+/* Note: DataList is used in search results, vanilla discussions & drafts */
+ul.DataList li.Item {
+   border-bottom: 1px solid #bec8cc;
+}
+ul.DataList a.Title {
+   color:#2c2b33;
+}
+
+ul.DataList a:hover.Title {
+
+      color:#ff8a00;
+
+}
+ul.DataList div.Meta {
+   color: #70727c;
+}
+ul.DataList div.Excerpt a {
+   color: #333;
+}
+ul.DataList div.Meta strong {
+   background: #ff8a00;
+   color:#fff;
+}
+ul.DataList div.Meta a {
+   color: #2b2d33;
+}
+ul.DataList a.Delete {
+    color: #ff8a00;
+
+}
+ul.DataList a.Delete:hover {
+   color: #ff8a00;
+   border: 1px solid #888;
+   background: #f8f8f8;
+}
+ul.DataList a.Delete:focus {
+   background: #f8f8f8;
+}
+
+/* =============================================================== Activities */
+
+
+body.Profile ul.Activities {
+   border-top: 1px solid #ddd;
+}
+ul.Activities div.Excerpt {
+	color: #80828C;
+}
+ul.Activities li.Condensed div.Excerpt {
+	color: #000;
+
+}
+ul.Activities div.Excerpt a,
+ul.Activities div.Meta a {
+   color: #596664;
+}
+ul.Activities div.Excerpt a:hover,
+ul.Activities div.Meta a:hover {
+   color: #ff8a00;
+}
+ul.Activities div.Excerpt img {
+	border: 1px solid #2c2b33;
+}
+ul.Activities ul.DataList li {
+	background: #FAF6E6 ;
+}
+ul.Activities a.CommentLink,
+ul.Activities a.CommentLink:hover {
+   background: #fff;
+   color: #bbb !important;
+   border: 1px solid #aaa;
+
+}
+ul.Activities li.CommentForm input.Button {
+	box-shadow: 0 0 1px #2c2b33;
+	-moz-box-shadow: 0 0 1px #2c2b33;
+	-webkit-box-shadow: 0 0 1px #2c2b33;  
+}
+
+
+/* ============================================================== MessageList */
+/* used for lists of message-based content (discussion comments, private
+conversation messages, etc). */
+
+ul.MessageList li.Item {
+   border-bottom: 1px solid #ddd;
+}
+ul.MessageList div.Meta {
+   color: #777;
+}
+ul.MessageList div.Meta span.Author img {
+     background: #eee;
+}
+div.Preview {
+	background: #E3F4FF;
+}
+div.Preview div.Message blockquote,
+ul.MessageList div.Message blockquote {
+
+   background: #ffc;
+}
+div.Preview div.Message code,
+div.Preview div.Message pre,
+ul.MessageList div.Message code,
+ul.MessageList div.Message pre {
+   background: #ff9;
+
+}
+/* The "Foot" is at the bottom of the #Content section. Used for more results
+links, sign in buttons, etc */
+.Foot {
+	border-bottom: 1px solid #596664;
+   background: #909980;
+
+   }
+
+
+/* ============================================================= Profile Page */
+ul.SideMenu li ul li {
+   border-bottom: 1px solid #bec8cc;
+}
+ul.SideMenu li ul li a:hover {
+   background: #909980;
+}
+#Status {
+    background: #909980;
+   color: #2c2b33;
+}
+div.User form {
+
+   background: #909980;
+}
+/* Invitations Form */
+#Form_Invitation table {
+
+	background: #F2FBFF;
+	border: 1px solid #C0E7F5;
+}
+#Form_Invitation table th,
+#Form_Invitation table td {
+   color: #555;
+}
+#Form_Invitation table thead th,
+#Form_Invitation table thead td {
+   border-bottom: 1px solid #C0E7F5;
+}
+#Form_Invitation table tbody th {
+   color: #000;
+}
+#Form_Invitation table tbody th,
+#Form_Invitation table tbody td {
+   border-bottom: 1px solid #C0E7F5;
+}
+#Form_Invitation table thead th {
+
+   color: #000;
+}
+#Form_Invitation table.AltRows tr.Alt th,
+#Form_Invitation table.AltRows tr.Alt td,
+#Form_Invitation table.AltColumns th.Alt,
+#Form_Invitation table.AltColumns td.Alt {
+   background: #909980;
+}
+
+/* ================================================================= Tab Menu */
+div.MessageForm,
+div.Tabs {
+   border-bottom: 1px solid #596664;
+   background: #FAF6E6 ;
+}
+div.MessageForm a.Cancel,
+div.MessageForm a.Cancel:link,
+div.MessageForm a.Cancel:hover,
+div.MessageForm a.Cancel:active,
+div.MessageForm a.Cancel:visited,
+div.MorePager a,
+div.MorePager a:link,
+div.MorePager a:hover,
+div.MorePager a:active,
+div.MorePager a:visited,
+a.TabLink,
+a.TabLink:link,
+a.TabLink:hover,
+a.TabLink:active,
+a.TabLink:visited,
+div.Tabs li a,
+div.Tabs li a:link,
+div.Tabs li a:hover,
+div.Tabs li a:active,
+div.Tabs li a:visited {
+   border: 1px solid #ccc08d;
+   background: #ccc08d;
+   color: #2c2b33;
+
+}
+div.MessageForm a.Cancel:hover,
+div.MorePager li a:hover,
+a.TabLink:hover,
+div.Tabs li a:hover {
+   background: #EEE5BD;
+}
+a.Active,
+div.Tabs li.Active a {
+   background: #EEE5BD;
+   color: #2c2b33;
+}
+div.Tabs li a span {
+     background: #ff8a00;
+   color: #2c2b33;
+}
+div.Tabs div.SubTab {
+	background: #fff;
+
+}
+div.HeadingTabs div.SubTab {
+	color:#596664 ;
+}
+
+/* ======================================================== Thumbnail Cropper */
+
+.jcrop-handle {
+
+   border: 1px #eee solid;
+   background-color: #333;
+
+}
+.jcrop-tracker {
+   *background-color: gray;
+}
+.custom .jcrop-vline,
+.custom .jcrop-hline {
+   background: yellow;
+}
+.custom .jcrop-handle {
+   border-color: black;
+   background-color: #C7BB00;
+
+}
+
+/* =================================================================== Popups */
+div.Popup div.Errors ul {
+	border: 1px solid #a00 !important;
+}
+div.Popup div.Body {
+
+  background: #fff;
+ 
+}
+div.Popup h1,
+div.Popup h2 {
+		color: #FAF6E6 ;
+	background: #596664;
+	border-bottom: 1px solid #596664;
+	padding: 6px 9px 4px;
+}
+div.Popup .Footer {
+  background: #fff;
+
+}
+body.Profile #Form_Invitation ul li label,
+body.Profile #Form_User ul li label,
+div.Popup form ul li label {
+	color:#000;
+
+}
+body.Entry div.Popup p {
+	color: #000;
+}
+
+/* =================================================================== Footer */
+#Foot {
+      color: #2c2b33;
+}
+#Foot a {
+   color: #596664;
+}
+#Foot a:hover {
+   color: #ff8a00;
+}
+
+
+
+/* ============================================================== Discussions */
+
+/* Note: The Vanilla Discussion List has the following classes applied to
+  individual list elements and can be styled:
+  + Bookmarked: the user has bookmarked that topic
+  + Announcement: the discussion has been announced
+  + Mine: the user created the discussion
+  + New: there are new comments since the last viewed the discussion
+*/
+.Mine { background: #faf6e6; }
+
+ul.DataList div.Meta a.Category {
+   background: #fafafa;
+
+}
+ul.DataList li.Mine div.Meta a.Category {
+   background: #EEE5BD ;
+}
+
+ul.DataList div.Meta span.Announcement {
+	background: #ff8a00;
+	color: #ffffff;
+	}
+ul.DataList div.Meta span.Closed {
+	background: #555555;
+   color: #ffffff;
+
+}
+
+
+
+
+/* =============================================== Discussion & Comment Forms */
+li.Editing {
+	background: #E3F4FF;
+}
+#DiscussionForm label {
+
+   color: #666;
+}
+#DiscussionForm h2 {
+   color: #2c2b33;
+}
+#DiscussionForm form {
+   background: #FAF6E6  none repeat scroll 0 0;
+   border: 1px solid #ccc08d;
+}
+#DiscussionForm ul.PostOptions label {
+   color: #555;
+}
+
+/* ============================== Conversations ============================= */
+.ac_results {
+   border: 1px solid #bbb;
+   z-index: 2c2b3399;
+}
+..ac_results li {
+     border-bottom: 1px solid #bbb;
+}
+.ac_results strong {
+   background: #daf4fd;
+}
+.ac_over strong {
+   background: #2ab0de;
+}
+.ac_over {
+   background: #44c7f4;
+   color: #fff;
+}
+
+
+/* ============================================================ Conversations */
+ul.Conversations li.Active {
+  background: #ffe;
+}
+
+
+/* ========================================================= Add Message Form */
+#MessageForm {
+	background: #E9F9FF;
+
+}
+#MessageForm h2 {
+  color: #2786C2;
+}
+/* ==================================================== New Conversation Form */
+#ConversationForm form {
+	background:none repeat scroll 0 0 #c4e1ff;
+	border:1px solid #7caccb;
+
+}
+#ConversationForm h2 {
+	color:#02475A;
+}
+#ConversationForm label {
+	color:#666666;
+	
+}
+div.Popup #ConversationForm h2 {
+	color: #fff;
+	
+}
+/* Upload Progress Bar */
+div.UploadProgress {
+
+	color: #fff;
+	text-shadow: 0 1px 1px #333;
+	border: 1px solid #0c3c7e;
+
+}

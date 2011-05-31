@@ -1,0 +1,113 @@
+.playerlist_pagination
+{
+  float:        left;
+}
+
+.playerlist_header_pagination_page
+{
+  float:        left;
+  margin:       0 2px;
+}
+
+#playerlist_display_options
+{
+  margin:       5px 0 25px 0;
+}
+
+.playerlist_display_options_container
+{
+  float:        left;
+  margin:       0 30px 0 0;
+}
+
+.playerlist_display_options_label
+{
+  margin:       3px 5px 0 0;
+  float:        left;
+}
+
+.playerlist_display_options_select
+{
+  float:        left;
+}
+
+.playerlist_display_options_submit
+{
+  float:        left;
+}
+
+#playerlist_table_container
+{
+  margin:       10px 0;
+}
+
+.playerlist_table_cell
+{
+  padding:      5px 5px 5px 8px;
+  vertical-align:middle;
+}
+
+.playerlist_table_row_headerfooter
+{
+  border:       1px solid #cccccc;
+  background:   #F0F0F0;
+  height:       25px;
+  font-size:    14px;
+}
+
+.playerlist_table_row
+{
+  height:       90px;
+}
+
+.playerlist_table_cell_picture
+{
+  width:        180px;
+}
+
+.playerlist_table_cell_name
+{
+  width:        250px;
+}
+
+.playerlist_table_cell_squad
+{
+  width:        150px;
+}
+
+.playerlist_table_cell_status
+{
+  width:        120px;
+}
+
+.playerlist_table_cell_zombiekills
+{
+  width:        180px;
+}
+
+.playerlist_table_cell_lastfeed
+{
+  width:        200px;
+}
+
+.table_cell_center
+{
+  text-align:   center;
+}
+
+.playerlist_table_row_noplayers
+{
+  height:       100px;
+}
+
+.playerlist_right_text
+{
+  float:        right;
+  font-size:    13px;
+  margin-right: 10px;
+}
+
+.playerlist_table_cell_starttime
+{
+  width:        200px;
+}

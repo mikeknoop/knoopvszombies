@@ -1,0 +1,7 @@
+# m h  dom mon dow   command
+0       *       *       *       *        php /home/mike/public_html/muzombies.org/public/cron/update_footer_image.php
+*/5     *       *       *       *        php /home/mike/public_html/muzombies.org/public/cron/update_wall_posts.php
+*       *       *       *       *        php /home/mike/public_html/muzombies.org/public/cron/game_logic.php
+
+0       *       *       *       *        php /home/mike/public_html/knoopgroup.org/public/cron/update_footer_image.php
+*/5     *       *       *       *        php /home/mike/public_html/knoopgroup.org/public/cron/update_wall_posts.php

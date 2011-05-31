@@ -1,0 +1,264 @@
+#signup_process_container
+{
+  float:            right;
+  margin:           20px 0;
+  background:       #F2F2F2;
+  border:           2px solid #DDDDDD;
+  min-height:       400px;
+  width:            220px;
+}
+
+#signup_process_title
+{
+  font-family:    'nu-century-gothic', 'sans-serif';
+  font-size:      25px;
+  letter-spacing: -1px;
+  word-spacing:   -5px;
+  margin:         10px 0 0 10px;
+}
+
+#signup_process_container ol
+{
+  font-size:      16px;
+  line-height:    30px;
+  margin:         30px 0 30px 0;
+  list-style-type:decimal;
+  list-style-position:inside;
+  width:            220px;
+}
+
+#signup_process_container li
+{
+  padding-left:     10px;
+  padding-right:    10px;
+}
+
+.process_highlight
+{
+  background:       #fff7d9;
+  border-top:       1px solid #cdc57a;
+  border-bottom:    1px solid #cdc57a;
+}
+
+
+#signup_container
+{
+  float:            left;
+  margin:           20px 0;
+  padding:          10px 0 15px 15px;
+  min-height:       400px;
+  width:            575px;
+}
+
+#signup_title
+{
+  font-family:    'nu-century-gothic', 'sans-serif';
+  font-size:      25px;
+  letter-spacing: -1px;
+  color:          #222222;
+  word-spacing:   -5px;
+  width:            550px;
+  padding:         0 0 2px 3px;
+  margin:          0 0 10px 0;
+  border-bottom:   2px solid #222222;
+}
+
+#signup_status
+{
+  width:            533px;
+  margin:           20px 0 0 0;
+  padding:          10px;
+  background:       #fff7d9;
+  border-top:       1px solid #cdc57a;
+  border-bottom:    1px solid #cdc57a; 
+  text-align:       center;
+  font-size:        13px;
+  line-height:      15px;
+}
+
+#signup_form, #newpassword_form
+{
+  margin:           30px 0 0 0;
+}
+
+.signup_row_container, #signup_submit_container
+{
+  position:         relative;
+  width:            100%;
+  margin:           20px 5px;
+}
+
+#signup_submit_container
+{
+  height:           50px;
+}
+
+.signup_row_label, #signup_submit_label
+{
+  float:            left;
+}
+
+.signup_row_textbox, #signup_submit_button
+{
+  float:            right;
+  width:            370px;
+}
+
+.signup_textbox
+{
+  position:         absolute;
+  top:              50%;
+  margin-top:       -10px;
+  
+  height:           16px;
+  width:            335px;
+  padding:          2px;
+  font-size:        14px;
+}
+
+
+.signup_button
+{
+  height:         25px;
+  margin:         3px 0;
+  padding:        4px 20px;
+  border:         1px solid #AAAAAA;
+  background:     #D9D9D9;
+  font-size:      14px;
+  text-align:     center;
+
+}
+
+@-moz-document url-prefix() {
+	.signup_button {
+		padding:      2px 20px 4px 20px;
+	}
+}
+
+.signup_button:hover
+{
+  border:         1px solid #999999;
+  background:     #C9C9C9;
+  text-decoration:none;
+}
+
+.signup_button:active
+{
+  background:     #B9B9B9;
+}
+
+.signup_footer_text
+{
+  margin:         15px 0;
+}
+
+.signup_header_text
+{
+
+  padding:        0 20px 0 3px;
+  margin:         15px 0 15px 0;
+  line-height:    18px;
+  font-size:      14px;
+}
+
+.signup_header_large
+{
+  padding:       20px 20px 10px 3px;
+  font-size:     16px;
+  line-height:   20px;
+}
+
+.signup_header_large ul
+{
+  margin:        8px 0 0 25px;
+  line-height:   20px;
+  font-size:     15px;
+}
+
+.signup_header_2col_left
+{
+  float:         left;
+  width:         180px;
+}
+
+.signup_header_2col_right
+{
+  float:         right;
+  width:         320px;
+}
+
+.signup_header_fb_button
+{
+  margin:       16px 0 0 0;
+}
+
+.signup_body_text
+{
+  margin:        7px 0;
+  padding:       7px 15px 7px 3px;
+  font-size:     14px;
+  line-height:   17px;
+}
+
+#signup_conduct_agree_container, #signup_waiver_agree_container
+{
+  padding:          20px 20px 20px 20px;
+  margin:           20px 15px 100px 0;
+  background:       #fff7d9;
+  border-top:       1px solid #cdc57a;
+  border-bottom:    1px solid #cdc57a; 
+  line-height:      20px;
+  font-size:        15px;
+}
+
+#signup_waiver_agree_container
+{
+  padding:          20px 20px 0 20px;
+}
+
+#signup_conduct_agree_text, #signup_waiver_agree_text
+{
+  float:        left;
+}
+
+#signup_conduct_agree_button_container
+{
+  float:        right;
+}
+
+#body_header_nav_container
+{
+  float:          right;
+  margin:         17px 10px;
+  color:          #222222;
+  font-size:      14px;
+}
+
+a.signup_box_button_link
+{
+  height:         16px;
+  padding:        2px 10px;
+  border:         1px solid #DDDDDD;
+  background:     #F5F5F5;
+}
+
+a:hover.signup_box_button_link
+{
+  border:         1px solid #CCCCCC;
+  background:     #E9E9E9;
+  text-decoration:none;
+}
+
+.signup_box_button
+{
+  padding:        0 5px;
+}
+
+#signup_profile_manual
+{
+  display:        none;
+  margin:         25px 0;
+  padding:        5px 10px 0 10px;
+  border:         1px solid #DDDDDD;
+  background:     #F2F2F2;
+}

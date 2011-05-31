@@ -1,0 +1,349 @@
+#admin_tool_container
+{
+  float:            left;
+  margin:           20px 0;
+  background:       #F2F2F2;
+  border:           2px solid #DDDDDD;
+  min-height:       400px;
+  width:            220px;
+}
+
+#admin_tool_title
+{
+  font-family:    'nu-century-gothic', 'sans-serif';
+  font-size:      25px;
+  letter-spacing: -1px;
+  word-spacing:   -5px;
+  margin:         10px 0 0 10px;
+}
+
+#admin_tool_container ol
+{
+  font-size:      16px;
+  line-height:    30px;
+  margin:         30px 0 30px 0;
+  list-style-type:decimal;
+  list-style-position:inside;
+  width:            220px;
+}
+
+#admin_tool_container li
+{
+  padding-left:     10px;
+  padding-right:    10px;
+}
+
+.admin_tool_highlight
+{
+  background:       #fff7d9;
+  border-top:       1px solid #cdc57a;
+  border-bottom:    1px solid #cdc57a;
+}
+
+.admin_tool_link
+{
+  text-decoration:  none;
+}
+.admin_tool_link:hover
+{
+  text-decoration:  none;
+}
+
+#admin_container
+{
+  float:            right;
+  margin:           20px 0;
+  padding:          10px 0 15px 15px;
+  min-height:       400px;
+  width:            575px;
+}
+
+#admin_title
+{
+  font-family:    'nu-century-gothic', 'sans-serif';
+  font-size:      25px;
+  letter-spacing: -1px;
+  color:          #222222;
+  word-spacing:   -5px;
+  width:            570px;
+  padding:         0 0 2px 3px;
+  margin:          0 0 10px 0;
+  border-bottom:   2px solid #222222;
+}
+
+.admin_footer_text
+{
+  margin:         15px 0;
+}
+
+.admin_header_text
+{
+
+  padding:        0 20px 0 3px;
+  margin:         15px 0 15px 0;
+  line-height:    18px;
+  font-size:      14px;
+}
+
+.admin_header_large
+{
+  padding:       20px 20px 10px 3px;
+  font-size:     16px;
+  line-height:   20px;
+}
+
+#admin_status, .admin_status
+{
+  width:            550px;
+  margin:           20px 0 10px 0;
+  padding:          10px;
+  background:       #fff7d9;
+  border-top:       1px solid #cdc57a;
+  border-bottom:    1px solid #cdc57a; 
+  text-align:       center;
+  font-size:        13px;
+  line-height:      15px;
+}
+
+.admin_button
+{
+  height:         25px;
+  margin:         3px 0;
+  padding:        4px 20px;
+  border:         1px solid #AAAAAA;
+  background:     #D9D9D9;
+  font-size:      14px;
+  text-align:     center;
+
+}
+
+@-moz-document url-prefix() {
+	.admin_button {
+		padding:      2px 20px 4px 20px;
+	}
+}
+
+.admin_button:hover
+{
+  border:         1px solid #999999;
+  background:     #C9C9C9;
+  text-decoration:none;
+}
+
+.admin_button:active
+{
+  background:     #B9B9B9;
+}
+
+.playerlist_orientation_container
+{
+  margin:         5px 0 40px 0;
+  font-size:      13px;
+}
+
+.playerlist_orientation_title
+{
+  margin:         10px 0 0 0;
+}
+
+.playerlist_orientation_title_success
+{
+  color:          #489C21;
+}
+
+.playerlist_orientation_title_error
+{
+  color:          #B53A3A;
+}
+
+.playerlist_orientation_title_error, .playerlist_orientation_title_success
+{
+  margin:         10px 0 0 0;
+  font-weight:    bold;
+}
+
+.playerlist_orientation_input
+{
+  margin:         7px 0 5px 1px;
+  width:          300px;
+}
+
+.playerlist_orientation_button
+{
+  margin:         6px 0 0 10px;
+}
+
+.playerlist_orientation_button_container, .playerlist_orientation_input_container
+{
+  float:          left;
+}
+
+.admin_playerlist_edit_picture
+{
+  float:          left;
+}
+
+.admin_playerlist_edit_name
+{
+  float:          left;
+  margin-top:     75px;
+  margin-left:    20px;
+  font-family:    'nu-century-gothic', 'sans-serif';
+  font-size:      25px;
+  letter-spacing: -1px;
+}
+
+.admin_playerlist_edit_row_container
+{
+  margin:         12px 0;
+}
+
+.admin_playerlist_edit_submit_row_container
+{
+  margin:         20px 0;
+}
+
+.admin_playerlist_edit_row_label
+{
+  display:        inline-block;
+  width:          150px;
+  font-size:      14px;
+}
+
+.admin_playerlist_edit_row_select
+{
+  width:          157px;
+}
+
+.admin_playerlist_edit_row_form
+{
+  display:        inline-block;
+  font-size:      14px;
+  line-height:    16px;
+}
+
+.admin_playerlist_edit_row_caption
+{
+  display:        inline-block;
+  font-size:      14px;
+}
+
+.playerlist_edit_form
+{
+  margin:         30px 0;
+}
+
+
+.playerlist_table_cell
+{
+  font-size:        12px;
+}
+
+.admin_playerlist_manual_id
+{
+  margin:           15px 0;
+}
+
+.playerlist_header_text
+{
+  font-size:        14px;
+  margin:           15px 0;
+  line-height:      16px;
+}
+
+.email_block
+{
+  margin:           20px 0;
+}
+
+.email_form_label
+{
+  width:            100px;
+  float:            left;
+}
+
+.email_form
+{
+  float:            left;
+}
+
+.email_form_addresses
+{
+  width:            450px;
+  height:           100px;
+}
+
+.email_form_subject
+{
+  width:            450px;
+}
+
+.email_form_body
+{
+  width:            450px;
+  height:           300px;
+}
+
+.gameflow_block
+{
+  width:            550px;
+  margin:           20px 0;
+  padding:          20px 10px 20px 10px;
+  background:       #F2F2F2;
+  border-bottom:    1px solid #DDDDDD;
+  border-top:       1px solid #DDDDDD;
+  text-align:       center;
+}
+
+.flow_header
+{
+  margin:           0 20px;
+}
+
+.flow_current
+{
+  padding:          4px 15px;
+  background:       #fff7d9;
+  border:           1px solid #cdc57a;
+}
+
+.gameplay_block
+{
+  margin:           15px 0;
+  line-height:      18px;
+  font-size:        14px;
+}
+
+.gameplay_table_container
+{
+  margin:           40px 0;
+}
+
+.gameplay_table_title, .gameplay_block_title, .admin_title
+{
+  font-weight:      bold;
+  font-size:        16px;
+  margin:           0;
+}
+
+.gameplay_table_title, .gameplay_block_title
+{
+  margin:           0 0 10px 0;
+}
+
+.gameplay_oz_random
+{
+  margin:           5px 0 0 5px;
+}
+
+#gameplay_reg_status_form
+{
+  margin:           0 0 0 2px;
+}
+
+.admin_playerlist_edit_footer_text
+{
+  font-size:        14px;
+  margin:           50px 0 0 0;
+  line-height:      17px;
+}

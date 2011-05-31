@@ -1,0 +1,82 @@
+#countdown_container a:hover
+{
+  text-decoration:    none;
+}
+
+#countdown_container
+{
+  cursor:         pointer;
+  width:          100%;
+  margin:         5px 0 5px 0;
+  height:         75px;
+  border:         1px solid #CCCCCC;
+  background:     url("../img/signup_bg.png") repeat-x top left;
+}
+
+#cd_timer_container
+{
+  float:          left;
+  width:          390px;
+}
+
+#cd_timer_title
+{
+  margin:         3px;
+  font-size:      13px;
+  display: none;
+}
+
+#cd_human_container, #cd_zombie_container, #cd_deceased_container
+{
+  float:          left;
+  width:          140px;
+}
+
+.cd_timer_subtitle, .cd_player_subtitle
+{
+  margin:         8px 1px 0 1px;
+  font-size:      10px;
+}
+
+.cd_timer_value, .cd_player_value
+{
+  
+  font-size:      50px;
+  font-weight:    bold;
+  font-family:    'nu-century-gothic', 'sans-serif';
+}
+
+.cd_timer_value
+{
+  margin:         0 3px 0 12px;
+  width:          50px;
+}
+
+.cd_player_value
+{
+  margin:         0 3px 0 0;
+}
+
+.cd_timer_subtitle, .cd_timer_value, .cd_player_value
+{
+  float:          left;
+}
+
+#cd_timer_countdown, #cd_human_container, #cd_zombie_container, #cd_deceased_container
+{
+  margin:         13px 0 0 5px;
+}
+
+#cd_title
+{
+  margin:         6px 0 0 0;
+  font-size:      13px;
+  display:        none;
+}
+
+#cd_count
+{
+  font-size:      32px;
+  width:          130px;
+  margin:         12px 0 0 5px;
+}
