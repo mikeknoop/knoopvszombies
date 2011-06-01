@@ -15,55 +15,43 @@ class Mail {
    *
    * @return  bool
    */
-  function SimpleMail($to, $subject, $body, $attachFooter = true, $bcc = false)
-  {
+  function SimpleMail($to, $subject, $body, $attachFooter = true, $bcc = false) {
    
-   $from = "".UNIVERSITY." Humans vs. Zombies <{EMAIL}>";
+   $from = "".UNIVERSITY." Humans vs. Zombies <".EMAIL.">";
    $sig = "\r\nThanks,\n".UNIVERSITY." Humans vs. Zombies";
    
     // $to can be single email or comma seperated
     // $bcc = false;
     
-    if ($bcc)
-    {
+    if ($bcc) {
       $headers = '';
       $headers .= 'From: '.$from . "\r\n";
       $headers .= 'Reply-To: '.EMAIL.'' . "\r\n";
       $headers .= 'Bcc: '.$to . "\r\n";
       $headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
 
-      if ($attachFooter)
-      {
+      if ($attachFooter) {
         $body = $body.$sig;
       }
       
-      if (mail(ARCHIVE_EMAIL, $subject, $body, $headers))
-      {
+      if (mail(ARCHIVE_EMAIL, $subject, $body, $headers)) {
         return true;
-      }
-      else
-      {
+      } else {
         return false;
       }
-    }
-    else
-    {
+    } else {
       $headers = '';
       $headers .= 'From: '.$from . "\r\n";
       $headers .= 'Reply-To: '.EMAIL.'' . "\r\n";
       $headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
 
-      if ($attachFooter)
-      {
+      if ($attachFooter) {
         $body = $body.$sig;
       }
       
-      if (mail($to, $subject, $body, $headers))
-      {
+      if (mail($to, $subject, $body, $headers)) {
         return true;
-      }
-      else
-      {
+      } else {
         return false;
       }
     }
@@ -75,13 +63,10 @@ class Mail {
   *
   *   @return bool
   */
-  function ValidateEmailAddr($email)
-  {
+  function ValidateEmailAddr($email) {
     if ( filter_var($email, FILTER_VALIDATE_EMAIL)  == TRUE) {
       return true;
-    }
-    else
-    {
+    } else {
       return false;
     }
   }
@@ -90,61 +75,44 @@ class Mail {
   *   Returns an array of email addresses matching the $type
   *
   */
-  function GetEmailAddresses($type)
-  {
-    switch ($type)
-    {
+  function GetEmailAddresses($type) {
+    switch ($type) {
       case "currentplayers":
-        if ($GLOBALS['state'])
-        {
+        if ($GLOBALS['state']) {
           $sql = "SELECT u.email FROM game_xref g_x LEFT JOIN user u ON g_x.uid = u.uid WHERE g_x.gid='{$GLOBALS['state']['gid']}'";
-        }
-        else
-        {
+        } else {
           return array();
         }
         break;
         
       case "currenthumans":
-        if ($GLOBALS['state'])
-        {
+        if ($GLOBALS['state']) {
           $sql = "SELECT u.email FROM game_xref g_x LEFT JOIN user u ON g_x.uid = u.uid WHERE g_x.gid='{$GLOBALS['state']['gid']}' AND status='human'";
-        }
-        else
-        {
+        } else {
           return array();
         }
         break;
 
       case "currentzombies":
-        if ($GLOBALS['state'])
-        {
+        if ($GLOBALS['state']) {
           $sql = "SELECT u.email FROM game_xref g_x LEFT JOIN user u ON g_x.uid = u.uid WHERE g_x.gid='{$GLOBALS['state']['gid']}' AND status='zombie'";
-        }
-        else
-        {
+        } else {
           return array();
         }
         break;
 
       case "currentdeceased":
-        if ($GLOBALS['state'])
-        {
+        if ($GLOBALS['state']) {
           $sql = "SELECT u.email FROM game_xref g_x LEFT JOIN user u ON g_x.uid = u.uid WHERE g_x.gid='{$GLOBALS['state']['gid']}' AND status='deceased'";
-        }
-        else
-        {
+        } else {
           return array();
         }
         break;
 
       case "notattendedorientation":
-        if ($GLOBALS['state'])
-        {
+        if ($GLOBALS['state']) {
           $sql = "SELECT u.email FROM game_xref g_x LEFT JOIN user u ON g_x.uid = u.uid WHERE g_x.gid='{$GLOBALS['state']['gid']}' AND attended_orientation='0'";
-        }
-        else
-        {
+        } else {
           return array();
         }
         break;
@@ -158,19 +126,15 @@ class Mail {
     $results = $GLOBALS['Db']->GetRecords($sql);
     
     $return = null;
-    if (is_array($results) && count($results) > 0)
-    {
+    if (is_array($results) && count($results) > 0) {
       $i = 0;
-      foreach ($results as $key => $val)
-      {
+      foreach ($results as $key => $val) {
         $return[$i] = $val['email'];
         $i++;
       }
       
       return $return;
-    }
-    else
-    {
+    } else {
       return array();
     }
     
