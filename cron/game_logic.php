@@ -2,7 +2,7 @@
 <?php
 
   print_r($_SERVER);
-  require realpath($_SERVER['DOCUMENT_ROOT'].'/../muzombies.ini.php');
+  require realpath(dirname($_SERVER['SCRIPT_NAME']).'/../muzombies.ini.php');
   require DOCUMENT_ROOT.'/www/module/includes.php';
 
   // Get Game State
