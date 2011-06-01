@@ -1,7 +1,6 @@
 #!/usr/bin/php5
 <?php
 
-  print_r($_SERVER);
   require realpath(dirname($_SERVER['SCRIPT_NAME']).'/../muzombies.ini.php');
   require DOCUMENT_ROOT.'/www/module/includes.php';
 
