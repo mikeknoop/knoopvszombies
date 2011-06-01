@@ -27,7 +27,7 @@
         {
           if ($_GET['step'] != $step)
           {
-              header('Location: //<?php echo DOMAIN; ?>/signup/'.$step);
+              header('Location: //'.DOMAIN.'/signup/'.$step);
               exit;
           }
         }
@@ -35,7 +35,7 @@
         {
           // user navigated directly to url.tld/signup so always redirect them since they have a session
           // and shouldnt be allowed to sign up for a new account
-          header('Location: //<?php echo DOMAIN; ?>/signup/'.$step);
+          header('Location: //'.DOMAIN.'/signup/'.$step);
           exit;
         }
         
@@ -45,7 +45,7 @@
         // user is done. if they are accessing step 5, redirect to step 6
         if ($_GET['step'] == 5)
         {
-          header('Location: //<?php echo DOMAIN; ?>/signup/6');
+          header('Location: //'.DOMAIN.'/signup/6');
           exit;
         }
         
@@ -55,7 +55,7 @@
           if ($_GET['step'] != 6)
           {
             // account is completed
-            header('Location: //<?php echo DOMAIN; ?>/account');
+            header('Location: //'.DOMAIN.'/account');
             exit;
           }
           else
@@ -67,7 +67,7 @@
         else
         {
           // account is completed
-          header('Location: //<?php echo DOMAIN; ?>/account');
+          header('Location: //'.DOMAIN.'/account');
           exit;
         }
 
@@ -91,14 +91,14 @@
           if ($_POST['email'] == '' || $_POST['new_password'] == '' || $_POST['new_password_confirm'] == '')
           {
             // Form is missing fields
-            header('Location: //<?php echo DOMAIN; ?>/signup/1/incomplete');
+            header('Location: //'.DOMAIN.'/signup/1/incomplete');
             exit;
           }
           
           // Limits rate of new user signups from a single IP address (database access, mailer)
           if (!$GLOBALS['User']->RateLimit(1))
           {
-            header('Location: //<?php echo DOMAIN; ?>/signup/1/slowdown');
+            header('Location: //'.DOMAIN.'/signup/1/slowdown');
             exit;
           }
     
@@ -106,7 +106,7 @@
           if ($_POST['new_password'] != $_POST['new_password_confirm'])
           {
             // passwords don't match
-            header('Location: //<?php echo DOMAIN; ?>/signup/1/passdontmatch');
+            header('Location: //'.DOMAIN.'/signup/1/passdontmatch');
             exit;
           }
           
@@ -114,7 +114,7 @@
           if (!$GLOBALS['User']->PasswordRuleCheck($_POST['new_password']))
           {
             // passwords doesn't match rules
-            header('Location: //<?php echo DOMAIN; ?>/signup/1/poorpassword');
+            header('Location: //'.DOMAIN.'/signup/1/poorpassword');
             exit;
           }
           
@@ -122,7 +122,7 @@
           if (!$GLOBALS['Mail']->ValidateEmailAddr($_POST['email']))
           {
             // bad email address
-            header('Location: //<?php echo DOMAIN; ?>/signup/1/invalidemail');
+            header('Location: //'.DOMAIN.'/signup/1/invalidemail');
             exit;
           }
           
@@ -130,7 +130,7 @@
           if ($GLOBALS['User']->CheckValidEmail($_POST['email']))
           {
             // email exists
-            header('Location: //<?php echo DOMAIN; ?>/signup/1/emailexists');
+            header('Location: //'.DOMAIN.'/signup/1/emailexists');
             exit;
           }
           
@@ -143,13 +143,13 @@
             $GLOBALS['Session']->RefreshSession($uid);
             
             // Redirect to step 2
-            header('Location: //<?php echo DOMAIN; ?>/signup/2/emailconfirmsent');
+            header('Location: //'.DOMAIN.'/signup/2/emailconfirmsent');
             exit;
           }
           
           
           // catch all case, uknown error
-          header('Location: //<?php echo DOMAIN; ?>/signup/1/unknownerror');
+          header('Location: //'.DOMAIN.'/signup/1/unknownerror');
           exit;
         }
         
@@ -177,26 +177,26 @@
             if (!$_SESSION)
             {
               // redirect to get one
-              header('Location: //<?php echo DOMAIN; ?>/login/required');
+              header('Location: //'.DOMAIN.'/login/required');
               exit;
             }
             
             // Limits rate of sending email confirmation (db access and mailer)
             if (!$GLOBALS['User']->RateLimit(60*5, 'ec_'.$_SESSION['uid']))
             {
-              header('Location: //<?php echo DOMAIN; ?>/signup/2/slowdown');
+              header('Location: //'.DOMAIN.'/signup/2/slowdown');
               exit;
             }
             
             // Okay go ahead and resend the confirmation email
             if (!$GLOBALS['User']->SendEmailConfirmation($_SESSION['uid']))
             {
-              header('Location: //<?php echo DOMAIN; ?>/signup/2/unknownerror');
+              header('Location: //'.DOMAIN.'/signup/2/unknownerror');
               exit;
             }
             
             // sent successfully
-            header('Location: //<?php echo DOMAIN; ?>/signup/2/sendsuccess');
+            header('Location: //'.DOMAIN.'/signup/2/sendsuccess');
             exit;
 
           }
@@ -207,7 +207,7 @@
             if (!$check['valid'])
             {
               // confirmation hash was invalid
-              header('Location: //<?php echo DOMAIN; ?>/signup/2/invalid');
+              header('Location: //'.DOMAIN.'/signup/2/invalid');
               exit;
             }
             
@@ -224,7 +224,7 @@
               $_SESSION['email_confirmed'] = 1;
             }
 
-            header('Location: //<?php echo DOMAIN; ?>/signup/3');
+            header('Location: //'.DOMAIN.'/signup/3');
             exit;
 
           }
@@ -240,7 +240,7 @@
         if (!$_SESSION)
         {
             // redirect to get one
-            header('Location: //<?php echo DOMAIN; ?>/login/required');
+            header('Location: //'.DOMAIN.'/login/required');
             exit;
         }
         
@@ -253,13 +253,13 @@
             {
               // DB was updated, cache was cleared. Now update session
               $_SESSION['code_of_conduct'] = 1;
-              header('Location: //<?php echo DOMAIN; ?>/signup/4');
+              header('Location: //'.DOMAIN.'/signup/4');
               exit;
             }
             else
             {
               // unknown error saving cc
-              header('Location: //<?php echo DOMAIN; ?>/signup/3/uknownerror');
+              header('Location: //'.DOMAIN.'/signup/3/uknownerror');
               exit;
             
             }
@@ -275,7 +275,7 @@
         if (!$_SESSION)
         {
             // redirect to get one
-            header('Location: //<?php echo DOMAIN; ?>/login/required');
+            header('Location: //'.DOMAIN.'/login/required');
             exit;
         }
 
@@ -287,7 +287,7 @@
             if (!isset($_POST['waiver_name']))
             {
               // Name wasnt entered
-              header('Location: //<?php echo DOMAIN; ?>/signup/4/incomplete');
+              header('Location: //'.DOMAIN.'/signup/4/incomplete');
               exit;
             }
             
@@ -295,7 +295,7 @@
             if (strlen($_POST['waiver_name']) < 5)
             {
               // Name is too short
-              header('Location: //<?php echo DOMAIN; ?>/signup/4/invalidname');
+              header('Location: //'.DOMAIN.'/signup/4/invalidname');
               exit;
             }
 
@@ -304,13 +304,13 @@
             {
               // DB was updated, cache was cleared. Now update session
               $_SESSION['liability_waiver'] = addslashes($_POST['waiver_name']);
-              header('Location: //<?php echo DOMAIN; ?>/signup/5');
+              header('Location: //'.DOMAIN.'/signup/5');
               exit;
             }
             else
             {
               // unknown error saving cc
-              header('Location: //<?php echo DOMAIN; ?>/signup/4/uknownerror');
+              header('Location: //'.DOMAIN.'/signup/4/uknownerror');
               exit;
             
             }
@@ -325,7 +325,7 @@
         if (!$_SESSION)
         {
             // redirect to get one
-            header('Location: //<?php echo DOMAIN; ?>/login/required');
+            header('Location: //'.DOMAIN.'/login/required');
             exit;
         }
         
@@ -339,7 +339,7 @@
             {
               if ($_GET['error_reason'] == 'user_denied')
               {
-                  header('Location: //<?php echo DOMAIN; ?>/signup/5/denied');
+                  header('Location: //'.DOMAIN.'/signup/5/denied');
                   exit;
               }
               
@@ -359,7 +359,7 @@
                 }
                 catch (Exception $e)
                 {
-                  header('Location: //<?php echo DOMAIN; ?>/signup/5/uknownerror');
+                  header('Location: //'.DOMAIN.'/signup/5/uknownerror');
                   exit;
                 }
 
@@ -371,7 +371,7 @@
                 }
                 catch (Exception $e)
                 {
-                  header('Location: //<?php echo DOMAIN; ?>/signup/5/uknownerror');
+                  header('Location: //'.DOMAIN.'/signup/5/uknownerror');
                   exit;
                 }
                 
@@ -382,7 +382,7 @@
                 // Check and see if this UID already exists in the database. If so, return an error
                 if ($GLOBALS['User']->CheckFacebookUserExists($fb_id))
                 {
-                  header('Location: //<?php echo DOMAIN; ?>/signup/5/fbexists');
+                  header('Location: //'.DOMAIN.'/signup/5/fbexists');
                   exit;
                 }
                 
@@ -396,21 +396,21 @@
                   if (!$GLOBALS['User']->MarkUserApproved($_SESSION['uid']))
                   {
                     // Some sort of error saving to the db...
-                    header('Location: //<?php echo DOMAIN; ?>/signup/5/uknownerror');
+                    header('Location: //'.DOMAIN.'/signup/5/uknownerror');
                     exit;
                   }
 
                   if (!$GLOBALS['User']->UpdateUserColumn($_SESSION['uid'], 'using_fb', 1))
                   {
                     // Some sort of error saving to the db...
-                    header('Location: //<?php echo DOMAIN; ?>/signup/5/uknownerror');
+                    header('Location: //'.DOMAIN.'/signup/5/uknownerror');
                     exit;
                   }
                   
                   if (!$GLOBALS['User']->UpdateUserColumn($_SESSION['uid'], 'approved', 1))
                   {
                     // Some sort of error saving to the db...
-                    header('Location: //<?php echo DOMAIN; ?>/signup/5/uknownerror');
+                    header('Location: //'.DOMAIN.'/signup/5/uknownerror');
                     exit;
                   }
             
@@ -419,7 +419,7 @@
                   $_SESSION['using_fb'] = 1;
                   $_SESSION['name'] = $name;
                   $_SESSION['approved'] = 1;
-                  header('Location: //<?php echo DOMAIN; ?>/signup/6');
+                  header('Location: //'.DOMAIN.'/signup/6');
                   exit;
 
 
@@ -427,7 +427,7 @@
                 else
                 {
                   // unknown error saving
-                  header('Location: //<?php echo DOMAIN; ?>/signup/5/uknownerror');
+                  header('Location: //'.DOMAIN.'/signup/5/uknownerror');
                   exit;
                 }
                 
@@ -435,7 +435,7 @@
             else
             {
               // state was passed as auth but no "code" string from fb was found
-              header('Location: //<?php echo DOMAIN; ?>/signup/5/uknownerror');
+              header('Location: //'.DOMAIN.'/signup/5/uknownerror');
               exit;
             }
             
@@ -449,27 +449,27 @@
             if (count($_FILES) == 0)
             {
               //no image uploadsd
-              header('Location: //<?php echo DOMAIN; ?>/signup/5/invalidphoto');
+              header('Location: //'.DOMAIN.'/signup/5/invalidphoto');
               exit;
             }
             
             if (!is_uploaded_file($_FILES['photo']['tmp_name']))
             {
               // bad file uploaded
-              header('Location: //<?php echo DOMAIN; ?>/signup/5/invalidphoto');
+              header('Location: //'.DOMAIN.'/signup/5/invalidphoto');
               exit;
             }
             
             // file was uploaded, see if user gave us a name
             if (!isset($_POST['name']))
             {
-              header('Location: //<?php echo DOMAIN; ?>/signup/5/invalidname');
+              header('Location: //'.DOMAIN.'/signup/5/invalidname');
               exit;
             }
             
             if (strlen($_POST['name']) < 4)
             {
-              header('Location: //<?php echo DOMAIN; ?>/signup/5/invalidname');
+              header('Location: //'.DOMAIN.'/signup/5/invalidname');
               exit;
             }
             
@@ -493,28 +493,28 @@
             if (!$GLOBALS['User']->UpdateUserColumn($_SESSION['uid'], 'using_fb', 0))
             {
               // Some sort of error saving to the db...
-              header('Location: //<?php echo DOMAIN; ?>/signup/5/uknownerror');
+              header('Location: //'.DOMAIN.'/signup/5/uknownerror');
               exit;
             }
             
             if (!$GLOBALS['User']->UpdateUserColumn($_SESSION['uid'], 'approved', 0))
             {
               // Some sort of error saving to the db...
-              header('Location: //<?php echo DOMAIN; ?>/signup/5/uknownerror');
+              header('Location: //'.DOMAIN.'/signup/5/uknownerror');
               exit;
             }
             
             if (!$GLOBALS['User']->MarkUserApprovalPending($_SESSION['uid']))
             {
               // Some sort of error saving to the db...
-              header('Location: //<?php echo DOMAIN; ?>/signup/5/uknownerror');
+              header('Location: //'.DOMAIN.'/signup/5/uknownerror');
               exit;
             }
             
             if (!$GLOBALS['User']->UpdateUserColumn($_SESSION['uid'], 'name', $_POST['name']))
             {                  
               // Some sort of error saving to the db...
-              header('Location: //<?php echo DOMAIN; ?>/signup/5/uknownerror');
+              header('Location: //'.DOMAIN.'/signup/5/uknownerror');
               exit;
             }
 
@@ -526,7 +526,7 @@
             $_SESSION['name'] = addslashes($_POST['name']);
             $_SESSION['using_fb'] = 0;
             $_SESSION['approved'] = 0;
-            header('Location: //<?php echo DOMAIN; ?>/signup/5/pending');
+            header('Location: //'.DOMAIN.'/signup/5/pending');
             exit;
             
           }
@@ -539,13 +539,13 @@
             // not approved in user table (which could still be the default "not approved" state)
             // and not approved based on user_approval table which means they exist in that table
             // so redirect them to pending approval page
-            header('Location: //<?php echo DOMAIN; ?>/signup/5/pending');
+            header('Location: //'.DOMAIN.'/signup/5/pending');
             exit;
           }
           
           if ($_SESSION['approved'] && $GLOBALS['User']->UserApproved($_SESSION['uid']))
           { 
-            header('Location: //<?php echo DOMAIN; ?>/signup/6');
+            header('Location: //'.DOMAIN.'/signup/6');
             exit;
           }
         }

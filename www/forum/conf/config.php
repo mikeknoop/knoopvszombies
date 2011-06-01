@@ -5,9 +5,9 @@ $Configuration['Conversations']['Version'] = '2.0.16';
 
 // Database
 $Configuration['Database']['Name'] = FORUM_DATABASE;
-$Configuration['Database']['Host'] = 'localhost';
+$Configuration['Database']['Host'] = DATABASE_HOSTNAME;
 $Configuration['Database']['User'] = 'web';
-$Configuration['Database']['Password'] = 'ap1be4t1fa80adfa4';
+$Configuration['Database']['Password'] = DATABASE_PASS_FOR_WEB;
 
 // EnabledApplications
 $Configuration['EnabledApplications']['Skeleton'] = 'skeleton';
