@@ -20,4 +20,11 @@
 /www/forum/cache/Smarty/compile/*
 !/www/forum/cache/Smarty/compile/empty
 
+/www/img/user/*
+!/www/img/user/includedir
+!/www/img/user/thumbs
+
+/www/img/user/thumbs/*
+!/www/img/user/thumbs/includedir
+
 muzombies.ini.php
