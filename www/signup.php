@@ -478,13 +478,13 @@
             $safe_filename = preg_replace(array("/\s+/", "/[^-\.\w]+/"), array("_", ""), trim($_FILES['photo']['name']));
             if (!preg_match($acceptable_filetypes, strrchr($safe_filename, '.')))
             {
-              print('Location: signup/5/invalidphoto');
+              header('Location: //'.DOMAIN.'signup/5/invalidphoto');
               exit;
             }
             
             // we can start processin now. This converts and saves the picture appropriately
             // facebook photos are usually max 200x600, we try to match that
-            $GLOBALS['User']->ConvertUploadedPhoto(DOCUMENT_PATH.'/img/user/', 200, 600, 'u'.$_SESSION['uid'].'.jpg', 'u'.$_SESSION['id'].'.jpg', true, DOCUMENT_PATH.'/img/user/thumb/', 4);
+            $GLOBALS['User']->ConvertUploadedPhoto(DOCUMENT_ROOT.'/img/user/', 200, 600, 'u'.$_SESSION['uid'].'.jpg', 'u'.$_SESSION['id'].'.jpg', true, DOCUMENT_ROOT.'/img/user/thumb/', 4);
 
             // Update the forum with picture URL since they did it manually
             $GLOBALS['User']->UpdateForumUserColumn($_SESSION['uid'], 'Photo', '//'.DOMAIN.'/img/user/u'.$_SESSION['uid'].'.jpg');
