@@ -1,7 +1,11 @@
-# m h  dom mon dow   command
-0       *       *       *       *        php /home/mike/public_html/muzombies.org/public/cron/update_footer_image.php
-*/5     *       *       *       *        php /home/mike/public_html/muzombies.org/public/cron/update_wall_posts.php
-*       *       *       *       *        php /home/mike/public_html/muzombies.org/public/cron/game_logic.php
+# Disable mailing of the CRON output
+MAILTO=""
 
-0       *       *       *       *        php /home/mike/public_html/knoopgroup.org/public/cron/update_footer_image.php
-*/5     *       *       *       *        php /home/mike/public_html/knoopgroup.org/public/cron/update_wall_posts.php
+# m h  dom mon dow   command
+0       *       *       *       *        php /var/app/muzombies.org/beta/cron/update_footer_image.php >> /var/log/apache2/muzombies.org/cron.beta.log 2>&1
+*/5     *       *       *       *        php /var/app/muzombies.org/beta/cron/update_wall_posts.php >> /var/log/apache2/muzombies.org/cron.beta.log 2>&1
+*       *       *       *       *        php /var/app/muzombies.org/beta/cron/game_logic.php >> /var/log/apache2/muzombies.org/cron.beta.log 2>&1
+
+0       *       *       *       *        php /var/app/muzombies.org/prod/cron/update_footer_image.php >> /var/log/apache2/muzombies.org/cron.prod.log 2>&1
+*/5     *       *       *       *        php /var/app/muzombies.org/prod/cron/update_wall_posts.php >> /var/log/apache2/muzombies.org/cron.prod.log 2>&1
+*       *       *       *       *        php /var/app/muzombies.org/prod/cron/game_logic.php >> /var/log/apache2/muzombies.org/cron.prod.log 2>&1

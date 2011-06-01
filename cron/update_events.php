@@ -1,10 +1,8 @@
 #!/usr/bin/php5
 <?php
 
-  ini_set('display_errors',1);
-  
-  $_SERVER['DOCUMENT_ROOT'] = '/home/mike/public_html/muzombies.org/public/';
-  require $_SERVER['DOCUMENT_ROOT'] . 'module/includes.php';
+  require '../muzombies.ini.php'
+  require DOCUMENT_ROOT.'/www/module/includes.php';
 
   $GLOBALS['Wall']->GenerateWallCache();
   
