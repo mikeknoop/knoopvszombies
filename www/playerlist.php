@@ -239,7 +239,7 @@
                         }
                         else
                         {
-                          echo DOMAIN.'/img/user/thumb/u'.$player['uid'].'.jpg';
+                          echo '//'.DOMAIN.'/img/user/thumb/u'.$player['uid'].'.jpg';
                         }
                       ?>"></img></a>
                     </td>
