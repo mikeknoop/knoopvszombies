@@ -51,7 +51,7 @@
       // Mail user at email address
       $to = $_SESSION['email'];
       $subject = "".UNIVERSITY." HvZ Game Joined";
-      $body = "Hello,\n\rYour ".UNIVERSITY." HvZ account succesfully joined the {$joined_game['name']} game. Your Secret Game ID for this game is: $secret\n\rWrite down this Secret Game ID and your full name on an index card and carry this card with you at all times! If you are unfamiliar with the rules, please read //".DOMAIN."/rules and make sure to come to an orientation session.\n\rOrientation times and dates are posted on the website at //".DOMAIN."/rules \nYou must attend at least one orientation! These will aquaint you with rules, gameplay, and more. Please email the moderators if you cannot attend any of the orientations.\r";
+      $body = "Hello,\n\rYour ".UNIVERSITY." HvZ account succesfully joined the {$joined_game['name']} game. Your Secret Game ID for this game is: $secret\n\rWrite down this Secret Game ID and your full name on an index card and carry this card with you at all times! If you are unfamiliar with the rules, please read http://".DOMAIN."/rules and make sure to come to an orientation session.\n\rOrientation times and dates are posted on the website at http://".DOMAIN."/rules \nYou must attend at least one orientation! These will aquaint you with rules, gameplay, and more. Please email the moderators if you cannot attend any of the orientations.\r";
 
       $GLOBALS['Mail']->SimpleMail($to, $subject, $body);
       
