@@ -22,9 +22,9 @@
 
 /www/img/user/*
 !/www/img/user/includedir
-!/www/img/user/thumbs
+!/www/img/user/thumb
 
-/www/img/user/thumbs/*
-!/www/img/user/thumbs/includedir
+/www/img/user/thumb/*
+!/www/img/user/thumb/includedir
 
 muzombies.ini.php
