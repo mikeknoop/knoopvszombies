@@ -150,7 +150,7 @@
     }
     else
     {
-      $view_account_img_src ='img/user/u'.$user['uid'].'.jpg';
+      $view_account_img_src = '//'.DOMAIN.'img/user/u'.$user['uid'].'.jpg';
     }
     
     if ($user['squad_name'] == '')
