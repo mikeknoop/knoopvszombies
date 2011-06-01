@@ -227,8 +227,8 @@
       {
         // Mail user at email address
         $to = $user['email'];
-        $subject = "{UNIVERSITY} HvZ Game Account Updated";
-        $body = "Hello,\rYour {UNIVERSITY} HvZ game account information was recently modified by a moderator. If you are unsure why or think this is a mistake, please email a moderator.\nThe following changes were made:\n\r";
+        $subject = "".UNIVERSITY." HvZ Game Account Updated";
+        $body = "Hello,\rYour ".UNIVERSITY." HvZ game account information was recently modified by a moderator. If you are unsure why or think this is a mistake, please email a moderator.\nThe following changes were made:\n\r";
         
         foreach ($email_changes as $key => $value)
         {
@@ -520,8 +520,8 @@
 
         // Mail user at email address
         $to = $user['email'];
-        $subject = "{UNIVERSITY} HvZ Game Account Updated";
-        $body = "Hello,\rYour {UNIVERSITY} HvZ game account information was recently modified by a moderator. If you are unsure why or think this is a mistake, please email a moderator.\nThe following changes were made:\n\r";
+        $subject = "".UNIVERSITY." HvZ Game Account Updated";
+        $body = "Hello,\rYour ".UNIVERSITY." HvZ game account information was recently modified by a moderator. If you are unsure why or think this is a mistake, please email a moderator.\nThe following changes were made:\n\r";
         
         foreach ($email_changes as $key => $value)
         {

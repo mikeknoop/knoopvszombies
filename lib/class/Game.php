@@ -640,8 +640,8 @@ class Game {
 
     // Send an email to the person turned into a zombie
     $to = $target_user['email'];
-    $subject = "{UNIVERSITY} HvZ You are now a Zombie!";
-    $body = "Hello,\n\rYou were just turned into a Zombie on the {UNIVERSITY} HvZ website (Someone entered your Secret Game ID)! You can now start tagging humans and reporting their Secret Game IDs on the website as well. Don't forget to wear you bandanna around your head.\n\r";
+    $subject = "".UNIVERSITY." HvZ You are now a Zombie!";
+    $body = "Hello,\n\rYou were just turned into a Zombie on the ".UNIVERSITY." HvZ website (Someone entered your Secret Game ID)! You can now start tagging humans and reporting their Secret Game IDs on the website as well. Don't forget to wear you bandanna around your head.\n\r";
 
     $GLOBALS['Mail']->SimpleMail($to, $subject, $body);
     
@@ -1159,7 +1159,7 @@ class Game {
           }
           
           // Now send them an email
-          $subject = "{UNIVERSITY} HvZ You Are An Original Zombie!";
+          $subject = "".UNIVERSITY." HvZ You Are An Original Zombie!";
           $body = "Hello,\n\rYou were randomly chosen to be an Original Zombie for the {$game['name']} game! This means that you start off as a zombie and can immediately begin tagging humans.\n\rRemember, Original Zombies DO NOT have to wear their bandanna on their head for the first 24 hours of the game. You may disguise yourself as a human!\n\rGood luck hunting! If there is a problem and you cannot be an Original Zombie, please contact the moderators immediately via the HvZ Mizzou Help Line (573.833.0385)\n\r";
    
           $attachFooter = true;
@@ -1179,7 +1179,7 @@ class Game {
           }
           
           // Now send them an email
-          $subject = "{UNIVERSITY} HvZ {$game['name']} Has Officially Begun!";
+          $subject = "".UNIVERSITY." HvZ {$game['name']} Has Officially Begun!";
           $body = "Hello,\n\rThis email is to inform you that the Humans vs. Zombies {$game['name']} has officially begun! Remember you must carry your Secret Game ID and bandanna with you at all times.\n\rYou have received a seperate email if you are an Original Zombie -- If you have not received it then you are a human.\n\rGood luck! If you have any questions or concerns please contact a moderator.\n\r";
              
           $GLOBALS['Mail']->SimpleMail($to, $subject, $body);
@@ -1238,7 +1238,7 @@ class Game {
     if ($to != '')
     {
       // Now send them an email
-      $subject = "{UNIVERSITY} HvZ You Have Starved!";
+      $subject = "".UNIVERSITY." HvZ You Have Starved!";
       $body = "Hello,\n\rBecause you have not fed on a human for 48 hours, you have starved! This means you are no longer a zombie and cannot register kills on the website. Thank you for playing! We hope you'll play again next semester.\n\r";
          
       $GLOBALS['Mail']->SimpleMail($to, $subject, $body);

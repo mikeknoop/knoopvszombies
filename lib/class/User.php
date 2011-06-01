@@ -374,15 +374,15 @@ class User {
 
     // Mail user at email address
     $to = $email;
-    $subject = "{UNIVERSITY} HvZ Email Confirmation Link";
+    $subject = "".UNIVERSITY." HvZ Email Confirmation Link";
     
     if ($update)
     {
-    $body = "Hello,\n\rThe account email address was recently updated for $email at {DOMAIN}.\n\rTo use this new email address, you must confirm it by visiting the following website address:\n{DOMAIN}/emailconfirm/$hash \n\rNote, if you cannot click on the link above, you may need to copy and paste it into your web browser.\n\rIf you did not have an account at {DOMAIN}, you may safely ignore this email.\n";
+    $body = "Hello,\n\rThe account email address was recently updated for $email at ".DOMAIN.".\n\rTo use this new email address, you must confirm it by visiting the following website address:\n".DOMAIN."/emailconfirm/$hash \n\rNote, if you cannot click on the link above, you may need to copy and paste it into your web browser.\n\rIf you did not have an account at ".DOMAIN.", you may safely ignore this email.\n";
     }
     else
     {
-    $body = "Hello,\n\rAn account was recently created for $email at {DOMAIN}.\n\rTo activate your account and join games each semester, you must confirm your email by visiting the following website address:\n{DOMAIN}/emailconfirm/$hash \n\rNote, if you cannot click on the link above, you may need to copy and paste it into your web browser.\n\rIf you did not request an account to be created, you may safely ignore this email.\n";
+    $body = "Hello,\n\rAn account was recently created for $email at ".DOMAIN.".\n\rTo activate your account and join games each semester, you must confirm your email by visiting the following website address:\n".DOMAIN."/emailconfirm/$hash \n\rNote, if you cannot click on the link above, you may need to copy and paste it into your web browser.\n\rIf you did not request an account to be created, you may safely ignore this email.\n";
     }
     
     if (!$GLOBALS['Mail']->SimpleMail($to, $subject, $body))
@@ -468,8 +468,8 @@ class User {
     
     // Mail user at email address
     $to = $email;
-    $subject = "{UNIVERSITY} HvZ Password Reset Link";
-    $body = "Hello,\n\rA password reset was recently requested for $email from IP address {$_SERVER['REMOTE_ADDR']}\n\rTo reset your password, please visit the following website address:\n{DOMAIN}/lostpassword/reset/$hash \nNote, if you cannot click on the link above, you may need to copy and paste it into your web browser.\n\rIf you received this email in error or did not request your password to be reset, you may safely ignore this email.\n";
+    $subject = "".UNIVERSITY." HvZ Password Reset Link";
+    $body = "Hello,\n\rA password reset was recently requested for $email from IP address {$_SERVER['REMOTE_ADDR']}\n\rTo reset your password, please visit the following website address:\n".DOMAIN."/lostpassword/reset/$hash \nNote, if you cannot click on the link above, you may need to copy and paste it into your web browser.\n\rIf you received this email in error or did not request your password to be reset, you may safely ignore this email.\n";
              
     if (!$GLOBALS['Mail']->SimpleMail($to, $subject, $body))
     {
@@ -561,8 +561,8 @@ class User {
     //$GLOBALS['UserCache']->RemoveFromCache($uid);
 
     // Mail user at email address
-    $subject = "{UNIVERSITY} HvZ Password Changed";
-    $body = "Hello,\n\rThe password to your {UNIVERSITY} Humans vs. Zombies account was recently changed. If you did not request a password change, please alert a Moderator.\n";
+    $subject = "".UNIVERSITY." HvZ Password Changed";
+    $body = "Hello,\n\rThe password to your ".UNIVERSITY." Humans vs. Zombies account was recently changed. If you did not request a password change, please alert a Moderator.\n";
              
     $GLOBALS['Mail']->SimpleMail($to, $subject, $body);
     

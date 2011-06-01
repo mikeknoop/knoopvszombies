@@ -259,8 +259,8 @@
                     
                     // Mail user at email address
                     $to = $user['email'];
-                    $subject = "{UNIVERSITY} HvZ Game Joined";
-                    $body = "Hello,\n\n Your {UNIVERSITY} HvZ account succesfully joined the {$joined_game['name']} game. Your Secret Game ID for this game is: $secret\n\rWrite down this Secret Game ID and your full name on an index card and carry this card with you at all times! If you are unfamiliar with the rules, please read http://".DOMAIN."/rules and make sure to come to an orientation session.\n\rOrientation times and dates are posted on the website at http://".DOMAIN."/rules \n";
+                    $subject = "".UNIVERSITY." HvZ Game Joined";
+                    $body = "Hello,\n\n Your ".UNIVERSITY." HvZ account succesfully joined the {$joined_game['name']} game. Your Secret Game ID for this game is: $secret\n\rWrite down this Secret Game ID and your full name on an index card and carry this card with you at all times! If you are unfamiliar with the rules, please read http://".DOMAIN."/rules and make sure to come to an orientation session.\n\rOrientation times and dates are posted on the website at http://".DOMAIN."/rules \n";
 
                     $GLOBALS['Mail']->SimpleMail($to, $subject, $body);
 
@@ -295,8 +295,8 @@
         {
           $to .= ','.$saved['email'];
         }
-        $subject = "{UNIVERSITY} HvZ Account Updated";
-        $body = "Hello,\n\nYour {UNIVERSITY} HvZ account information was recently modified by a moderator. If you are unsure why or think this is a mistake, please email a moderator.\n\n";
+        $subject = "".UNIVERSITY." HvZ Account Updated";
+        $body = "Hello,\n\nYour ".UNIVERSITY." HvZ account information was recently modified by a moderator. If you are unsure why or think this is a mistake, please email a moderator.\n\n";
         
         if (is_array($email_changes) && count($email_changes) > 0)
         {

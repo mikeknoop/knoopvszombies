@@ -22,7 +22,7 @@ foreach ($all_users as $user)
   }
   else
   {
-    $Photo = "{DOMAIN}/img/user/u{$user['uid']}.jpg";
+    $Photo = "".DOMAIN."/img/user/u{$user['uid']}.jpg";
   }  
   
   $Email = $user['email'];

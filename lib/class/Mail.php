@@ -18,8 +18,8 @@ class Mail {
   function SimpleMail($to, $subject, $body, $attachFooter = true, $bcc = false)
   {
    
-   $from = "{UNIVERSITY} Humans vs. Zombies <{EMAIL}>";
-   $sig = "\r\nThanks,\n{UNIVERSITY} Humans vs. Zombies";
+   $from = "".UNIVERSITY." Humans vs. Zombies <{EMAIL}>";
+   $sig = "\r\nThanks,\n".UNIVERSITY." Humans vs. Zombies";
    
     // $to can be single email or comma seperated
     // $bcc = false;

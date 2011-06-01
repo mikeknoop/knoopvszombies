@@ -17,7 +17,7 @@
     // Check the rate limit of the REMOTE_ADDR
     if (!$GLOBALS['User']->RateLimit(60*60, 'pwd_rst_'.$_POST['email']))
     {
-      header('Location: //<?php echo DOMAIN; ?>/lostpassword/slowdown');
+      header('Location: //'.DOMAIN.'/lostpassword/slowdown');
       exit;
     }
     
@@ -27,7 +27,7 @@
       if (!$GLOBALS['User']->CheckValidEmail($_POST['email']))
       {
         // email wasn't found in the database
-        header('Location: //<?php echo DOMAIN; ?>/lostpassword/emailnotfound');
+        header('Location: //'.DOMAIN.'/lostpassword/emailnotfound');
         exit;
       }
     }
@@ -35,19 +35,19 @@
     {
       echo $e->getMessage();
       // unknown error, try again
-      header('Location: //<?php echo DOMAIN; ?>/lostpassword/unknownerror');
+      header('Location: //'.DOMAIN.'/lostpassword/unknownerror');
       exit;
     }
     
     // Email passes all checks, generate a reset hash, save to db, mail user
     if (!$GLOBALS['User']->ResetPasswordInit($_POST['email']))
     {
-        header('Location: //<?php echo DOMAIN; ?>/lostpassword/unknownerror');
+        header('Location: //'.DOMAIN.'/lostpassword/unknownerror');
         exit;
     }
     
     // Done, redirect user to success
-    header('Location: //<?php echo DOMAIN; ?>/lostpassword/sendsuccess');
+    header('Location: //'.DOMAIN.'/lostpassword/sendsuccess');
     exit;
   }
   
@@ -61,7 +61,7 @@
       if (!$GLOBALS['User']->CheckValidPasswordResetHash($_GET['reset']))
       {
         // hash wasn't found in the db
-        header('Location: //<?php echo DOMAIN; ?>/lostpassword/invalidlink');
+        header('Location: //'.DOMAIN.'/lostpassword/invalidlink');
         exit;
       }
     }
@@ -69,7 +69,7 @@
     {
       echo $e->getMessage();
       // unknown error, try again
-      header('Location: //<?php echo DOMAIN; ?>/lostpassword/unknownerror');
+      header('Location: //'.DOMAIN.'/lostpassword/unknownerror');
       exit;
     }
     
@@ -85,7 +85,7 @@
     // User passed rate check, make sure they posted both new pass and confirmation
     if (!isset($_POST['new_pass']) || !isset($_POST['new_pass_confirm']))
     {
-      header('Location: //<?php echo DOMAIN; ?>/lostpassword/reset/'.$_POST['reset'].'/incomplete');
+      header('Location: //'.DOMAIN.'/lostpassword/reset/'.$_POST['reset'].'/incomplete');
       exit;
     }
     
@@ -95,7 +95,7 @@
       if (!$GLOBALS['User']->CheckValidPasswordResetHash($_POST['reset']))
       {
         // hash wasn't found in the db
-        header('Location: //<?php echo DOMAIN; ?>/lostpassword/reset/'.$_POST['reset'].'/invalidlink');
+        header('Location: //'.DOMAIN.'/lostpassword/reset/'.$_POST['reset'].'/invalidlink');
         exit;
       }
     }
@@ -103,7 +103,7 @@
     {
       echo $e->getMessage();
       // unknown error, try again
-      header('Location: //<?php echo DOMAIN; ?>/lostpassword/reset/'.$_POST['reset'].'/unknownerror');
+      header('Location: //'.DOMAIN.'/lostpassword/reset/'.$_POST['reset'].'/unknownerror');
       exit;
     }
     
@@ -111,7 +111,7 @@
     if ($_POST['new_pass'] != $_POST['new_pass_confirm'])
     {
       // passwords don't match
-      header('Location: //<?php echo DOMAIN; ?>/lostpassword/reset/'.$_POST['reset'].'/passdontmatch');
+      header('Location: //'.DOMAIN.'/lostpassword/reset/'.$_POST['reset'].'/passdontmatch');
       exit;
     }
     
@@ -120,13 +120,13 @@
     {
       // destroy session since password was changed
       $GLOBALS['Session']->DestroySession();
-      header('Location: //<?php echo DOMAIN; ?>/lostpassword/success');
+      header('Location: //'.DOMAIN.'/lostpassword/success');
       exit;
     }
     
     // default error
     
-    header('Location: //<?php echo DOMAIN; ?>/lostpassword/reset/'.$_POST['reset'].'/unknownerror');
+    header('Location: //'.DOMAIN.'/lostpassword/reset/'.$_POST['reset'].'/unknownerror');
     exit;
   }
   
