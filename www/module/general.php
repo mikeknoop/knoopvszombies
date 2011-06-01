@@ -52,9 +52,9 @@
   if ($require_login && !$_SESSION)
   {
     if ($page_uri != '') {
-      header("Location: ../login/required/{$page_uri}");
+      header("Location: ".DOMAIN."/login/required/{$page_uri}");
     } else {
-      header("Location: ../login/required");
+      header("Location: ".DOMAIN."/login/required");
     }
     
     // Ensure following code is not executed
@@ -64,7 +64,7 @@
   // User must have a completed account to access this page
   if ($require_complete_account && !$GLOBALS['User']->AccountComplete())
   {
-     header("Location: ../signup");
+     header("Location: ".DOMAIN."/signup");
      exit;
   }
 
