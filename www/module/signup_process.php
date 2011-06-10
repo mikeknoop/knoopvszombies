@@ -8,6 +8,6 @@
   <li <?php if (isset($_GET['step'])) { if ($_GET['step'] == 3) { echo "class=\"process_highlight\""; } }?>>Code of conduct</li>
   <li <?php if (isset($_GET['step'])) { if ($_GET['step'] == 4) { echo "class=\"process_highlight\""; } }?>>Liability waiver</li>
   <li <?php if (isset($_GET['step'])) { if ($_GET['step'] == 5) { echo "class=\"process_highlight\""; } }?>>Profile information</li>
-  <li <?php if (isset($_GET['step'])) { if ($_GET['step'] == 6) { echo "class=\"process_highlight\""; } }?>>Done!</li>
+  <li <?php if (isset($_GET['step'])) { if ($_GET['step'] == 6) { echo "class=\"process_highlight\""; } }?>>Join a Game</li>
   </ol>
   

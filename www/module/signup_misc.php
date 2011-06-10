@@ -1,13 +1,13 @@
 <div id="signup_title">
-  Sign up <span class="accent_color">completed!</span>
+  Join a <span class="accent_color">Game</span>
   </div>
   
 <div class="signup_header_text">
-  Congratulations! Your Mizzou Humans vs. Zombies account is setup and approved. Now, to actually join a game for the upcoming semester, click the link below.
+  The final step is to join the upcoming semesters' game in order to play. Click the "View Available Games" button to see a list of games you can join.
 </div>
 
-<div class="signup_header_text">
-  <a class="accent_color bold" href="http://<?php echo DOMAIN; ?>/joingame">Join a Game</a>
+<div class="signup_header_view_available">
+<a class="accent_color bold" href="http://<?php echo DOMAIN; ?>/joingame">View Available Games</a>
 </div>
 
 <div class="signup_header_text">

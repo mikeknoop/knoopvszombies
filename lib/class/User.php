@@ -910,12 +910,12 @@ class User {
   */
   function ConvertUploadedPhoto($img_base, $w_dst, $h_dst, $n_img, $o_img, $create_thumbnail=false, $thumb_base, $thumbnail_scaling_factor)
   {
-     unlink($img_base.$n_img);         //  remove old images if present
-     unlink($img_base.$o_img);
+     @unlink($img_base.$n_img);         //  remove old images if present
+     @unlink($img_base.$o_img);
      $new_img = $img_base.$n_img;
        
      $file_src = $img_base.$n_img."_tmp.jpg";  //  temporary safe image storage
-     unlink($file_src);
+     @unlink($file_src);
      move_uploaded_file($_FILES['photo']['tmp_name'], $file_src);
                 
      list($w_src, $h_src, $type) = getimagesize($file_src);     // create new dimensions, keeping aspect ratio
@@ -946,7 +946,7 @@ class User {
        imagejpeg($img_dst, $new_img);    //  save new image
      }
 
-     unlink($file_src);  //  clean up image storage
+     @unlink($file_src);  //  clean up image storage
      imagedestroy($img_src);        
      imagedestroy($img_dst);
   }
@@ -1353,7 +1353,7 @@ class User {
     if(is_file($file))
     {
        $dsize += filesize($file);
-       unlink($file);
+       @unlink($file);
        $deld++;
     }
    }
@@ -1369,7 +1369,7 @@ class User {
     if(is_file($file))
     {
        $dsize += filesize($file);
-       unlink($file);
+       @unlink($file);
        $deld++;
     }
    }

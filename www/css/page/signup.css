@@ -152,6 +152,18 @@
   margin:         15px 0;
 }
 
+.signup_header_view_available
+{
+  background:     #F0F0F0;
+  border:         2px solid #DDD;
+  font-size:      20px;
+  font-weight:    bold;
+  margin:         30px auto;
+  padding:        10px 20px;
+  text-align:     center;
+  width:          300px;
+}
+
 .signup_header_text
 {
 
