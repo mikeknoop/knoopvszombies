@@ -59,7 +59,7 @@
   <div class="signup_header_text">
     <div class="signup_header_text signup_header_2col_left">
       <div class="signup_header_fb_button fb_button fb_button_medium">
-        <a class="fb_button_link" href="https://graph.facebook.com/oauth/authorize?client_id=<?php echo FB_APP_ID?>&redirect_uri=http://www.muzombies.org/oauth/init/">
+        <a class="fb_button_link" href="https://graph.facebook.com/oauth/authorize?client_id=<?php echo FB_APP_ID?>&redirect_uri=http://muzombies.org/oauth/init/">
             <span class="fb_button_text">Connect with Facebook</span>
         </a>
       </div>
@@ -123,7 +123,7 @@
   <div class="signup_header_text">
     <div class="signup_header_text signup_header_2col_left">
       <div class="signup_header_fb_button fb_button fb_button_medium">
-        <a class="fb_button_link" href="https://graph.facebook.com/oauth/authorize?client_id=<?php echo FB_APP_ID?>&redirect_uri=http://www.muzombies.org/oauth/init/">
+        <a class="fb_button_link" href="https://graph.facebook.com/oauth/authorize?client_id=<?php echo FB_APP_ID?>&redirect_uri=http://muzombies.org/oauth/init/">
             <span class="fb_button_text">Connect with Facebook</span>
         </a>
       </div>

@@ -49,7 +49,7 @@ Recent <span class="accent_color">Updates</span>
                   
         if (isset($_SESSION) && $_SESSION['admin'] && $GLOBALS['Misc']->StringWithin('email', $_SESSION['privileges']))
         {
-          echo ' <a class="page_post_hide_link" href="http://<?php echo DOMAIN; ?>/home/hidepost/'.$post['id'].'">[Hide Post]</a>';
+          echo ' <a class="page_post_hide_link" href="http://'.DOMAIN.'/home/hidepost/'.$post['id'].'">[Hide Post]</a>';
         }
                   
         echo '
