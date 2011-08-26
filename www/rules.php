@@ -59,9 +59,9 @@
 
           <div class="even">
 
-            <div><span class="rules_heading">New Rules and Rule Changes for Spring 2011</span></div>
+            <div><span class="rules_heading">New Rules and Rule Changes for Fall 2011</span></div>
              <div><OL class="rules">
-                <LI>Humans may not throw darts to stun a zombie. A dart must be fired from a blow gun or blaster. Socks may still be thrown.</LI>
+                <LI>No new rules yet for this semester.</LI>
              </OL></div>
   
               

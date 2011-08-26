@@ -20,6 +20,9 @@
 /www/forum/cache/Smarty/compile/*
 !/www/forum/cache/Smarty/compile/empty
 
+/www/img/Thumbs.db
+/www/img/mods/Thumbs.db
+
 /www/img/user/*
 !/www/img/user/includedir
 !/www/img/user/thumb

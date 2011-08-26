@@ -71,18 +71,18 @@
           <div class="odd">
 
             <div class="about_picture_container">
-              <img src="img/mods/joe.png" class="about_picture" />
+              <img src="img/mods/mikem.jpg" class="about_picture" />
             </div>
             
             <div class="about_text_container">
-              <a target="_new" href="//www.facebook.com/blacktiereverie">
+              <a target="_new" href="//www.facebook.com/mikeymcc">
               <div class="about_name">
-              Joe Myers
+              Mike McClannahan
               </div>
               </a>
               
               <div class="about_text">
-              The head moderator for Humans vs. Zombies at Mizzou, Joe is in charge of running the moderation team and is the official liaison when it comes to any issues regarding the police or administration. He is almost never seen without a tie.
+              The head moderator for Humans vs. Zombies at Mizzou, Mike is in charge of running the moderation team and is the official liaison when it comes to any issues regarding the police or administration. Rarely ever seen without his trusty beard, he's a force to be reckoned with.
               </div>
             </div>
              
@@ -93,17 +93,17 @@
           <div class="even">
 
             <div class="about_picture_container">
-              <img src="img/mods/chris.png" class="about_picture" />
+              <img src="img/mods/joer.jpg" class="about_picture" />
             </div>
             
             <div class="about_text_container">
-              <a target="_new" href="//www.facebook.com/profile.php?id=1304460205">
+              <a target="_new" href="//www.facebook.com/profile.php?id=505335199">
               <div class="about_name">
-              Chris Camey
+              Joe Rexwinkle
               </div>
               </a>
-              <div class="about_text">              
-              Chris is the number-two man of the Mod Squad. Acting as the voice to the people, Chris can usually be found wearing a trucker hat and a BullShifters shirt sorting out problems whenever and wherever they arise.
+              <div class="about_text">     
+								The vice president of Humans vs. Zombies at Mizzou, he's the arms and the legs of the moderation team.  He's a doer.  Whether its interacting with players or tracking down props, Joe is your man.
               </div>
             </div>
              
@@ -114,18 +114,18 @@
           <div class="odd">
 
             <div class="about_picture_container">
-              <img src="img/mods/mike.png" class="about_picture" />
+              <img src="img/mods/kayla.jpg" class="about_picture" />
             </div>
             
             <div class="about_text_container">
-              <a target="_new" href="//www.facebook.com/mikeknoop">
+              <a target="_new" href="//www.facebook.com/kayla.kemp1">
               <div class="about_name">
-              Mike Knoop
+              Kayla Kemp
               </div>
               </a>
               <div class="about_text">
-              Mike is the man in charge of the tech side of HvZ, ensuring that the main game engine is running smoothly, altering and changing character data disputes as necessary, and establishing the HvZ help line.
-              </div>
+								The treasurer of Humans vs. Zombies at Mizzou is Kayla Kemp.  Shes a lean mean treasurer machine.  She handles the red tape and smashes through budgets with ease!  Have a question about ORG policies?  Kayla is your... woman.
+							</div>
             </div>
              
             <div class="clearfix"></div>  
