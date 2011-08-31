@@ -26,7 +26,7 @@ class Mail {
     if ($bcc) {
       $headers = '';
       $headers .= 'From: '.$from . "\r\n";
-      $headers .= 'Reply-To: '.EMAIL.'' . "\r\n";
+      $headers .= 'Reply-To: '.EMAIL_REPLY_TO.'' . "\r\n";
       $headers .= 'Bcc: '.$to . "\r\n";
       $headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
 
@@ -42,7 +42,7 @@ class Mail {
     } else {
       $headers = '';
       $headers .= 'From: '.$from . "\r\n";
-      $headers .= 'Reply-To: '.EMAIL.'' . "\r\n";
+      $headers .= 'Reply-To: '.EMAIL_REPLY_TO.'' . "\r\n";
       $headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
 
       if ($attachFooter) {
