@@ -721,7 +721,7 @@
     </style>
       
       <div id="playerlist_display_options">
-        <form name="playerlist_display_options_form" action="http://<?php echo DOMAIN; ?>/admin/playerlist/" type="GET">
+        <form name="playerlist_display_options_form" action="http://<?php echo DOMAIN; ?>/admin/playerlist" type="GET">
           <div class="playerlist_display_options_container">
             <select class="playerlist_display_options_select" name="filterBy">
               <option value="" <?php if (!isset($filterBy) || $filterBy == '') echo "selected"; ?> >Filter By</option>
@@ -765,7 +765,7 @@
              </div>
             <?php else: ?>           
              <div class="playerlist_header_pagination_page">
-              <a class="playerlist_header_pagination_page_link" href="http://<?php echo DOMAIN; ?>/admin/playerlist/?p=<?php echo $row; if (isset($_GET['pageBy'])) echo "&pageBy={$_GET['pageBy']}"; if (isset($_GET['sortBy'])) echo "&sortBy={$_GET['sortBy']}"; if (isset($_GET['filterBy'])) echo "&filterBy={$_GET['filterBy']}";       ?>"><?php echo $row; ?></a>
+              <a class="playerlist_header_pagination_page_link" href="http://<?php echo DOMAIN; ?>/admin/playerlist?p=<?php echo $row; if (isset($_GET['pageBy'])) echo "&pageBy={$_GET['pageBy']}"; if (isset($_GET['sortBy'])) echo "&sortBy={$_GET['sortBy']}"; if (isset($_GET['filterBy'])) echo "&filterBy={$_GET['filterBy']}";       ?>"><?php echo $row; ?></a>
              </div>
             <?php endif ?>
           <?php endforeach ?>
@@ -878,7 +878,7 @@
              </div>
             <?php else: ?>           
              <div class="playerlist_header_pagination_page">
-              <a class="playerlist_header_pagination_page_link" href="http://<?php echo DOMAIN; ?>/admin/playerlist/?p=<?php echo $row; if (isset($_GET['pageBy'])) echo "&pageBy={$_GET['pageBy']}"; if (isset($_GET['sortBy'])) echo "&sortBy={$_GET['sortBy']}"; if (isset($_GET['filterBy'])) echo "&filterBy={$_GET['filterBy']}";       ?>"><?php echo $row; ?></a>
+              <a class="playerlist_header_pagination_page_link" href="http://<?php echo DOMAIN; ?>/admin/playerlist?p=<?php echo $row; if (isset($_GET['pageBy'])) echo "&pageBy={$_GET['pageBy']}"; if (isset($_GET['sortBy'])) echo "&sortBy={$_GET['sortBy']}"; if (isset($_GET['filterBy'])) echo "&filterBy={$_GET['filterBy']}";       ?>"><?php echo $row; ?></a>
              </div>
             <?php endif ?>
           <?php endforeach ?>

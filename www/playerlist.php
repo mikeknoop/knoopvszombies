@@ -146,7 +146,7 @@
           <div id="playerlist_header">
             
             <div id="playerlist_display_options">
-              <form name="playerlist_display_options_form" action="//<?php echo DOMAIN; ?>/playerlist/" type="GET">
+              <form name="playerlist_display_options_form" action="//<?php echo DOMAIN; ?>/playerlist" type="GET">
                 <div class="playerlist_display_options_container">
                   <div class="playerlist_display_options_label">
                     Filter by:
