@@ -198,7 +198,7 @@
                    </div>
                   <?php else: ?>           
                    <div class="playerlist_header_pagination_page">
-                    <a class="playerlist_header_pagination_page_link" href="//<?php echo DOMAIN; ?>/playerlist/?p=<?php echo $row; if (isset($pageBy)) echo "&pageBy={$pageBy}"; if (isset($sortBy)) echo "&sortBy={$sortBy}"; if (isset($filterBy)) echo "&filterBy={$filterBy}";       ?>"><?php echo $row; ?></a>
+                    <a class="playerlist_header_pagination_page_link" href="//<?php echo DOMAIN; ?>/playerlist?p=<?php echo $row; if (isset($pageBy)) echo "&pageBy={$pageBy}"; if (isset($sortBy)) echo "&sortBy={$sortBy}"; if (isset($filterBy)) echo "&filterBy={$filterBy}";       ?>"><?php echo $row; ?></a>
                    </div>
                   <?php endif ?>
                 <?php endforeach ?>
@@ -313,7 +313,7 @@
                    </div>
                   <?php else: ?>           
                    <div class="playerlist_header_pagination_page">
-                    <a class="playerlist_header_pagination_page_link" href="//<?php echo DOMAIN; ?>/playerlist/?p=<?php echo $row; if (isset($pageBy)) echo "&pageBy={$pageBy}"; if (isset($sortBy)) echo "&sortBy={$sortBy}"; if (isset($filterBy)) echo "&filterBy={$filterBy}";       ?>"><?php echo $row; ?></a>
+                    <a class="playerlist_header_pagination_page_link" href="//<?php echo DOMAIN; ?>/playerlist?p=<?php echo $row; if (isset($pageBy)) echo "&pageBy={$pageBy}"; if (isset($sortBy)) echo "&sortBy={$sortBy}"; if (isset($filterBy)) echo "&filterBy={$filterBy}";       ?>"><?php echo $row; ?></a>
                    </div>
                   <?php endif ?>
                 <?php endforeach ?>
