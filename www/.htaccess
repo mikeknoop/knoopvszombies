@@ -23,6 +23,9 @@ RewriteRule ^logout$ session.php?type=logout  [L]
 RewriteRule ^squad$ squad.php  [L]
 RewriteRule ^squad/([^/.]+)$ squad.php?action=$1 [L]
 
+RewriteRule ^changepicture$ changepicture.php  [L]
+RewriteRule ^changepicture/([^/.]+)$ changepicture.php?action=$1 [L]
+
 RewriteRule ^orientations$ orientations.php [L]
 RewriteRule ^orientations/([^/.]+)$ orientations.php?gid=$1 [L]
 

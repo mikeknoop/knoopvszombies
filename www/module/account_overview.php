@@ -86,3 +86,15 @@
     </div>
     <div class="clearfix"></div>
   </div>
+  
+  <?php if ($viewing_self && !$user['using_fb']): ?>
+  <div class="content_row">
+    <div class="content_row_label">
+      Change Profile Picture:
+    </div>
+    <div class="content_row_data">
+      <span class="accent_color">(<a href="http://<?php echo DOMAIN; ?>/changepicture" class="accent_color">edit</a>)</span>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <?php endif; ?>
