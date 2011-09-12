@@ -12,8 +12,7 @@
   $message = '';
   $error = false;
 
-	print_r($_FILES);
-  if (isset($_GET['action']) && $_GET['action'] == 'submit')
+  if (isset($_GET['action']) && $_GET['action'] == 'submit' && !$_SESSION['using_fb'])
   {
 		// form was submitted. First thing is to check if a photo was sent
 		// if not, it means user didnt upload one or it got size-blocked by server
@@ -106,6 +105,7 @@
             </div>
             <?php endif ?>
             
+            <?php if (!$_SESSION['using_fb']): ?>
             <div class="squad_header">
               <p>Upload a photo of yourself for use on the site. Please note your picture must be an actual photo of your face (for player identification purposes).</p>
             </div>
@@ -118,7 +118,7 @@
                 <div class="squad_label">
                   New Profile Picture:
                 </div>
-                          
+
                 <div class="squad_form">
                     <input id="photo" name="photo" type="file" />
                 </div>
@@ -139,6 +139,12 @@
             </form>
 
             </div>
+            <?php else: ?>
+            <div class="squad_header">
+              <p>Your account is tied to a Facebook account. Change your account picture by changing your profile picture on facebook.com.</p>
+            </div>
+            <?php endif; ?>
+            
           
           </div> <!-- body_container -->
           
