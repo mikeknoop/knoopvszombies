@@ -65,7 +65,7 @@
         <div id="body_content">
 
           <?php 
-            if ($GLOBALS['state'] && $GLOBALS['state']['countdown'])
+            if ($GLOBALS['state'] && $GLOBALS['state']['countdown'] && $GLOBALS['state']['start_time'] != 0 && $GLOBALS['state']['start_time'] != '')
             {
               require 'module/countdown.php';
             }

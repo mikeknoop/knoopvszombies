@@ -318,7 +318,7 @@ class User {
     // Also create a forum account for this new user
     $GLOBALS['Db']->SelectDb(FORUM_DATABASE);
     $perm = 'a:6:{i:0;s:19:"Garden.SignIn.Allow";i:1;s:20:"Garden.Activity.View";i:2;s:20:"Garden.Profiles.View";s:24:"Vanilla.Discussions.View";a:1:{i:0;s:1:"1";}s:23:"Vanilla.Discussions.Add";a:1:{i:0;s:1:"1";}s:20:"Vanilla.Comments.Add";a:1:{i:0;s:1:"1";}}';
-    $date = date("Y-d-m H:i:s");
+    $date = date("Y-m-d H:i:s");
     $sql = "INSERT INTO ".FORUM_DATABASE.".GDN_User (UserID, Email, DateInserted, Permissions) VALUES('$uid', '$email', '$date', '')";
     if (!$GLOBALS['Db']->Execute($sql))
     {

@@ -725,7 +725,7 @@
       <?php endif ?>
       
       <tr class="playerlist_table_row_headerfooter">
-        <td class="playerlist_table_cell playerlist_table_cell_picture"></td>
+        <!--<td class="playerlist_table_cell playerlist_table_cell_picture"></td>-->
         <td class="playerlist_table_cell playerlist_table_cell_name"></td>
         <td class="playerlist_table_cell playerlist_table_cell_email"></td>
         <td class="playerlist_table_cell playerlist_table_cell_admin"></td>

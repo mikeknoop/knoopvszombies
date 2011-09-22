@@ -7,7 +7,7 @@
 </div>
 
 <div class="signup_header_text">
-  All players need to create a new account to play for the Fall 2010 Semester. However, for future semesters, your account will persist between semesters allowing you to keep track of your lifetime HvZ statistics. You will need to revist the website each semester to join that semester's game (but you won't have to go through this setup process again).
+  You only need to create this account once. For future semesters, your account will persist between semesters allowing you to keep track of your lifetime HvZ statistics. You will need to revist the website each semester to join that semester's game (but you won't have to go through this setup process again).
 </div>
 
 <div class="signup_header_text">
