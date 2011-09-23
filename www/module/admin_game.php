@@ -28,7 +28,7 @@ if (isset($_GET['action']) && ($_GET['action'] == 'create'))
       }
       
       // Special validation cases
-      if (isset($_POST['current']) && $_POST['current'] == 'on' && !$game['active'])
+      if (isset($_POST['current']) && $_POST['current'] == 'on') //  && !$game['active']
       {
         $_POST['current'] = '1';
       }

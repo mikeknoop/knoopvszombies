@@ -1141,7 +1141,7 @@ class Game {
     
         }
         
-        if ($game['current'] && !$game['active'] && !$game['archive'] && ($now >= $game['start_time']))
+        if ($game['current'] && !$game['active'] && !$game['archive'] && ($now >= $game['start_time']) && $game['start_time'] != 0)
         {
         
           // First mark all people who did not attend an orientation as deceased
