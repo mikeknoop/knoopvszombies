@@ -142,7 +142,11 @@
     ?>
     
     <div class="gameplay_block">
-      The game is in pre-game mode. The game will automatically advance to "Game In Progress" on <?php echo date('Y-m-d H:i:s', $GLOBALS['state']['start_time']) ?> as defined in the "Edit/Create Game" Admin Tool. Before then, select Original Zombie(s) below. You may also open/close registration below.
+    <?php if ($GLOBALS['state']['start_time'] != 0): ?>
+			The game is in pre-game mode. The game will automatically advance to "Game In Progress" on <?php echo date('Y-m-d H:i:s', $GLOBALS['state']['start_time']) ?> as defined in the "Edit/Create Game" Admin Tool. Before then, select Original Zombie(s) below. You may also open/close registration below.
+    <?php else: ?>
+			The game is in pre-game mode. A start time has not been defined yet. Choose a start time in the "Edit/Create Game" Admin Tool. In the mean time, you can select Original Zombie(s) below. You may also open/close registration below.
+    <?php endif; ?>
     </div>
 
     <div class="gameplay_table_container">
