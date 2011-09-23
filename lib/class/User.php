@@ -193,7 +193,8 @@ class User {
       }
       else
       {
-        throw new Exception('GetUserFromGame: No active game.');
+				return array();
+        //throw new Exception('GetUserFromGame: No active game.');
       }
     }
     
