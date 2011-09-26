@@ -390,7 +390,7 @@
                   // Update the forum with username
                   $GLOBALS['User']->UpdateForumUserColumn($_SESSION['uid'], 'Name', $name);
                   // Update the forum with picture URL since they are using FB
-                  $GLOBALS['User']->UpdateForumUserColumn($_SESSION['uid'], 'Photo', '//graph.facebook.com/'.$fb_id.'/picture');
+                  $GLOBALS['User']->UpdateForumUserColumn($_SESSION['uid'], 'Photo', 'https://graph.facebook.com/'.$fb_id.'/picture');
                 
                   if (!$GLOBALS['User']->MarkUserApproved($_SESSION['uid']))
                   {
