@@ -46,11 +46,14 @@ if (isset($_GET['action']) && ($_GET['action'] == 'create'))
         $_POST['countdown'] = '0';
       }
 
-      if (isset($_POST['delete']) && $_POST['delete'] == 'on' && !$GLOBALS['state']['active'])
+      if (isset($_POST['delete']) && $_POST['delete'] == 'on')
       {
+				if ((isset($GLOBALS['state']['active']) && !$GLOBALS['state']['active']) || !isset($GLOBALS['state']['active'])) {
         // delete game, redirect back to /admin/game/
         $GLOBALS['Game']->DeleteGame($_GET['target']);
-        header("Location: admin/game");
+        print 'Game deleted. <a href="http://'.DOMAIN.'/admin/game" class="accent_color">Click here to go back</a>.';
+        exit;
+        }
       }
       
       // validate and save the user form
@@ -582,7 +585,7 @@ if (isset($_GET['action']) && ($_GET['action'] == 'create'))
   <div class="clearfix"></div>
   
   <div class="admin_playerlist_manual_id">
-    <a class="button" href="http://<?php echo DOMAIN; ?>/admin/game/clearcache/all">Clear Game Cache Files</a> <a class="button" href="http://<?php echo DOMAIN; ?>/admin/game/create/">Create New Game</a>
+    <a class="button" href="http://<?php echo DOMAIN; ?>/admin/game/clearcache/all">Clear Game Cache Files</a> <a class="button" href="http://<?php echo DOMAIN; ?>/admin/game/create">Create New Game</a>
   </div>
 
   

@@ -254,13 +254,13 @@ class Game {
         // Row exists, which means user is likely trying to enter an ID of a person more than 3 hours later. But it could be the owner of the ID is giving out their old ID
         $date = date("l M j, g:iA", $results[0]['zombied_time']);
         $return[0] = false;
-        $return[1] = 'The secret game ID belongs to '.$results[0]['name'].' but they have already been turned into a zombie (or deceased) on '.$date.'. If you think is in error, <a class="accent_color" href="http://<?php echo DOMAIN; ?>/mailto:'.EMAIL.'">contact a moderator</a> and send them the secret game ID.';
+        $return[1] = 'The secret game ID belongs to '.$results[0]['name'].' but they have already been turned into a zombie (or deceased) on '.$date.'. If you think is in error, <a class="accent_color" href="mailto:'.EMAIL.'">contact a moderator</a> and send them the secret game ID.';
         }
         else
         {
         // Row exists but the user has no zombied_time! They were likely automatically shifted around by a mod or the automated orientation attendance deceased function
         $return[0] = false;
-        $return[1] = 'The secret game ID belongs to '.$results[0]['name'].' but they have already been turned into a zombie (or deceased). If you think is in error, <a class="accent_color" href="http://<?php echo DOMAIN; ?>/mailto:'.EMAIL.'">contact a moderator</a> and send them the secret game ID.';
+        $return[1] = 'The secret game ID belongs to '.$results[0]['name'].' but they have already been turned into a zombie (or deceased). If you think is in error, <a class="accent_color" href="mailto:'.EMAIL.'">contact a moderator</a> and send them the secret game ID.';
         }
       }
       
@@ -285,13 +285,13 @@ class Game {
         {
           // Row exists, which means user is likely trying to enter an ID of a person more than 3 hours later. But it could be the owner of the ID is giving out their old ID
           $return[0] = false;
-          $return[1] = 'The secret game ID belonged to '.$results[0]['name'].' but they received a new secret from the moderators. Your tag has not been counted and '.$results[0]['name'].' is still human. This is likely due to you taking too long to enter the secret game ID. Remember, all tags must be reported within 3 hours. If you think is in error, <a class="accent_color" href="http://<?php echo DOMAIN; ?>/mailto:'.EMAIL.'">contact a moderator</a> and send them the secret game ID.';
+          $return[1] = 'The secret game ID belonged to '.$results[0]['name'].' but they received a new secret from the moderators. Your tag has not been counted and '.$results[0]['name'].' is still human. This is likely due to you taking too long to enter the secret game ID. Remember, all tags must be reported within 3 hours. If you think is in error, <a class="accent_color" href="mailto:'.EMAIL.'">contact a moderator</a> and send them the secret game ID.';
         }
       }
       else
       {
       $return[0] = false;
-      $return[1] = 'The secret game ID "'.$secret.'" does not belong to any player this game. If you believe this is in error, <a class="accent_color" href="http://<?php echo DOMAIN; ?>/mailto:'.EMAIL.'">contact a moderator</a> and send them the secret game ID.';
+      $return[1] = 'The secret game ID "'.$secret.'" does not belong to any player this game. If you believe this is in error, <a class="accent_color" href="mailto:'.EMAIL.'">contact a moderator</a> and send them the secret game ID.';
       }
     }
     
@@ -647,6 +647,25 @@ class Game {
     
     // Set the person who got turned into a zombie as a zombie role on forum
     $GLOBALS['User']->AddForumRoleZombie($target_uid );
+    
+    // Twitter integration
+    $sql = "SELECT name FROM user WHERE uid='{$target_uid}'";
+    $results = $GLOBALS['Db']->GetRecords($sql);
+    if (is_array($results) && count($results) > 0) {
+      $human = $results[0]['name'];
+    }
+    $sql = "SELECT name FROM user WHERE uid='{$zombie_uid}'";
+    $results = $GLOBALS['Db']->GetRecords($sql);
+    if (is_array($results) && count($results) > 0) {
+      $zombie = $results[0]['name'];
+    }
+    if (isset($GLOBALS['state']['oz_hidden']) && $GLOBALS['state']['oz_hidden']) {
+			// OZs hidden
+			$GLOBALS['Twitter']->send("{$human} has been infected by an OZ.");
+    } else {
+			// OZs not hidden
+			$GLOBALS['Twitter']->send("{$human} has been infected by {$zombie}");    
+    }
     
     // Clear caches
     $cache_id = $target_uid.'_game';

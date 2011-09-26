@@ -36,6 +36,13 @@
             if ($check[0])
             {
               // All is okay, go ahead and register the kill
+              $zombie = '';
+              $targetSecret = '';
+              $feed1 = '';
+              $feed2 = '';
+              $location_x = '';
+              $location_y = '';
+              
               $zombie = $_SESSION['uid'];
               $targetSecret = $_POST['secret'];
               
@@ -159,7 +166,7 @@
             </div>
 
             <div class="reportakill_header">
-              <p>Optionally you may include where the kille occured. We may use this data at the end of the game to make an interesting kill "heat map".</p>
+              <p>Optionally you may include where the kill occured. We may use this data at the end of the game to make an interesting kill "heat map".</p>
             </div>
             
             <div class="reportakill_content">

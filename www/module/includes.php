@@ -36,6 +36,9 @@ require DOCUMENT_ROOT.'/lib/class/Curl.php';
  // the facebook client library
 require DOCUMENT_ROOT.'/www/client/facebook.php';
 
+ // the twitter client library
+require DOCUMENT_ROOT.'/www/client/twitter.php';
+
 /**
  * Establishes a prelim. connection, but doesn't actually connect until DB action happens
  */
@@ -60,4 +63,7 @@ require DOCUMENT_ROOT.'/www/client/facebook.php';
  $GLOBALS['Misc'] = new Misc();
  $GLOBALS['Curl'] = new Curl();
  //$GLOBALS['Admin'] = new Admin();
+ 
+ $GLOBALS['Twitter'] = new Twitter(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET);
+ 
 ?>
