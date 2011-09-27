@@ -1201,7 +1201,7 @@ class Game {
           $subject = "".UNIVERSITY." HvZ {$game['name']} Has Officially Begun!";
           $body = "Hello,\n\rThis email is to inform you that the Humans vs. Zombies {$game['name']} has officially begun! Remember you must carry your Secret Game ID and bandanna with you at all times.\n\rYou have received a seperate email if you are an Original Zombie -- If you have not received it then you are a human.\n\rGood luck! If you have any questions or concerns please contact a moderator.\n\r";
              
-          $GLOBALS['Mail']->SimpleMail($to, $subject, $body);
+          $GLOBALS['Mail']->SimpleMail($to, $subject, $body, true, false);
           
           // mark game active
           $this->UpdateGameColumn($game['gid'], 'active', '1');
