@@ -53,29 +53,33 @@
 <?php if ($_GET['state'] != 'pending'):?>
   
   <div class="signup_header_text">
-  Humans vs. Zombies at Mizzou requires all players to link their accounts with a <span class="accent_color bold">real photo and name</span> before they may join a game. This helps deter player conflicts and serves as a great identity system to recognize fellow teammates. Name and photo are only shown to other players.
+  Humans vs. Zombies at Mizzou requires all players to link their accounts with a <span class="accent_color bold">real photo and name</span> before they may join a game. This helps deter player conflicts and serves as a great identity system to recognize fellow teammates. Name and photo are only shown to other players. There are two methods.
   </div>
 
+	<div class="signup_header_text bold">
+	Method 1: Facebook
+	</div>
+
   <div class="signup_header_text">
-    <div class="signup_header_text signup_header_2col_left">
-      <div class="signup_header_fb_button fb_button fb_button_medium">
-        <a class="fb_button_link" href="https://graph.facebook.com/oauth/authorize?client_id=<?php echo FB_APP_ID?>&redirect_uri=http://muzombies.org/oauth/init/">
+  This will automatically connect your new Mizzou Zombies account with whomever is currently logged into Facebook on this computer. You will be asked to authorize our Facebook application so we can access your username and photo. Before you proceed, make sure <span class="bold">you</span> are logged into Facebook and not someone else.
+  </div>
+  
+  <div class="signup_header_text">
+    <div class="signup_header_text">
+      <div class="fb_button fb_button_medium">
+        <a class="fb_button_link" href="https://graph.facebook.com/oauth/authorize?client_id=<?php echo FB_APP_ID?>&redirect_uri=http://muzombies.org/oauth/init">
             <span class="fb_button_text">Connect with Facebook</span>
         </a>
       </div>
     </div>
-    <div class="signup_header_text signup_header_2col_right">
-      The <span class="accent_color bold">automatic</span> way to link your name and photo is to connect with your Facebook account. Click the button on the left to do so.
-    </div>
-    <div class="clearfix"></div>
   </div>
-  
+	
+	<div class="signup_header_text" style="font-weight: bold;">
+	<br />Method 2: Manual
+	</div>
+
   <div class="signup_header_text">
-    * This will connect automatically with whomever is currently logged into Facebook on this computer. You will be asked to authorize our Facebook application so we can access your username and photo.
-  </div>
-  
-  <div class="signup_header_text">
-      <span class="accent_color bold">If you don't have a Facebook account</span>, you can manually enter your name and upload a photo for your account. If you choose to do so, your account must be manually approved by a Moderator before you may join a game. Remember, you must use a real photo of yourself and your real name to be approved. If you understand, <a href="http://<?php echo DOMAIN; ?>/#" onclick="document.getElementById('signup_profile_manual').style.display='block'; return false;"><span>click here to enter your profile information manually.</span></a>
+      <span class="accent_color bold">If you don't have a Facebook account</span>, or <span class="accent_color bold">don't want to use Facebook</span>, you can manually enter your name and upload a photo for your account. If you choose to do so, your account must be manually approved by a Moderator before you may join a game. Remember, you must use a real photo of yourself and your real name to be approved. <a href="http://<?php echo DOMAIN; ?>/#" onclick="document.getElementById('signup_profile_manual').style.display='block'; return false;" class="accent_color bold"><span>Click here to enter your profile information manually.</span></a>
   </div>  
   
   <div id="signup_profile_manual" class="signup_header_text">
@@ -123,7 +127,7 @@
   <div class="signup_header_text">
     <div class="signup_header_text signup_header_2col_left">
       <div class="signup_header_fb_button fb_button fb_button_medium">
-        <a class="fb_button_link" href="https://graph.facebook.com/oauth/authorize?client_id=<?php echo FB_APP_ID?>&redirect_uri=http://muzombies.org/oauth/init/">
+        <a class="fb_button_link" href="https://graph.facebook.com/oauth/authorize?client_id=<?php echo FB_APP_ID?>&redirect_uri=http://muzombies.org/oauth/init">
             <span class="fb_button_text">Connect with Facebook</span>
         </a>
       </div>
