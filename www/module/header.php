@@ -9,9 +9,6 @@
     <div id="header_navigation_container">
     
       <span class="header_nav_option">
-        <a class="header_navigation" href="http://<?php echo DOMAIN;?>">Home</a>
-      </span>
-      <span class="header_nav_option">
         <a class="header_navigation" href="http://<?php echo DOMAIN; ?>/rules">Game Rules</a>
       </span>
       <span class="header_nav_option">
@@ -20,6 +17,9 @@
       </span>
       <span class="header_nav_option">
         <a class="header_navigation" href="http://www.facebook.com/muzombies">Facebook</a>
+      </span>
+      <span class="header_nav_option">
+        <a class="header_navigation" href="http://www.twitter.com/muzombies">Twitter</a>
       </span>
       <span class="header_nav_option">
         <a class="header_navigation" href="http://<?php echo DOMAIN; ?>/about">About Us</a>
