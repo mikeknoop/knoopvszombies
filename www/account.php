@@ -59,9 +59,29 @@
     elseif ($_SESSION)
     {
       if ($_SESSION['uid'] == $user['uid'])
-      $view_active = 'No (<a class="accent_color" href="//<?php echo DOMAIN; ?>/joingame">Join a Game</a>)';
+      $view_active = 'No (<a class="accent_color" href="//'.DOMAIN.'/joingame">Join a Game</a>)';
     }
-        
+
+		// OZ Pool
+		$show_oz_pool = false;
+		$in_oz_pool = false;
+		if ($viewing_self && $GLOBALS['User']->IsPlayingCurrentGame($user['uid']) && $GLOBALS['state']) {
+			$show_oz_pool = true;
+			$oz_pool = $GLOBALS['Game']->GetOZPool($GLOBALS['state']['gid']);
+			if (is_array($oz_pool)) {
+				foreach ($oz_pool as $oz) {
+					if ($oz['uid'] == $user['uid']) {
+						$in_oz_pool = true;
+					}
+				}
+			}
+			if ($in_oz_pool) {
+				$oz_pool_status = 'Yes (<a class="accent_color" href="//'.DOMAIN.'/toggleozpool">Toggle</a>)';
+			} else {
+				$oz_pool_status = 'No (<a class="accent_color" href="//'.DOMAIN.'/toggleozpool">Toggle</a>)';
+			}
+    }
+    
     if (isset($historical['zombie_kills']))
       $view_zombie_kills = $historical['zombie_kills'];
     else

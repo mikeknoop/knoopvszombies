@@ -12,10 +12,10 @@
   
   $games = $GLOBALS['Game']->GetJoinable();
   $join_success = false;
-  $ozoptout_success = false;
+  $ozoptin_success = false;
   $valid_game = false;
   
-  if (isset($_GET['join']) && !isset($_GET['ozoptout']))
+  if (isset($_GET['join']) && !isset($_GET['ozoptin']))
   {
     foreach ($games as $game)
     {
@@ -58,11 +58,11 @@
     }
   }
   
-  if (isset($_GET['ozoptout']) && isset($_GET['join']))
+  if (isset($_GET['ozoptin']) && isset($_GET['join']))
   {
-    if ($GLOBALS['Game']->RemoveFromOzPool($_GET['join'], $_SESSION['uid']))
+    if ($GLOBALS['Game']->AddToOzPool($_GET['join'], $_SESSION['uid']))
     {
-      $ozoptout_success = true;
+      $ozoptin_success = true;
       $joined_game = $GLOBALS['Game']->GetGame($_GET['join']);
     }
   }
@@ -107,9 +107,9 @@
           <div id="joingame_container">
 
             <?php
-              if (isset($_GET['join']) && $ozoptout_success)
+              if (isset($_GET['join']) && $ozoptin_success)
               {
-                require 'module/joingame_ozoptout.php';
+                require 'module/joingame_ozoptin.php';
               }
               elseif (isset($_GET['join']) && $join_success)
               {

@@ -3,7 +3,7 @@
   </div>
 
   <div class="joingame_header">
-    <p>You have been removed from the OZ Pool for this semester. If at a later time you would like to add yourself back, please contact a moderator.</p>
+    <p>You have been added to the OZ Pool for this semester. You can toggle being in the OZ Pool on your profile.</p>
   </div>
 
   <div class="joingame_header">

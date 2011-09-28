@@ -22,7 +22,7 @@
 
   <div class="content_row">
     <div class="content_row_label">
-      Playing this/upcoming semester:
+      Playing this/upcoming game:
     </div>
     <div class="content_row_data">
       <?php echo $view_active ?>
@@ -30,6 +30,18 @@
     <div class="clearfix"></div>
   </div>
 
+	<?php if ($show_oz_pool): ?>
+  <div class="content_row">
+    <div class="content_row_label">
+      In OZ pool this/upcoming game:
+    </div>
+    <div class="content_row_data">
+      <?php echo $oz_pool_status ?>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <?php endif; ?>
+  
   <div class="content_row">
     <div class="content_row_label">
       Squad:

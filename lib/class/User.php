@@ -986,7 +986,7 @@ class User {
     $cache_id = $uid.'_gameAll';
     $GLOBALS['UserCache']->RemoveFromCache($cache_id);
     
-    $sql = "INSERT INTO game_xref (gid, uid, secret) VALUES ('$gid', '$uid', '$secret')";
+    $sql = "INSERT INTO game_xref (gid, uid, secret, oz_pool) VALUES ('$gid', '$uid', '$secret', '0')";
     if (!$GLOBALS['Db']->Execute($sql))
     {
       return false;

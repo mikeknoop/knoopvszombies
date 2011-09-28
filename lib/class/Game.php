@@ -335,6 +335,40 @@ class Game {
 
   /**
   *
+  * Opts a player in to the OZ pool for a given game
+  *
+  */
+  function AddToOzPool($gid, $uid)
+  {
+    // First check to see if user already joined this game
+    $joined = false;
+    $xref = $GLOBALS['User']->GetUserFromGame($uid, $gid);
+
+    if (isset($xref['gid']) && $xref['gid'] == $gid)
+    {
+      $joined = true;
+    }
+
+    if (!$joined)
+    {
+      return false;
+    }
+    
+    $sql = "UPDATE game_xref SET oz_pool='1' WHERE gid='$gid' AND uid='$uid'";
+    if (!$GLOBALS['Db']->Execute($sql))
+    {
+      return false;
+    }
+    $GLOBALS['Db']->Commit();
+
+    $cache_id = $uid.'_game';
+    $GLOBALS['UserCache']->RemoveFromCache($cache_id);
+
+    return true;
+  }
+  
+  /**
+  *
   * Removes a player from a game
   *
   */

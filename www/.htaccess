@@ -23,6 +23,9 @@ RewriteRule ^logout$ session.php?type=logout  [L]
 RewriteRule ^squad$ squad.php  [L]
 RewriteRule ^squad/([^/.]+)$ squad.php?action=$1 [L]
 
+RewriteRule ^toggleozpool$ toggleozpool.php  [L]
+RewriteRule ^toggleozpool/([^/.]+)/([^/.]+)$ toggleozpool.php?action=$1&set_oz_pool=$2 [L]
+
 RewriteRule ^changepicture$ changepicture.php  [L]
 RewriteRule ^changepicture/([^/.]+)$ changepicture.php?action=$1 [L]
 
@@ -36,7 +39,7 @@ RewriteRule ^playerlist$ playerlist.php [L]
 
 RewriteRule ^joingame$ joingame.php [L]
 RewriteRule ^joingame/([^/.]+)$ joingame.php?join=$1 [L]
-RewriteRule ^joingame/ozoptout/([^/.]+)$ joingame.php?ozoptout=true&join=$1 [L]
+RewriteRule ^joingame/ozoptin/([^/.]+)$ joingame.php?ozoptin=true&join=$1 [L]
 
 RewriteRule ^account$ account.php
 RewriteRule ^account/([^/.]+)$ account.php?id=$1 [L]
