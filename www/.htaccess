@@ -59,6 +59,7 @@ RewriteRule ^signup/([^/.]+)$ signup.php?step=$1 [L]
 RewriteRule ^signup/([^/.]+)/([^/.]+)$ signup.php?step=$1&state=$2 [L]
 
 RewriteRule ^oauth/init/$ signup.php?step=5&state=auth&%{QUERY_STRING} [L]
+RewriteRule ^oauth/init$ signup.php?step=5&state=auth&%{QUERY_STRING} [L]
 
 RewriteRule ^emailconfirm$ signup.php?step=2 [L]
 RewriteRule ^emailconfirm/([^/.]+)$ signup.php?step=2&confirm=$1 [L]
