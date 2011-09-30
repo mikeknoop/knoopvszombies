@@ -352,7 +352,7 @@
                 {
                   $code = $_GET['code'];
                   // feed this code back to FB to get a token key for user
-                  $uri = 'https://graph.facebook.com/oauth/access_token?client_id='.FB_APP_ID.'&redirect_uri=http://muzombies.org/oauth/init/&client_secret='.FB_SECRET.'&code='.$code;
+                  $uri = 'https://graph.facebook.com/oauth/access_token?client_id='.FB_APP_ID.'&redirect_uri=http://muzombies.org/oauth/init&client_secret='.FB_SECRET.'&code='.$code;
                   $json_decode = false;               
                   $return = $GLOBALS['Curl']->GetContents($uri, $json_decode);                  
                 }
