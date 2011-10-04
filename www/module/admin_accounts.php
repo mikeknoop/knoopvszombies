@@ -599,7 +599,7 @@
             <option value="" <?php if (!isset($pageBy) || $pageBy == '') echo "selected"; ?> >Players Per Page</option>
             <option value="100" <?php if (isset($pageBy) && $pageBy == '100') echo "selected"; ?> >100</option>
             <option value="500" <?php if (isset($pageBy) && $pageBy == '500') echo "selected"; ?> >500</option>
-            <option value="1000" <?php if (isset($pageBy) && $pageBy == '1000') echo "selected"; ?> >1000</option>
+            <option value="3000" <?php if (isset($pageBy) && $pageBy == '3000') echo "selected"; ?> >3000</option>
           </select>
         </div>
         <div class="playerlist_display_options_container">
