@@ -33,7 +33,7 @@
         break;
         
         case 'invalid':
-          echo 'The confirmation link is invalid. You may need to <a href="http://<?php echo DOMAIN; ?>/emailconfirm/resend"><span class="accent_color">resend</span></a> the email.';
+          echo 'The confirmation link is invalid. You may need to <a href="http://'.DOMAIN.'/emailconfirm/resend"><span class="accent_color">resend</span></a> the email.';
         break;
         
         case 'sendsuccess':
