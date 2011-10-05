@@ -693,9 +693,19 @@ class Game {
     if (is_array($results) && count($results) > 0) {
       $zombie = $results[0]['name'];
     }
+    
     if (isset($GLOBALS['state']['oz_hidden']) && $GLOBALS['state']['oz_hidden']) {
 			// OZs hidden
-			$GLOBALS['Twitter']->send("{$human} has been infected by an OZ.");
+			$sql = "SELECT oz FROM game_xref WHERE uid='$zombie_uid' AND gid='$gid'";
+			$results = $GLOBALS['Db']->GetRecords($sql);
+			if (is_array($results) && count($results) > 0) {
+				$oz = $results[0]['oz'];
+      }
+      if ($oz) {
+				$GLOBALS['Twitter']->send("{$human} has been infected by an OZ.");
+			} else {
+				$GLOBALS['Twitter']->send("{$human} has been infected by {$zombie}");
+			}
     } else {
 			// OZs not hidden
 			$GLOBALS['Twitter']->send("{$human} has been infected by {$zombie}");    
