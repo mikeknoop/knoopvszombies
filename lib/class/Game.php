@@ -1366,10 +1366,10 @@ class Game {
         // Now that we have $total_zombie_kills and $total_seconds_alive, add these values to historical for this user
         
         $sql = "UPDATE historical SET zombie_kills=zombie_kills+'$total_zombie_kills', time_alive=time_alive+'$total_seconds_alive' WHERE uid='{$player['uid']}'";
-        if (!$GLOBALS['Db']->Execute($sql))
+        if ($GLOBALS['Db']->Execute($sql))
         {
+					$GLOBALS['Db']->Commit();
         }
-        $GLOBALS['Db']->Commit();
         
         // Everything is updated, remove one cache file
         $GLOBALS['UserCache']->RemoveFromCache($player['uid'].'_historical');
