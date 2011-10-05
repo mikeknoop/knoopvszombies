@@ -1368,7 +1368,6 @@ class Game {
         $sql = "UPDATE historical SET zombie_kills=zombie_kills+'$total_zombie_kills', time_alive=time_alive+'$total_seconds_alive' WHERE uid='{$player['uid']}'";
         if (!$GLOBALS['Db']->Execute($sql))
         {
-          return false;
         }
         $GLOBALS['Db']->Commit();
         
@@ -1385,10 +1384,7 @@ class Game {
         
       }
     }
-    else
-    {
-      return false;
-    }
+
   }
   
 }

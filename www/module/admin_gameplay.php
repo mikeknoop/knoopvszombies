@@ -84,12 +84,11 @@
             case "endgame":
               if (isset($_POST['end_game']) && ($_POST['end_game'] == 'endgame'))
               {
-              
-                // End the game in the game table, mark columns affected
-                $GLOBALS['Game']->EndGame($GLOBALS['state']['gid']);
-                
                 // Archive historical player data
                 $GLOBALS['Game']->ArchivePlayerData($GLOBALS['state']['gid']);
+                
+                // End the game in the game table, mark columns affected
+                $GLOBALS['Game']->EndGame($GLOBALS['state']['gid']);
                 
                 // advance the game onward!
                 $stage = 'postgame';
