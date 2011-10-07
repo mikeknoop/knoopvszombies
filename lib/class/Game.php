@@ -680,7 +680,7 @@ class Game {
     $GLOBALS['Mail']->SimpleMail($to, $subject, $body);
     
     // Set the person who got turned into a zombie as a zombie role on forum
-    $GLOBALS['User']->AddForumRoleZombie($target_uid );
+    $GLOBALS['User']->AddForumRoleZombie($target_uid);
     
     // Twitter integration
     $sql = "SELECT name FROM user WHERE uid='{$target_uid}'";
