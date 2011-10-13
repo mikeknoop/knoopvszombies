@@ -80,8 +80,11 @@
       // make sure current user is a mod and has accounts perm
       if ($_SESSION['admin'] && $GLOBALS['Misc']->StringWithin('accounts', $_SESSION['privileges']))
       {
-        // user is a mod and has permission. Do the impersonation
-        $GLOBALS['Session']->ImpersonateCurrentSessionWith($_GET['param']);
+        // make sure the user to impersonate isn't the same as logged in user, and that no impersonation is going on
+        if ($_SESSION['uid'] != $_GET['param'] && (!isset($_SESSION['impersonate']) || (isset($_SESSION['impersonate']) && $_SESSION['impersonate'] == 0))) {
+          // user is a mod and has permission. Do the impersonation
+          $GLOBALS['Session']->ImpersonateCurrentSessionWith($_GET['param']);
+        }
       }
     }
  
