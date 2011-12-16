@@ -68,7 +68,7 @@ class Game {
         return null;
     }
     
-    $sql = "SELECT * FROM game WHERE NOT archive='1'";
+    $sql = "SELECT * FROM game WHERE NOT archive='1' AND NOT name=''";
     $results = $GLOBALS['Db']->GetRecords($sql);
     
     $return = null;
