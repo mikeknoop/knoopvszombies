@@ -82,7 +82,7 @@
     <?php else: ?>
 
       <div id="body_header_message">
-      Need to get ahold of a Moderator? <a href="mailto:muzombies+web@gmail.com">Contact us via email at muzombies<img src="http://<?php echo DOMAIN; ?>/img/email.png" class="email_img" /></a>
+      Need to get ahold of a Moderator? <a href="mailto:muzombies@gmail.com">Contact us via email at muzombies@gmail.com</a>
       </div>
     
     <?php endif ?>
