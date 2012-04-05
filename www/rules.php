@@ -59,7 +59,7 @@
 
           <div class="even">
 
-            <div><span class="rules_heading">New Rules and Rule Changes for Fall 2011</span></div>
+            <div><span class="rules_heading">New Rules and Rule Changes for this semester</span></div>
              <div><OL class="rules">
                 <LI>No new rules yet for this semester.</LI>
              </OL></div>

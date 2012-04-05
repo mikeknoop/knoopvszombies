@@ -20,7 +20,7 @@
       switch ($_GET['state'])
       {
         case 'emailexists':
-          echo 'That email address already exists. If you have forgotten your password, <a href="http://<?php echo DOMAIN; ?>/lostpassword"><span class="accent_color">you may reset it</span></a>.';
+          echo 'That email address already exists. If you have forgotten your password, <a href="http://'.DOMAIN.'/lostpassword"><span class="accent_color">you may reset it</span></a>.';
           break;
           
         case 'poorpassword':
