@@ -81,6 +81,10 @@
               }
               break;
 
+            case "feedallzombies":
+              $GLOBALS['Game']->FeedAllZombies($GLOBALS['state']['gid']);
+              break;
+              
             case "endgame":
               if (isset($_POST['end_game']) && ($_POST['end_game'] == 'endgame'))
               {
@@ -289,7 +293,18 @@
           </select>
           
           <input class="button" type="submit" value="Save Change" />
-        
+        </form>
+    </div>
+    
+    <div class="gameplay_block">
+      <div class="gameplay_block_title">
+        Feed All Zombies
+      </div>
+        <form id="gameplay_feed_all_zombies_form" action="http://<?php echo DOMAIN; ?>/admin/gameplay/feedallzombies" method="POST">
+  
+          All alive zombies will be fed (feed timers reset)
+          
+          <input class="button" type="submit" value="Feed Them" />
         </form>
     </div>
     
@@ -406,7 +421,6 @@
         </form>
         
         After ending a game, no more kills can be registered, playercounts are frozen.
-      
     </div>
     
   <?php elseif ($stage == 'postgame'): ?>

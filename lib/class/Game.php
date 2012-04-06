@@ -111,6 +111,22 @@ class Game {
     return $return;
   }
   
+  // Feed all the zombies (reset all stun timers for current game)
+  function FeedAllZombies($gid)
+  {
+    if (!$gid)
+    {
+      return null;
+    }
+    $now = date("U");
+    $sql = "UPDATE game_xref SET zombie_feed_timer='$now' WHERE gid='$gid' AND (status='zombie' OR oz='1')";
+    if (!$GLOBALS['Db']->Execute($sql))
+    {
+      return false;
+    }
+    $GLOBALS['Db']->Commit();
+  }
+  
   /**
    * Returns all database cols of a given gid
    * 
