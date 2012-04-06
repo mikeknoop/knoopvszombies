@@ -125,6 +125,8 @@ class Game {
       return false;
     }
     $GLOBALS['Db']->Commit();
+    
+    $GLOBALS['User']->ClearAllUserCache();
   }
   
   /**
