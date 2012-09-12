@@ -62,6 +62,8 @@
             
             <div>A new generation of Moderators came to power for the Spring 2010 game. This new Moderator team was headed by Joe Myers, Chris Camey, and Mike Knoop. It was their intention to work through the game mechanics which has been problematic in the past and improve Moderator communication with players. For the Fall 2010 game, a new website and game engine were developed by Mike Knoop.</div>
             
+            <div>Now, going forward, a new Moderation team takes the reigns every year to add variation and excitement to HvZ at Mizzou.</div>
+            
             <div>There are two ways to get ahold of your moderators. We ask that you please email us first at <a href="//<?php echo DOMAIN; ?>/mailto:muzombies+web@gmail.com">muzombies@gmail.com</a> and if you cannot get ahold of us that way or if you have a time sensitive issue, call the HvZ Help line at (573) 833-0385.</a></div>
             
             <div>Below are your current Head Moderators:</div>
@@ -71,18 +73,18 @@
           <div class="odd">
 
             <div class="about_picture_container">
-              <img src="img/mods/mikem.jpg" class="about_picture" />
+              <img src="img/mods/kaylak.jpg" class="about_picture" />
             </div>
             
             <div class="about_text_container">
-              <a target="_new" href="//www.facebook.com/mikeymcc">
+              <a target="_new" href="//www.facebook.com/kayla.kemp1">
               <div class="about_name">
-              Mike McClannahan
+              Kayla Kemp
               </div>
               </a>
               
               <div class="about_text">
-              The head moderator for Humans vs. Zombies at Mizzou, Mike is in charge of running the moderation team and is the official liaison when it comes to any issues regarding the police or administration. Rarely ever seen without his trusty beard, he's a force to be reckoned with.
+              The head moderator and President for Humans vs. Zombies at Mizzou. She is stepping up to President this year bringing with her years of moderation experience.
               </div>
             </div>
              
@@ -93,17 +95,17 @@
           <div class="even">
 
             <div class="about_picture_container">
-              <img src="img/mods/joer.jpg" class="about_picture" />
+              <img src="img/mods/brettg.jpg" class="about_picture" />
             </div>
             
             <div class="about_text_container">
-              <a target="_new" href="//www.facebook.com/profile.php?id=505335199">
+              <a target="_new" href="//www.facebook.com/gilpin">
               <div class="about_name">
-              Joe Rexwinkle
+              Brett Gilpin 
               </div>
               </a>
               <div class="about_text">     
-								The vice president of Humans vs. Zombies at Mizzou, he's the arms and the legs of the moderation team.  He's a doer.  Whether its interacting with players or tracking down props, Joe is your man.
+								The vice president of Humans vs. Zombies at Mizzou. He also brings years of HvZ experience to the table, oh, and muscles.
               </div>
             </div>
              
@@ -114,17 +116,17 @@
           <div class="odd">
 
             <div class="about_picture_container">
-              <img src="img/mods/kayla.jpg" class="about_picture" />
+              <img src="img/mods/jessicam.jpg" class="about_picture" />
             </div>
             
             <div class="about_text_container">
-              <a target="_new" href="//www.facebook.com/kayla.kemp1">
+              <a target="_new" href="//www.facebook.com/jessica.manchenton">
               <div class="about_name">
-              Kayla Kemp
+              Jessica Manchenton
               </div>
               </a>
               <div class="about_text">
-								The treasurer of Humans vs. Zombies at Mizzou is Kayla Kemp.  Shes a lean mean treasurer machine.  She handles the red tape and smashes through budgets with ease!  Have a question about ORG policies?  Kayla is your... woman.
+								The treasurer of Humans vs. Zombies at Mizzou is Jessica Manchenton. She handles most of the fundraising for HvZ at Mizzou and also helps run the day-to-day game.
 							</div>
             </div>
              
