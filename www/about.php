@@ -95,7 +95,7 @@
           <div class="even">
 
             <div class="about_picture_container">
-              <img src="img/mods/brettg.jpg" class="about_picture" />
+              <img src="img/mods/brettg.png" class="about_picture" />
             </div>
             
             <div class="about_text_container">
