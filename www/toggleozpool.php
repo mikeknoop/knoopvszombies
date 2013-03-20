@@ -3,7 +3,7 @@
   $page_title = 'Toggle OZ Pool';
   $require_login = true;
   
-  require '../muzombies.ini.php';
+  require '../knoopvszombies.ini.php';
   
   require 'module/includes.php';
   

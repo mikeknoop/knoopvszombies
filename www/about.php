@@ -6,7 +6,7 @@
   $page_title = 'About Us';
   $require_login = false;
 
-  require '../muzombies.ini.php';
+  require '../knoopvszombies.ini.php';
   
   require 'module/includes.php';
   

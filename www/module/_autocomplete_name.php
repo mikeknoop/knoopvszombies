@@ -1,6 +1,6 @@
 <?php 
 
-    require '../../muzombies.ini.php';
+    require '../../knoopvszombies.ini.php';
     require DOCUMENT_ROOT.'/lib/class/SqlConnection.php';
     require DOCUMENT_ROOT.'/lib/class/CacheEngine.php';
     require DOCUMENT_ROOT.'/lib/class/Game.php';

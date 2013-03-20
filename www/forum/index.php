@@ -4,7 +4,7 @@ define('APPLICATION_VERSION', '2.0.16');
 
 $require_login = true;
 $require_complete_account = true;
-require '../../muzombies.ini.php';
+require '../../knoopvszombies.ini.php';
 require '../module/includes.php';
 require '../module/general.php';
 

@@ -3,7 +3,7 @@
   $page_title = 'Squads';
   $require_login = true;
   
-  require '../muzombies.ini.php';
+  require '../knoopvszombies.ini.php';
   
   require 'module/includes.php';
   

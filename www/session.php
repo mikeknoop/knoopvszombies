@@ -3,7 +3,7 @@
   $page_title = 'Session';
   $require_login = false;
   
-  require '../muzombies.ini.php';
+  require '../knoopvszombies.ini.php';
   require 'module/includes.php';
 
   $GLOBALS['Session']->InitSession();
