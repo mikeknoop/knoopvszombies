@@ -54,7 +54,7 @@ The last thing for the moderators to do is uncheck "current" for the current gam
 ### Orientation Tool
 A high-speed typeahead to mark players who have attended an oritentation session. Optimized for en-masse approving players -- for when you have three moderators trying to approve 200 people at your orientation.
 
-![Orientation Tool](http://i.imgur.com/Ehn2SHg.png)
+![Orientation Tool](http://i.imgur.com/TlCwHgk.png)
 
 ### Edit Current Player
 A "player" is a user who has joined the currently available game. Edit details about any player for the current game. From code to kills to zombie status.
