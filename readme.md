@@ -41,7 +41,7 @@ The last thing for the moderators to do is uncheck "current" for the current gam
 
 # Features
 
-1. Global user accounts
+## Global user accounts
 
 - Players can use a single user account to join multiple games
 - Stats carry over from previous games
@@ -49,7 +49,7 @@ The last thing for the moderators to do is uncheck "current" for the current gam
 - Signup with Facebook for verified photo and name association
 - Manual account approval without Facebook verification
 
-2. Fully-stocked admin panel
+## Fully-stocked admin panel
 
 ### Orientation Tool
 A high-speed typeahead to mark players who have attended an oritentation session. Optimized for en-masse approving players -- for when you have three moderators trying to approve 200 people at your orientation.
@@ -86,12 +86,12 @@ An interface to create and edit upcoming games. Name the game, set start date an
  
 ![Create Game](http://i.imgur.com/YXhlB1n.png)
 
-3. Social Media Tie-ins
+## Social Media Tie-ins
 
 - Post game status and kills to a Twitter feed
 - Bring Facebook posts onto the homepage
 
-4. Forums
+## Forums
 
 - In house forums that have "human only" and "zombie only" forums for communication.
 
