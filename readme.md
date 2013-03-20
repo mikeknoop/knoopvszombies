@@ -96,3 +96,7 @@ An interface to create and edit upcoming games. Name the game, set start date an
 - In house forums that have "human only" and "zombie only" forums for communication.
 
 ![Forums](http://i.imgur.com/CLcZj2E.png)
+
+# License
+
+Knoop vs Zombies is available under the MIT license.
