@@ -31,3 +31,6 @@
 !/www/img/user/thumb/includedir
 
 muzombies.ini.php
+muzombies-dev.ini.php
+muzombies-beta.ini.php
+muzombies-prod.ini.php
