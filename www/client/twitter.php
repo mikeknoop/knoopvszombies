@@ -195,7 +195,7 @@ class Twitter
 			if (!strpos($request, '.')) {
 				$request .= '.json';
 			}
-			$request = 'http://api.twitter.com/1/' . $request;
+			$request = 'http://api.twitter.com/1.1/' . $request;
 		}
 
 		$request = OAuthRequest::from_consumer_and_token($this->consumer, $this->token, $method, $request, $data);
