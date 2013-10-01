@@ -67,7 +67,7 @@
   <div class="signup_header_text">
     <div class="signup_header_text">
       <div class="fb_button fb_button_medium">
-        <a class="fb_button_link" href="https://graph.facebook.com/oauth/authorize?client_id=<?php echo FB_APP_ID?>&redirect_uri=http://muzombies.org/oauth/init">
+        <a class="fb_button_link" href="https://graph.facebook.com/oauth/authorize?client_id=<?php echo FB_APP_ID?>&redirect_uri=http://<?php echo DOMAIN?>/oauth/init">
             <span class="fb_button_text">Connect with Facebook</span>
         </a>
       </div>
