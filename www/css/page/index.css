@@ -1,0 +1,300 @@
+#page_posts_container
+{
+  float:            right;
+  margin:           20px 0;
+  padding:          10px;
+  background:       #F2F2F2;
+  border:           2px solid #DDDDDD;
+  min-height:       400px;
+  width:            350px;
+}
+
+#page_posts_title
+{
+  font-family:    'nu-century-gothic', 'sans-serif';
+  font-size:      25px;
+  letter-spacing: -1px;
+  word-spacing:   -5px;
+}
+
+.page_post_container
+{
+  margin:         15px 0px 5px 0;
+  overflow:       hidden;
+}
+
+.page_post_header
+{
+  width:          350px;
+}
+
+.page_post_time
+{
+  float:          left;
+  font-size:      12px;
+  padding:        0 0 3px 3px;
+}
+
+.page_post_comment, .page_post_hide
+{
+  float:          left;
+  font-size:      12px;
+  padding:        0 0 3px 10px;
+}
+
+.page_post_message
+{
+  clear:          both;
+  font-size:      13px;
+  line-height:    17px;
+  padding:        15px 10px;
+  background:     #FFFFFF;
+  color:          #111111;
+  border:         1px solid #E5E5E5;
+}
+
+#page_posts_more
+{
+  margin:         10px 0 5px 3px;
+  font-size:      12px;
+}
+
+#group_signup_container
+{
+  width:          100%;
+  margin:         10px 0 15px 0;
+  padding:        20px 0 0 0;
+}
+
+#group_container
+{
+  float:          right;
+  border:         1px solid #CCCCCC;
+  width:          500px;
+  height:         165px;
+  background:     url("../../img/group.jpg") top left;
+}
+
+
+.caption
+{
+  margin:         115px 0 0 0;
+  width:          100%;
+  height:         50px;
+  background:     url("../../img/img_cap.png") repeat-x top left;
+}
+
+.caption_link
+{
+  pointer:        cursor;
+  text-decoration:none;
+}
+
+.caption_text
+{
+  color:          #FFFFFF;
+  font-size:      15px;
+  padding:        5px;
+  text-align:     center;
+}
+
+.caption_subtext
+{
+  font-style:     italic;
+  color:          #FFFFFF;
+  font-size:      14px;
+  padding:        2px;
+  text-align:     center;
+}
+
+
+#signup_container
+{
+  float:          left;
+  width:          327px;
+  border:         1px solid #CCCCCC;
+  border-right:   0px;
+  height:         165px;
+  background:     url("../../img/signup_bg.png") repeat-x top left;
+}
+
+#signup_clipboard
+{
+
+  width:          327px;
+  height:         165px;
+  background:     transparent url("../../img/clipboard.png") no-repeat -5px 12px;
+  padding:        35px 3px 0 118px;
+}
+
+ol.signup_todo, .signup_title
+{
+	list-style-type:     decimal;
+	list-style-position: inside;
+  font-family:         'nu-century-gothic', 'sans-serif';
+  font-size:           24px;
+  margin:              5px 0;
+  word-spacing:        -4px;
+  line-height:          28px;
+}
+
+.signup_title
+{
+  margin:           12px 17px 12px 17px;
+}
+
+.signup_subtitle
+{
+  display:          inline-block;
+  font-family:      "Trebuchet MS", "Tahoma", "Sans-Serf";
+  font-size:        12px;
+  word-spacing:     -1px;
+  vertical-align:   top;
+  margin:           1px 0 0 3px;
+}
+
+#signup_login_email_container, #signup_login_password_container, #signup_login_submit_container
+{
+  width:            100%;
+  margin:           5px 17px;
+}
+
+#signup_login_email_label, #signup_login_password_label, #signup_login_submit_label
+{
+  float:            left;
+  padding:          3px 0 0 0;
+}
+
+#signup_login_email_textbox, #signup_login_password_textbox, #signup_login_submit_button
+{
+  float:            right;
+  width:            230px;
+}
+
+.signup_login_textbox
+{
+  width:            170px;
+  margin:           0;
+  padding:          2px;
+  font-size:        14px;
+}
+
+.signup_login_button
+{
+  height:         25px;
+  width:          100px;
+  margin:         3px 0;
+  padding:        3px;
+  border:         1px solid #AAAAAA;
+  background:     #D9D9D9;
+  font-size:      14px;
+  text-align:     center;
+}
+
+@-moz-document url-prefix() {
+	.signup_button {
+		padding:      1px 0 0 0;
+	}
+}
+
+.signup_login_button:hover
+{
+  border:         1px solid #999999;
+  background:     #C9C9C9;
+  text-decoration:none;
+}
+
+.signup_login_button:active
+{
+  background:     #B9B9B9;
+}
+
+#what_is_container
+{
+  float:            left;
+  margin:           20px 0;
+  padding:          10px;
+  min-height:       400px;
+  width:            380px;
+}
+
+#what_is_title
+{
+  font-family:    'nu-century-gothic', 'sans-serif';
+  font-size:      25px;
+  letter-spacing: -1px;
+  color:          #222222;
+  word-spacing:   -5px;
+  
+  width:           370px;
+  padding:         0 0 2px 3px;
+  margin:          0 0 10px 0;
+  border-bottom:   2px solid #222222;
+}
+
+#what_is
+{
+  font-size:      13px;
+  line-height:    16px;
+  margin:         15px 20px 10px 0;
+  word-spacing:   1px;
+}
+
+#what_is p
+{
+  margin:         10px 0;
+}
+
+.imp_post_container
+{
+  margin:           20px 0;
+  padding:          10px;
+  background:       #FFCCD2; /*#F2F2F2;*/
+  border:           2px solid #FFCCD2; /* #DF0101; */
+  min-height:       100px;
+  width:            808px;
+}
+
+.imp_post_header
+{  
+  width:           375px;
+  padding:         0 0 2px 3px;
+  margin:          0 0 10px 0;
+  border-bottom:   2px solid #222222;
+}
+
+.imp_post_title
+{
+  float:           left;
+  font-family:    'nu-century-gothic', 'sans-serif';
+  letter-spacing: -1px;
+  color:          #222222;
+  word-spacing:   -5px;
+  font-size:        18px;
+}
+
+.imp_post_time
+{
+  float:            right;
+  margin:           3px 5px 0 30px;
+  font-size:        13px;
+
+}
+
+.imp_post_comment
+{
+  float:            right;
+  margin:           3px 10px 0 10px;
+  font-size:        13px;
+}
+
+.imp_post_comment_link
+{
+}
+
+.imp_post_message
+{
+  font-size:        16px;
+  padding:          5px 10px 10px 10px;
+  line-height:      21px;
+}

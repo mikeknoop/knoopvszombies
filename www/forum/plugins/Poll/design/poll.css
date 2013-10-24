@@ -1,0 +1,4 @@
+.poll-options-list { list-style:circle; margin-left:20px;}
+.poll-bar {height:5px; line-height:5px; background-color:#ff0000;}
+.poll-field-input {clear:both;}
+.poll-answers {margin-top:10px;}

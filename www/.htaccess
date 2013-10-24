@@ -1,0 +1,69 @@
+ErrorDocument 404 /404
+
+RewriteEngine on
+RewriteRule ^home$ index.php [L]
+RewriteRule ^home/([^/.]+)$ index.php?action=$1 [L]
+RewriteRule ^home/([^/.]+)/([^/.]+)$ index.php?action=$1&target=$2 [L]
+
+RewriteRule ^rules$ rules.php [L]
+
+RewriteRule ^forums$ forum.php [L]
+
+RewriteRule ^about$ about.php [L]
+
+RewriteRule ^404$ 404.php [L]
+
+RewriteRule ^admin$ admin.php?%{QUERY_STRING} [L]
+RewriteRule ^admin/([^/.]+)$ admin.php?view=$1&%{QUERY_STRING} [L]
+RewriteRule ^admin/([^/.]+)/([^/.]+)$ admin.php?view=$1&action=$2&%{QUERY_STRING} [L]
+RewriteRule ^admin/([^/.]+)/([^/.]+)/([^/.]+)$ admin.php?view=$1&action=$2&target=$3&%{QUERY_STRING} [L]
+
+RewriteRule ^logout$ session.php?type=logout  [L]
+
+RewriteRule ^squad$ squad.php  [L]
+RewriteRule ^squad/([^/.]+)$ squad.php?action=$1 [L]
+
+RewriteRule ^toggleozpool$ toggleozpool.php  [L]
+RewriteRule ^toggleozpool/([^/.]+)/([^/.]+)$ toggleozpool.php?action=$1&set_oz_pool=$2 [L]
+
+RewriteRule ^changepicture$ changepicture.php  [L]
+RewriteRule ^changepicture/([^/.]+)$ changepicture.php?action=$1 [L]
+
+RewriteRule ^orientations$ orientations.php [L]
+RewriteRule ^orientations/([^/.]+)$ orientations.php?gid=$1 [L]
+
+RewriteRule ^report$ reportakill.php [L]
+RewriteRule ^report/submit$ reportakill.php?submit=true [L]
+
+RewriteRule ^playerlist$ playerlist.php [L]
+
+RewriteRule ^joingame$ joingame.php [L]
+RewriteRule ^joingame/([^/.]+)$ joingame.php?join=$1 [L]
+RewriteRule ^joingame/ozoptin/([^/.]+)$ joingame.php?ozoptin=true&join=$1 [L]
+
+RewriteRule ^account$ account.php
+RewriteRule ^account/([^/.]+)$ account.php?id=$1 [L]
+RewriteRule ^account/([^/.]+)/([^/.]+)$ account.php?id=$1 [L]
+
+RewriteRule ^lostpassword$ lostpassword.php [L]
+RewriteRule ^lostpassword/reset/([^/.]+)/([^/.]+)$ lostpassword.php?reset=$1&state=$2 [L]
+RewriteRule ^lostpassword/reset/([^/.]+)$ lostpassword.php?reset=$1 [L]
+RewriteRule ^lostpassword/([^/.]+)$ lostpassword.php?state=$1 [L]
+
+RewriteRule ^login$ login.php [L]
+RewriteRule ^login/([^/.]+)$ login.php?state=$1
+RewriteRule ^login/([^/.]+)/([^/.]+)$ login.php?state=$1&ref=$2
+
+RewriteRule ^signup$ signup.php [L]
+RewriteRule ^signup/([^/.]+)$ signup.php?step=$1 [L]
+RewriteRule ^signup/([^/.]+)/([^/.]+)$ signup.php?step=$1&state=$2 [L]
+
+RewriteRule ^oauth/init/$ signup.php?step=5&state=auth&%{QUERY_STRING} [L]
+RewriteRule ^oauth/init$ signup.php?step=5&state=auth&%{QUERY_STRING} [L]
+
+RewriteRule ^emailconfirm$ signup.php?step=2 [L]
+RewriteRule ^emailconfirm/([^/.]+)$ signup.php?step=2&confirm=$1 [L]
+
+RewriteRule ^session$ session.php [L]
+RewriteRule ^session/([^/.]+)$ session.php?type=$1 [L]
+RewriteRule ^session/([^/.]+)/([^/.]+)$ session.php?type=$1&param=$2 [L]

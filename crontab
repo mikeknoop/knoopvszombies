@@ -1,0 +1,11 @@
+# Disable mailing of the CRON output
+MAILTO=""
+
+# m h  dom mon dow   command
+0       *       *       *       *        php /var/app/muzombies.org/beta/cron/update_footer_image.php
+*/5     *       *       *       *        php /var/app/muzombies.org/beta/cron/update_wall_posts.php
+*       *       *       *       *        php /var/app/muzombies.org/beta/cron/game_logic.php
+
+0       *       *       *       *        php /var/app/muzombies.org/prod/cron/update_footer_image.php
+*/5     *       *       *       *        php /var/app/muzombies.org/prod/cron/update_wall_posts.php
+*       *       *       *       *        php /var/app/muzombies.org/prod/cron/game_logic.php

@@ -1,0 +1,73 @@
+.odd
+{
+  border-top:     1px solid #CCCCCC;
+  border-bottom:  1px solid #CCCCCC;
+  background:     #EEEEEE;
+  padding:        10px 20px;
+}
+
+.even
+{
+  padding:        10px 20px;
+}
+
+#about
+{
+  font-family:    "Trebuchet MS", "Tahoma", "Sans-Serf";
+  line-height:    20px;
+  margin:         0 0 50px 0;
+  font-size:      13px;
+  
+}
+
+#about div
+{
+  margin:         10px 5px 10px 5px;
+}
+
+.about_header
+{
+  font-family:    'blue-bold', 'sans-serif';
+  font-size:      28px;
+  line-height:    16px;
+  letter-spacing: -1.5px;
+  padding:         0 0 10px 0;     
+}
+
+.about_picture_container
+{
+  float:          left;
+  width:          200px;
+  margin:         0 auto;
+  text-align:     center;
+}
+
+.about_picture
+{
+  height:         200px;
+  max-width:      200px;
+  padding:        4px;
+  background:     #FFFFFF;
+  border:         1px solid #CCCCCC;
+}
+
+.about_text_container
+{
+  float:          right;
+  width:          500px;
+  margin:         0;
+  padding:        5px 10px;
+}
+
+.about_name
+{
+  font-family:    'blue-bold', 'sans-serif';
+  font-size:      28px;
+  line-height:    16px;
+  letter-spacing: -1.5px;
+}
+
+.about_text
+{
+  margin:         5px 0;
+}

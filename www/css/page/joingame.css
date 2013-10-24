@@ -1,0 +1,176 @@
+#joingame_container
+{
+  float:            left;
+  margin:           20px 0 20px 0px;
+  padding:          5px 0;
+  min-height:       400px;
+  width:            100%;
+}
+
+#joingame_title
+{
+  font-family:    'nu-century-gothic', 'sans-serif';
+  font-size:      25px;
+  letter-spacing: -1px;
+  color:          #222222;
+  word-spacing:   -5px;
+  width:           100%;
+  padding:         0 0 5px 0px;
+  margin:          0 0 30px 0;
+  border-bottom:   2px solid #222222;
+}
+
+.joingame_header
+{
+  padding:        0 20px 0 3px;
+  margin:         10px 0 10px 0;
+  line-height:    18px;
+  font-size:      14px;
+}
+
+.joingame_content
+{
+  padding:        50px 20px 0 3px;
+  margin:         10px 0 10px 0;
+  line-height:    18px;
+  font-size:      14px;
+}
+
+.game_row
+{
+  margin:         10px 0 10px 0;
+  padding:        5px 0 5px 0;
+  line-height:    25px;
+  font-size:      14px;
+  background:     #F5F5F5;
+  width:          100%;
+}
+
+.row_name, .row_start_time, .row_players, .row_status, .row_action
+{
+  float:          left;
+  margin:         5px 0 5px 20px;
+  font-size:      14px;
+}
+
+.row_name
+{
+  width:          120px;
+}
+
+.row_start_time
+{
+  width:          160px;
+}
+
+.row_players
+{
+  width:          100px;
+}
+
+.row_status
+{
+  width:          140px;
+}
+
+.row_action
+{
+  width:          180px;
+}
+
+.row_heading
+{
+  background:     transparent;
+  border-top:     1px solid #444444;
+  border-bottom:  1px solid #444444;
+}
+
+.row_heading_label
+{
+  font-weight:    bold;
+  font-size:      18px;
+}
+
+.joingame_button
+{
+  height:         25px;
+  margin:         3px 0;
+  padding:        4px 20px;
+  border:         1px solid #AAAAAA;
+  background:     #D9D9D9;
+  font-size:      14px;
+  text-align:     center;
+
+}
+
+@-moz-document url-prefix() {
+	.joingame_button {
+		padding:      2px 20px 4px 20px;
+	}
+}
+
+.joingame_button:hover
+{
+  border:         1px solid #999999;
+  background:     #C9C9C9;
+}
+
+.joingame_button:hover, .joingame_button_link:hover
+{
+  text-decoration:none;
+}
+
+.joingame_button:active
+{
+  background:     #B9B9B9;
+}
+
+.joingame_button_link
+{
+  text-decoration:none;
+}
+
+.joingame_secret
+{
+  font-size:     20px;
+  margin:        25px 0;
+}
+
+#joingame_cardfront
+{
+  margin:       20px 0;
+  width:        400px;
+  float:        left;
+  height:       240px;
+  background:   url("../../img/notecard.jpg") no-repeat 0 0;
+}
+
+#joingame_cardback
+{
+  margin:       20px 0;
+  width:        400px;
+  float:        right;
+  height:       240px;
+  background:   url("../../img/notecard.jpg") no-repeat 0 0;
+}
+
+.joingame_cardtext
+{
+  width:        380px;
+  height:       200px;
+  text-align:   center;
+  padding:      80px 5px 0 5px;
+  font-size:    30px;
+}
+
+.joingame_cardsubtitle
+{
+  margin:       4px 0 0 10px;
+  font-size:    14px;
+}
+
+.joingame_header_important
+{
+  font-size:    18px;
+  font-weight:  bold;
+}

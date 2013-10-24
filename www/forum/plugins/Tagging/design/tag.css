@@ -1,0 +1,13 @@
+<?php
+header('Content-type: text/css');
+?>
+.Tags h4 {
+    background: url('tag.png') left 4px no-repeat;
+    padding: 0 0 6px 20px !important;
+}
+.TaggedHeading {
+    padding: 3px;
+    font-weight: bold;
+    border-bottom: 1px solid #999;
+    color: #444;
+}

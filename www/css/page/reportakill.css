@@ -1,0 +1,133 @@
+#reportakill_container
+{
+  float:            left;
+  margin:           20px 0 20px 0px;
+  padding:          5px 0;
+  min-height:       400px;
+  width:            100%;
+}
+
+.reportakill_title
+{
+  font-family:    'nu-century-gothic', 'sans-serif';
+  font-size:      25px;
+  letter-spacing: -1px;
+  color:          #222222;
+  word-spacing:   -5px;
+  width:           100%;
+  padding:         0 0 5px 0px;
+  margin:          0 0 30px 0;
+  border-bottom:   2px solid #222222;
+}
+
+.reportakill_header
+{
+  padding:        0 20px 0 3px;
+  margin:         10px 0 10px 0;
+  line-height:    18px;
+  font-size:      14px;
+}
+
+.reportakill_content
+{
+  padding:        30px 20px 0 3px;
+  margin:         10px 0 10px 0;
+  line-height:    18px;
+  font-size:      14px;
+}
+
+.reportakill_form_submit
+{
+  height:         30px;
+  margin:         3px 0;
+  padding:        4px 30px;
+  border:         1px solid #AAAAAA;
+  background:     #D9D9D9;
+  font-size:      14px;
+  text-align:     center;
+}
+
+.reportakill_form_submit:hover
+{
+  border:         1px solid #999999;
+  background:     #C9C9C9;
+  text-decoration:none;
+}
+
+.reportakill_form_submit:active
+{
+  background:     #B9B9B9;
+}
+
+.reportakill_label, .reportakill_form, .reportakill_form_input, .reportakill_form_submit, .reportakill_caption, .reportakill_form_location_input
+{
+  float:          left;
+  margin:         0 10px;
+}
+
+.reportakill_label, .reportakill_form_input, .reportakill_form_select, .reportakill_form_location_input
+{
+  font-size:      20px;
+}
+
+.reportakill_form_input, .reportakill_form_select
+{
+  width:            350px;
+}
+
+.reportakill_label
+{
+  width:          240px;
+}
+
+.reportakill_caption
+{
+  font-size:      14px;
+  margin:         0 0 0 0;
+}
+
+.reportakill_form_location_input
+{
+  width:          100px;
+}
+
+.reportakill_form
+{
+  margin-top:     -5px;
+}
+
+.reportakill_message
+{
+  width:            810px;
+  margin:           20px 0 20px 0;
+  padding:          10px;
+  background:       #fff7d9;
+  border-top:       1px solid #cdc57a;
+  border-bottom:    1px solid #cdc57a; 
+  text-align:       center;
+  font-size:        13px;
+  line-height:      15px;
+}
+
+.reportakill_error
+{
+  width:            810px;
+  margin:           20px 0 20px 0;
+  padding:          10px;
+  background:       #F6CECE;
+  border-top:       1px solid #B40404;
+  border-bottom:    1px solid #B40404; 
+  text-align:       center;
+  font-size:        13px;
+  line-height:      15px;
+}
+
+.reportakill_row
+{
+  margin:           15px 0;
+}
+
+.reportakill_form_select
+{
+  margin-left:      10px;
+}

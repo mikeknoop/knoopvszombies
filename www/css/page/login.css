@@ -1,0 +1,154 @@
+#login_container
+{
+  float:            left;
+  margin:           20px 0;
+  padding:          10px;
+  min-height:       400px;
+  width:            375px;
+}
+
+#login_title
+{
+  font-family:    'nu-century-gothic', 'sans-serif';
+  font-size:      25px;
+  letter-spacing: -1px;
+  color:          #222222;
+  word-spacing:   -5px;
+  width:            350px;
+  padding:         0 0 2px 3px;
+  margin:          0 0 10px 0;
+  border-bottom:   2px solid #222222;
+}
+
+
+.login_subtitle
+{
+  display:          inline-block;
+  font-family:      "Trebuchet MS", "Tahoma", "Sans-Serf";
+  font-size:        12px;
+  word-spacing:     -1px;
+  vertical-align:   top;
+  margin:           1px 0 0 3px;
+}
+
+#login_status
+{
+  width:            333px;
+  margin:           20px 0 0 0;
+  padding:          10px;
+  background:       #fff7d9;
+  border-top:       1px solid #cdc57a;
+  border-bottom:    1px solid #cdc57a; 
+  text-align:       center;
+  font-size:        13px;
+  line-height:      15px;
+}
+
+#login_form
+{
+  margin:           35px 0 0 0;
+}
+
+.login_row_container, #login_submit_container
+{
+  width:            100%;
+  margin:           10px 5px;
+}
+
+#login_submit_container
+{
+  height:           50px;
+}
+
+.login_row_label
+{
+  float:            left;
+  padding:          3px 0 0 0;
+}
+
+.login_row_textbox, #login_submit_button
+{
+  float:            right;
+  width:            270px;
+}
+
+.login_textbox
+{
+  width:            235px;
+  margin:           0;
+  padding:          2px;
+  font-size:        14px;
+}
+
+.login_button
+{
+  height:         25px;
+  width:          100px;
+  margin:         4px 0;
+  padding:        4px;
+  border:         1px solid #AAAAAA;
+  background:     #D9D9D9;
+  font-size:      14px;
+  text-align:     center;
+}
+
+@-moz-document url-prefix() {
+	.login_button {
+		padding:      2px 0 4px 0;
+	}
+}
+
+.login_button:hover
+{
+  border:         1px solid #999999;
+  background:     #C9C9C9;
+  text-decoration:none;
+}
+
+.login_button:active
+{
+  background:     #B9B9B9;
+}
+
+.login_footer_text
+{
+  margin:         5px 0;
+}
+
+
+
+
+#signup_container
+{
+  float:            right;
+  margin:           20px 0;
+  padding:          10px;
+  background:       #F2F2F2;
+  border:           2px solid #DDDDDD;
+  min-height:       400px;
+  width:            400px;
+}
+
+#signup_title
+{
+  font-family:    'nu-century-gothic', 'sans-serif';
+  font-size:      25px;
+  letter-spacing: -1px;
+  word-spacing:   -5px;
+}
+
+#signup_container p
+{
+  margin:         15px 10px 10px 2px;
+  line-height:    15px;
+  font-size:      13px;
+}
+
+#signup_container ol
+{
+  font-size:      13px;
+  line-height:    16px;
+  margin:         30px 0 30px 40px;
+  list-style-type:decimal;
+}
+
