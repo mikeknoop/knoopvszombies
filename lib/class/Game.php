@@ -660,7 +660,7 @@ class Game {
     // Now update zombie
     // update zombie_kills, zombie_feed_timer
     if ($GLOBALS['User']->IsValidUser($feed1)) {
-    $sql = "UPDATE game_xref SET zombie_kills=zombie_kills+1, zombie_feed_timer=LEAST('$time', zombie_feed_timer + INTERVAL 1 day) WHERE gid='$gid' AND uid='$zombie_uid'";
+    $sql = "UPDATE game_xref SET zombie_kills=zombie_kills+1, zombie_feed_timer=LEAST('$time', zombie_feed_timer + 86400) WHERE gid='$gid' AND uid='$zombie_uid'";
     } else {
     $sql = "UPDATE game_xref SET zombie_kills=zombie_kills+1, zombie_feed_timer='$time' WHERE gid='$gid' AND uid='$zombie_uid'";
     }
@@ -675,7 +675,7 @@ class Game {
     if ($GLOBALS['User']->IsValidUser($feed1))
     {
       // Now mark them as fed
-      $sql = "UPDATE game_xref SET zombie_feed_timer='LEAST('$time', zombie_feed_timer + INTERVAL 1 day)' WHERE gid='$gid' AND uid='$feed1'";
+      $sql = "UPDATE game_xref SET zombie_feed_timer=LEAST('$time', zombie_feed_timer + 86400) WHERE gid='$gid' AND uid='$feed1'";
       if (!$GLOBALS['Db']->Execute($sql))
       {
         return false;
@@ -1250,7 +1250,7 @@ class Game {
    
           $attachFooter = true;
           $bcc = true;
-          $GLOBALS['Mail']->SimpleMail($to, $subject, $body, $attachFooter, $bcc);
+          //$GLOBALS['Mail']->SimpleMail($to, $subject, $body, $attachFooter, $bcc);
           
           
           // Now we need to email everyone that the game has officially begun
@@ -1266,7 +1266,7 @@ class Game {
           
           // Now send them an email
           $subject = "".UNIVERSITY." HvZ {$game['name']} Has Officially Begun!";
-          $body = "Hello,\n\rThis email is to inform you that the Humans vs. Zombies {$game['name']} has officially begun! Remember you must carry your Secret Game ID and bandanna with you at all times.\n\rYou have received a seperate email if you are an Original Zombie -- If you have not received it then you are a human.\n\rGood luck! If you have any questions or concerns please contact a moderator.\n\r";
+          $body = "Hello,\n\rThis email is to inform you that the Humans vs. Zombies {$game['name']} has officially begun! Remember you must carry two Game IDs and bandanna with you at all times. Good Luck.";
              
           $GLOBALS['Mail']->SimpleMail($to, $subject, $body, true, false);
           

@@ -87,8 +87,8 @@
                 <LI>Game devices may not be visible inside of academic buildings or jobs on campus (i.e. Nerf Devices). Make sure they are tucked away entirely, with no handles showing, etc.
                 <LI>Nerf markers must not hurt on impact. (If you're not sure about this, ask a moderator).
                 <LI>Common Sense. If something seems excessively dangerous, don't do it.
-                <LI>Stairways and the surrounding areas are always safe zones. This includes fire escapes and stairway entrances.
-                <LI>Doorways work the same as stairs, if a human has at least one foot inside a door he/she is safe, however a zombie must have both feet inside the doorway to be considered safe.
+                <LI>Stairs are safe for humans only. Zombies can be stunned on stairs, humans can not be tagged as long as they have at least one foot on the stairs. To count as stairs, there must be three vertical faces.
+                <LI>With doorways, if a human has at least one foot inside a door he/she is safe, however a zombie must have both feet inside the doorway to be considered safe.
                 <LI>Vehicles: Players on/in vehicles are outside of the game. They cannot be attacked, and cannot attack.  Players on roller blades are always safe because a push will cause them to move. (Please don't ride bikes, skateboards, or rollerblades at missions. You may use them to get to and from the mission location, but using them during the mission falls under DBAD).
              </OL></div>
 
@@ -112,7 +112,7 @@
               <LI>Residence Halls. Humans may not shoot out of windows or from fire escapes, either.
               <LI>Bathrooms
               <LI>All Buildings (four walls and a ceiling)
-              <LI>Stairs
+              <LI>Stairs are safe for humans only.
               <LI>Dining Halls
               <LI>Reser Stadium (inside, not on the plaza waiting for tickets)
               <LI>Personal Tents
