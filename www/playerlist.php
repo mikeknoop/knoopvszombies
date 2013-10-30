@@ -224,7 +224,7 @@
                 <td class="playerlist_table_cell playerlist_table_cell_squad">Squad</td>
                 <td class="playerlist_table_cell playerlist_table_cell_status">Status</td>
                 <td class="playerlist_table_cell playerlist_table_cell_zombiekills">Kills as Zombie</td>
-                <td class="playerlist_table_cell playerlist_table_cell_lastfeed">Last Feed as Zombie</td>
+                <td class="playerlist_table_cell playerlist_table_cell_lastfeed"dt>Starve Time</td>
               </tr>
               
               <?php if (count($playerArray) > 0): ?>
@@ -279,7 +279,7 @@
                         if ($player['status'] == 'human' || $player['zombie_feed_timer'] == 0 || ($GLOBALS['state']['oz_hidden'] && $player['oz']))
                           echo "--";
                         else
-                          echo date("D m/d, g:iA", $player['zombie_feed_timer']);
+                          echo date("D m/d, g:iA", $player['zombie_feed_timer'] + 172800);
                       ?>
                     </td>
                   </tr>

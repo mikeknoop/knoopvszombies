@@ -78,7 +78,24 @@
     <div class="clearfix"></div>
   </div>
   -->
-
+  <?php if ($viewing_self && ($GLOBALS['User']->IsPlayingCurrentGame($user['uid'])) && (isset($GLOBALS['state']['active']) && $game_xref['status'] == 'zombie')): ?>
+  <div class="content_row">
+    <div class="content_row_label">
+      Time until starve:
+    </div>
+    <div class="content_row_data">
+      <?php 
+        $time = $GLOBALS['User']->GetUserFromGame($user['uid']);
+        $time = $time['zombie_feed_timer']; 
+        $seconds = $time + 172800 - date("U");
+         $hours = floor($seconds / 3600);
+         $mins = floor(($seconds - ($hours*3600)) / 60);
+         echo $hours.":".$mins;
+      ?>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <?php endif ?>
   <div class="content_row">
     <div class="content_row_label">
       Lifetime kills as zombie:
