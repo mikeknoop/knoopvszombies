@@ -508,6 +508,7 @@ class SqlConnection {
     */
     function SelectDb($db)
     {
+      $this->Connect();
       mysql_select_db($db, $this->_MasterCnn);
     }
 
