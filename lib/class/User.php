@@ -473,7 +473,7 @@ class User {
     // Mail user at email address
     $to = $email;
     $subject = "".UNIVERSITY." HvZ Password Reset Link";
-    $body = "Hello,\n\rA password reset was recently requested for $email from IP address {$_SERVER['REMOTE_ADDR']}\n\rTo reset your password, please visit the following website address:\n".DOMAIN."/lostpassword/reset/$hash \nNote, if you cannot click on the link above, you may need to copy and paste it into your web browser.\n\rIf you received this email in error or did not request your password to be reset, you may safely ignore this email.\n";
+    $body = "Hello,<br>A password reset was recently requested for $email from IP address {$_SERVER['REMOTE_ADDR']}<br>To reset your password, please visit the following website address:<br>".DOMAIN."/lostpassword/reset/$hash <br>Note, if you cannot click on the link above, you may need to copy and paste it into your web browser.<br>If you received this email in error or did not request your password to be reset, you may safely ignore this email.<br>";
              
     if (!$GLOBALS['Mail']->SimpleMail($to, $subject, $body))
     {
@@ -566,7 +566,7 @@ class User {
 
     // Mail user at email address
     $subject = "".UNIVERSITY." HvZ Password Changed";
-    $body = "Hello,\n\rThe password to your ".UNIVERSITY." Humans vs. Zombies account was recently changed. If you did not request a password change, please alert a Moderator.\n";
+    $body = "Hello,<br>The password to your ".UNIVERSITY." Humans vs. Zombies account was recently changed. If you did not request a password change, please alert a Moderator.<br>";
              
     $GLOBALS['Mail']->SimpleMail($to, $subject, $body);
     
