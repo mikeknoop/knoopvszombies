@@ -15,7 +15,7 @@ class Mail {
    *
    * @return  bool
    */
-  function SimpleMail($to, $subject, $body, $attachFooter = true, $bcc = false, $time = false, $campaign = false) {
+  function SimpleMail($to, $subject, $body, $attachFooter = true, $bcc = false, $opt = false) {
    
    $mg_from = "".UNIVERSITY." Humans vs. Zombies <".EMAIL.">";
    $sig = "\r\nThanks,\n".UNIVERSITY." Humans vs. Zombies";
@@ -45,12 +45,10 @@ class Mail {
         $postfields["to"] = $to;
       }
 
-      if ($time) {
-        $postfields["o:deliverytime"] = $time;
-      }
-      
-      if ($campaign) {
-      	$postfields["o:campaign"] = $campaign
+      if ($opt) {
+        foreach ($opt as $option => $value){
+        	$postfields[option] = $value;
+        }
       }
 
       curl_setopt($ch, CURLOPT_POSTFIELDS, $postfields);
