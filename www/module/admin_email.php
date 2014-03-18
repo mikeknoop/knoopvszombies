@@ -105,12 +105,12 @@
     <div class="email_block">
       <div class="email_form_label">Body:</div>
       <div class="email_form">
-        <textarea class="email_form_body" name="email_body">Hello,<br><br>
+        <textarea class="email_form_body" name="email_body">Hello,<p>
 
 
 
 
-<br><br>
+</p>
 Thanks,<br>
 <?php echo UNIVERSITY; ?> Humans vs. Zombies</textarea>
       </div>
