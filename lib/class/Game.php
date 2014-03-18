@@ -1246,7 +1246,7 @@ class Game {
           
           // Now send them an email
           $subject = "".UNIVERSITY." HvZ You Are An Original Zombie!";
-          $body = "Hello,\n\rYou were randomly chosen to be an Original Zombie for the {$game['name']} game! This means that you start off as a zombie and can immediately begin tagging humans.\n\rRemember, Original Zombies DO NOT have to wear their bandanna on their head for the first 24 hours of the game. You may disguise yourself as a human!\n\rGood luck hunting! If there is a problem and you cannot be an Original Zombie, please contact the moderators immediately via the HvZ Mizzou Help Line (573.833.0385)\n\r";
+          $body = "Hello,\n\rYou were randomly chosen to be an Original Zombie for the {$game['name']} game! This means that you start off as a zombie and can immediately begin tagging humans.\n\rRemember, Original Zombies DO NOT have to wear their bandanna on their head for the first part of the game. You may disguise yourself as a human!\n\rGood luck hunting!";
    
           $attachFooter = true;
           $bcc = true;
@@ -1325,7 +1325,7 @@ class Game {
     {
       // Now send them an email
       $subject = "".UNIVERSITY." HvZ You Have Starved!";
-      $body = "Hello,\n\rBecause you have not fed on a human for 48 hours, you have starved! This means you are no longer a zombie and cannot register kills on the website. Thank you for playing! We hope you'll play again next semester.\n\r";
+      $body = "Hello,\n\rBecause you have not fed on a human for 60 hours, you have starved! This means you are no longer a zombie and cannot register kills on the website. Thank you for playing! We hope you'll play again next game.\n\r";
          
       $GLOBALS['Mail']->SimpleMail($to, $subject, $body);
     }
