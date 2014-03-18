@@ -36,7 +36,7 @@ class Mail {
    $postfields = array(  'from'      => $mg_from,
                          'h:Reply-To'=> '<' . $mg_reply_to_email . '>',
                          'subject'   => $subject,
-                         'text'      => $body,
+                         'html'      => $body,
             );
       if ($bcc) {
         $postfields["bcc"] = $to;
@@ -47,7 +47,7 @@ class Mail {
 
       if ($opt) {
         foreach ($opt as $option => $value){
-        	$postfields[option] = $value;
+        	$postfields[$option] = $value;
         }
       }
 
