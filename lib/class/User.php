@@ -379,14 +379,17 @@ class User {
     
     if ($update)
     {
-    $body = "Hello,\n\rThe account email address was recently updated for $email at ".DOMAIN.".\n\rTo use this new email address, you must confirm it by visiting the following website address:\n".DOMAIN."/emailconfirm/$hash \n\rNote, if you cannot click on the link above, you may need to copy and paste it into your web browser.\n\rIf you did not have an account at ".DOMAIN.", you may safely ignore this email.\n";
+    $body = "Hello,<br>An account was recently updated for $email at ".DOMAIN.".<br>To use this new email address, you must confirm it by visiting the following website address:<br><a href='".DOMAIN."/emailconfirm/$hash'>".DOMAIN."/emailconfirm/$hash</a><br>Note, if you cannot click on the link above, you may need to copy and paste it into your web browser.<br>If you did not request an account to be created, you may safely ignore this email.";
     }
     else
     {
-    $body = "Hello,\n\rAn account was recently created for $email at ".DOMAIN.".\n\rTo activate your account and join games each semester, you must confirm your email by visiting the following website address:\n".DOMAIN."/emailconfirm/$hash \n\rNote, if you cannot click on the link above, you may need to copy and paste it into your web browser.\n\rIf you did not request an account to be created, you may safely ignore this email.\n";
+    $body = "Hello,<br>An account was recently created for $email at ".DOMAIN.".<br>To activate your account and join games each semester, you must confirm your email by visiting the following website address:<br><a href='".DOMAIN."/emailconfirm/$hash'>".DOMAIN."/emailconfirm/$hash</a><br>Note, if you cannot click on the link above, you may need to copy and paste it into your web browser.<br>If you did not request an account to be created, you may safely ignore this email.";
     }
+    $footer = true;
+    $bcc = false;
+    $opt = array('o:campaign' => 'confirmation',);
     
-    if (!$GLOBALS['Mail']->SimpleMail($to, $subject, $body))
+    if (!$GLOBALS['Mail']->SimpleMail($to, $subject, $body, $footer, $bcc, $opt))
       return false;
    
     return true;
