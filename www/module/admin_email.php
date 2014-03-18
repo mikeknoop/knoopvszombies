@@ -13,7 +13,11 @@
         {
           $attachFooter = false;
           $bcc = true;
-          $GLOBALS['Mail']->SimpleMail($to, $subject, $body, $attachFooter, $bcc);
+          
+          $opt = false;
+          if (isset($_POST['campaign'])) {$opt = array('o:campaign' => 'c5rxu',);}
+          
+          $GLOBALS['Mail']->SimpleMail($to, $subject, $body, $attachFooter, $bcc, $opt);
         }
         catch (Exception $e)
         {
