@@ -15,7 +15,7 @@ class Mail {
    *
    * @return  bool
    */
-  function SimpleMail($to, $subject, $body, $attachFooter = true, $bcc = false, $time = false) {
+  function SimpleMail($to, $subject, $body, $attachFooter = true, $bcc = false, $time = false, $campaign = false) {
    
    $mg_from = "".UNIVERSITY." Humans vs. Zombies <".EMAIL.">";
    $sig = "\r\nThanks,\n".UNIVERSITY." Humans vs. Zombies";
@@ -25,36 +25,18 @@ class Mail {
    $mg_reply_to_email = EMAIL_REPLY_TO;   
    $mg_message_url = "https://".$mg_version.$mg_domain."/messages"; 
     // $to can be single email or comma seperated
-    // $bcc = false;
-    
-    if (true) {
-      /*$headers = '';
-      $headers .= 'From: '.$from . "\r\n";
-      $headers .= 'Reply-To: '.EMAIL_REPLY_TO.'' . "\r\n";
-      $headers .= 'Bcc: '.$to . "\r\n";
-      $headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
-
-      if ($attachFooter) {
-        $body = $body.$sig;
-      }
       
-      if (mail(ARCHIVE_EMAIL, $subject, $body, $headers)) {
-        return true;
-      } else {
-        return false;
-      }*/
+   $ch = curl_init();
+   curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+   curl_setopt($ch, CURLOPT_USERPWD, 'api:' . $mg_api);
+   curl_setopt($ch, CURLOPT_POST, true);
+   curl_setopt($ch, CURLOPT_URL, $mg_message_url);
+   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-      curl_setopt($ch, CURLOPT_USERPWD, 'api:' . $mg_api);
-      curl_setopt($ch, CURLOPT_POST, true);
-      curl_setopt($ch, CURLOPT_URL, $mg_message_url);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      
-      $postfields = array(  'from'      => $mg_from,
-                'h:Reply-To'=> '<' . $mg_reply_to_email . '>',
-                'subject'   => $subject,
-                'text'      => $body,
+   $postfields = array(  'from'      => $mg_from,
+                         'h:Reply-To'=> '<' . $mg_reply_to_email . '>',
+                         'subject'   => $subject,
+                         'text'      => $body,
             );
       if ($bcc) {
         $postfields["bcc"] = $to;
@@ -66,49 +48,16 @@ class Mail {
       if ($time) {
         $postfields["o:deliverytime"] = $time;
       }
+      
+      if ($campaign) {
+      	$postfields["o:campaign"] = $campaign
+      }
 
       curl_setopt($ch, CURLOPT_POSTFIELDS, $postfields);
       $result = curl_exec($ch);
       curl_close($ch);
       $res = json_decode($result,TRUE);
       return $res;
-
-    } else {
-      /*
-      $headers = '';
-      $headers .= 'From: '.$from . "\r\n";
-      $headers .= 'Reply-To: '.EMAIL_REPLY_TO.'' . "\r\n";
-      $headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
-
-      if ($attachFooter) {
-        $body = $body.$sig;
-      }
-      
-      if (mail($to, $subject, $body, $headers)) {
-        return true;
-      } else {
-        return false;
-      } */
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-      curl_setopt($ch, CURLOPT_USERPWD, 'api:' . $mg_api);
-      curl_setopt($ch, CURLOPT_POST, true);
-      curl_setopt($ch, CURLOPT_URL, $mg_message_url);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      
-      curl_setopt($ch, CURLOPT_POSTFIELDS,
-        array(  'from'      => $mg_from,
-                'to'        => $to,
-                'h:Reply-To'=> '<' . $mg_reply_to_email . '>',
-                'subject'   => $subject,
-                'text'      => $body,
-            ));
-      $result = curl_exec($ch);
-      curl_close($ch);
-      $res = json_decode($result,TRUE);
-      
-      return $res;
-    }
     
   }
   
