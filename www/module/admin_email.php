@@ -47,7 +47,7 @@
   <?php endif ?>
   
   <div class="email_block">
-    <p>Use the form below to send an email out to players.</p>
+    <p>Use the form below to send an email out to players. Email will be sent as HTML.</p>
   </div>
   
   <script type="text/javascript">
@@ -105,15 +105,21 @@
     <div class="email_block">
       <div class="email_form_label">Body:</div>
       <div class="email_form">
-        <textarea class="email_form_body" name="email_body">Hello,
+        <textarea class="email_form_body" name="email_body">Hello,<br><br>
 
 
 
 
-
-Thanks,
+<br><br>
+Thanks,<br>
 <?php echo UNIVERSITY; ?> Humans vs. Zombies</textarea>
       </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="email_block">
+      <div class="email_form_label">Tracking:</div>
+      <div class="email_form"><input type="checkbox" name="campaign"></div>
       <div class="clearfix"></div>
     </div>
 
