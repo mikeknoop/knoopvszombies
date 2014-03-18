@@ -12,7 +12,8 @@
         try
         {
           $attachFooter = false;
-          $GLOBALS['Mail']->SimpleMail($to, $subject, $body, $attachFooter, true);
+          $bcc = true;
+          $GLOBALS['Mail']->SimpleMail($to, $subject, $body, $attachFooter, $bcc);
         }
         catch (Exception $e)
         {
