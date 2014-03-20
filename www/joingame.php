@@ -16,7 +16,8 @@
   $ozoptin_success = false;
   $valid_game      = false;
   $already_joined  = false;
-  
+  $game_id         = false;
+ 
   if (isset($_GET['join']) && !isset($_GET['ozoptin']))
   {
     foreach ($games as $game)
@@ -26,6 +27,7 @@
         if ($game['registration_open'])
         {
           $valid_game = true;
+          $game_id = $_GET['join'];
         }
       }
     }
@@ -38,7 +40,11 @@
     foreach ($game_xref as $xref)
     {
       $user_joined_game[$xref['gid']] = true;
-      if ($xref['gid'] == $game['gid']) {$already_joined = true;}
+      if ($xref['gid'] === $game_id) {
+        $already_joined = true;
+        $joined_game = $GLOBALS['Game']->GetGame($_GET['join']);
+        $secret = $xref['secret'];
+      }
     }
   }
 
@@ -117,7 +123,7 @@
               {
                 require 'module/joingame_ozoptin.php';
               }
-              elseif (isset($_GET['join']) && $join_success)
+              elseif (isset($_GET['join']) && ($join_success || $already_joined))
               {
                 require 'module/joingame_join.php';
               }
