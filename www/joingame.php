@@ -11,9 +11,11 @@
   require 'module/general.php';
   
   $games = $GLOBALS['Game']->GetJoinable();
-  $join_success = false;
+  
+  $join_success    = false;
   $ozoptin_success = false;
-  $valid_game = false;
+  $valid_game      = false;
+  $already_joined  = false;
   
   if (isset($_GET['join']) && !isset($_GET['ozoptin']))
   {
@@ -36,10 +38,11 @@
     foreach ($game_xref as $xref)
     {
       $user_joined_game[$xref['gid']] = true;
+      if ($xref['gid'] == $game['gid']) {$already_joined = true;}
     }
   }
 
-  if ($valid_game)
+  if ($valid_game && !$already_joined)
   {
     $secret = $GLOBALS['Game']->GenerateSecret($_GET['join']);
     if ($GLOBALS['User']->JoinGame($_GET['join'], $_SESSION['uid'], $secret))
