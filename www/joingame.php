@@ -65,6 +65,7 @@
       $footer = true;
       $bcc = false;
       $opt = array('o:campaign' => 'gj',); 
+      $GLOBALS['Mail']->Resubscribe($to);
       $GLOBALS['Mail']->SimpleMail($to, $subject, $body, $footer, $bcc, $opt);
       
     }
