@@ -58,7 +58,51 @@ class Mail {
       return $res;
     
   }
-  
+
+  function HTMLMail($to, $subject, $html, $plaintext, $attachFooter = true, $bcc = false, $opt = false) {
+
+   $mg_from = "".UNIVERSITY." Humans vs. Zombies <".EMAIL.">";
+   $sig = "\r\nThanks,\n".UNIVERSITY." Humans vs. Zombies";
+   $mg_api = MAILGUN_API_KEY;
+   $mg_version = 'api.mailgun.net/v2/';
+   $mg_domain = "osundead.com";
+   $mg_reply_to_email = EMAIL_REPLY_TO;
+   $mg_message_url = "https://".$mg_version.$mg_domain."/messages";
+    // $to can be single email or comma seperated
+
+   $ch = curl_init();
+   curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+   curl_setopt($ch, CURLOPT_USERPWD, 'api:' . $mg_api);
+   curl_setopt($ch, CURLOPT_POST, true);
+   curl_setopt($ch, CURLOPT_URL, $mg_message_url);
+   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+   $postfields = array(  'from'             => $mg_from,
+                         'h:Reply-To'       => '<' . $mg_reply_to_email . '>',
+                         'subject'          => $subject,
+                         'html'             => $html,
+                         'text'             => $plaintext,
+                         'o:tracking-clicks'=> 'htmlonly',
+            );
+      if ($bcc) {
+        $postfields["bcc"] = $to;
+        $postfields["to"]  = ARCHIVE_EMAIL;
+      } else {
+        $postfields["to"] = $to;
+      }
+
+      if ($opt) {
+        foreach ($opt as $option => $value){
+                $postfields[$option] = $value;
+        }
+      }
+
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $postfields);
+      $result = curl_exec($ch);
+      curl_close($ch);
+      $res = json_decode($result,TRUE);
+      return $res;
+  } 
  /*
   *  Removes an address from the unsubscribe list hosted by Mailgun
   *
