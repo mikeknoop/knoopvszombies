@@ -59,7 +59,31 @@ class Mail {
     
   }
   
-  /*
+ /*
+  *  Removes an address from the unsubscribe list hosted by Mailgun
+  *
+  *  @return mixed
+  */
+  function Resubscribe($email) {
+    $mg_api = MAILGUN_API_KEY;
+    $mg_version = 'api.mailgun.net/v2/';
+    $mg_domain = "osundead.com";
+
+    $url = 'https://'.$mg_version.$mg_domain."/unsubscribes/".$email;
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+    curl_setopt($ch, CURLOPT_USERPWD, 'api:' . $mg_api);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $result = curl_exec($ch);
+    $result = json_decode($result);
+    curl_close($ch);
+
+    return $result;
+  }
+ /*
   *   Validates an email address per PHP standard
   *
   *   @return bool

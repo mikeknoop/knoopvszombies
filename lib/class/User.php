@@ -373,6 +373,9 @@ class User {
       }
     }
 
+    // Remove user from unsubscribe list
+    $GLOBALS['Mail']->Resubscribe($email);
+
     // Mail user at email address
     $to = $email;
     $subject = "".UNIVERSITY." HvZ Email Confirmation Link";
@@ -470,6 +473,7 @@ class User {
     
     //$GLOBALS['UserCache']->RemoveFromCache($uid);
     
+    $GLOBALS['Mail']->Resubscribe($email);
     // Mail user at email address
     $to = $email;
     $subject = "".UNIVERSITY." HvZ Password Reset Link";
