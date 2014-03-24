@@ -60,13 +60,14 @@
       // Mail user at email address
       $to = $_SESSION['email'];
       $subject = "".UNIVERSITY." HvZ Game Joined";
-      $body = "Hello,<br>Your ".UNIVERSITY." HvZ account succesfully joined the {$joined_game['name']} game. Your Secret Game ID for this game is: $secret<br>Write down this Secret Game ID and your full name on two index cards and carry these cards with you at all times! If you are unfamiliar with the rules, please read <a href='http://".DOMAIN."/rules'>them</a> and make sure to come to an orientation session.<br>Orientation times and dates are posted on the website <a href='http://".DOMAIN."/orientations'>here</a> <br>You must attend at least one orientation! These will aquaint you with rules, gameplay, and more. Please email the moderators if you cannot attend any of the orientations.<br>";
+      $html = "Hello,<br>Your ".UNIVERSITY." HvZ account succesfully joined the {$joined_game['name']} game. Your Secret Game ID for this game is: $secret<br>Write down this Secret Game ID and your full name on two index cards and carry these cards with you at all times! If you are unfamiliar with the rules, please read <a href='http://".DOMAIN."/rules'>them</a> and make sure to come to an orientation session.<br>Orientation times and dates are posted on the website <a href='http://".DOMAIN."/orientations'>here</a> <br>You must attend at least one orientation! These will aquaint you with rules, gameplay, and more. Please email the moderators if you cannot attend any of the orientations.<br>";
+      $text = "Hello,\r\nYour ".UNIVERSITY." HvZ account succesfully joined the {$joined_game['name']} game. Your Secret Game ID for this game is: $secret\r\nWrite down this Secret Game ID and your full name on two index cards and carry these cards with you at all times! If you are unfamiliar with the rules, please read http://".DOMAIN."/rules and make sure to come to an orientation session.\r\nOrientation times and dates are posted at http://".DOMAIN."/orientations \nYou must attend at least one orientation! These will aquaint you with rules, gameplay, and more. Please email the moderators if you cannot attend any of the orientations.\r\n";
 
       $footer = true;
       $bcc = false;
       $opt = array('o:campaign' => 'gj',); 
       $GLOBALS['Mail']->Resubscribe($to);
-      $GLOBALS['Mail']->SimpleMail($to, $subject, $body, $footer, $bcc, $opt);
+      $GLOBALS['Mail']->HTMLMail($to, $subject, $html, $text, $footer, $bcc, $opt);
       
     }
   }

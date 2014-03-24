@@ -33,10 +33,11 @@ class Mail {
    curl_setopt($ch, CURLOPT_URL, $mg_message_url);
    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       
-   $postfields = array(  'from'      => $mg_from,
-                         'h:Reply-To'=> '<' . $mg_reply_to_email . '>',
-                         'subject'   => $subject,
-                         'html'      => $body,
+   $postfields = array(  'from'              => $mg_from,
+                         'h:Reply-To'        => '<' . $mg_reply_to_email . '>',
+                         'subject'           => $subject,
+                         'text'              => $body,
+                         'o:tracking-clicks' => 'no',
             );
       if ($bcc) {
         $postfields["bcc"] = $to;

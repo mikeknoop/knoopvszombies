@@ -18,9 +18,10 @@
       // Mail user at email address
       $to = $user['email'];
       $subject = "".UNIVERSITY." HvZ Account Approved";
-      $body = "Hello,<br>Your ".UNIVERSITY." HvZ account was recently approved by a moderator. You may now join a game on the website.<br>To complete your account setup, you can log in to the website or follow this link: http://".DOMAIN."/signup/6<br>";
-               
-      $GLOBALS['Mail']->SimpleMail($to, $subject, $body);      
+      $html = "Hello,<br>Your ".UNIVERSITY." HvZ account was recently approved by a moderator. You may now join a game on the website.<br>To complete your account setup, you can log in to the website or follow this link: <a href='http://".DOMAIN."/signup/6'>http://".DOMAIN."/signup/6</a><br>";
+      $text = "Hello,\r\nYour ".UNIVERSITY." HvZ account was recently approved by a moderator. You may now join a game on the website.\r\nTo complete your account setup, you can log in to the website or follow this link: http://".DOMAIN."/signup/6\r\n";     
+    
+      $GLOBALS['Mail']->HTMLMail($to, $subject, $html, $text);      
 
       // Refresh details
       $users_to_approve = $GLOBALS['User']->GetUsersToApprove();
@@ -42,9 +43,10 @@
       // Mail user at email address
       $to = $user['email'];
       $subject = "".UNIVERSITY." HvZ Account Denied";
-      $body = "Hello,<br>Your ".UNIVERSITY." HvZ account was recently denied by a moderator. This may have occured for one of the following reasons:<br>1. You did not use your real name.<br>2. You did not use a photo of yourself.<br>3. Your waiver information did not match your name.<br>Please note that you may log into the website and re-fill in your waiver, name, and photo and submit again for approval. You can do so here: http://".DOMAIN."/signup<br>Remember, you can connect with your Facebook account on the Profile Information step for automatic approval.<br>";
-        
-      $GLOBALS['Mail']->SimpleMail($to, $subject, $body);  
+      $html = "Hello,<br>Your ".UNIVERSITY." HvZ account was recently denied by a moderator. This may have occured for one of the following reasons:<br>1. You did not use your real name.<br>2. You did not use a photo of yourself.<br>3. Your waiver information did not match your name.<br>Please note that you may log into the website and re-fill in your waiver, name, and photo and submit again for approval. You can do so here: http://".DOMAIN."/signup<br>Remember, you can connect with your Facebook account on the Profile Information step for automatic approval.<br>";
+      $text = "Hello,\r\nYour ".UNIVERSITY." HvZ account was recently denied by a moderator. This may have occured for one of the following reasons:\r\n1. You did not use your real name.\r\n2. You did not use a photo of yourself.<br>3. Your waiver information did not match your name.\r\nPlease note that you may log into the website and re-fill in your waiver, name, and photo and submit again for approval. You can do so here: http://".DOMAIN."/signup\r\mRemember, you can connect with your Facebook account on the Profile Information step for automatic approval.\r\n";  
+    
+      $GLOBALS['Mail']->HTMLMail($to, $subject, $html, $text);  
       
       // Refresh details
       $users_to_approve = $GLOBALS['User']->GetUsersToApprove();

@@ -698,9 +698,10 @@ class Game {
     // Send an email to the person turned into a zombie
     $to = $target_user['email'];
     $subject = "".UNIVERSITY." HvZ You are now a Zombie!";
-    $body = "Hello,<br>You were just turned into a Zombie on the ".UNIVERSITY." HvZ website (Someone entered your Secret Game ID)! You can now start tagging humans and reporting their Secret Game IDs on the website as well. Don't forget to wear you bandanna around your head.<br>";
+    $html = "Hello,<br>You were just turned into a Zombie on the ".UNIVERSITY." HvZ website (Someone entered your Secret Game ID)! You can now start tagging humans and reporting their Secret Game IDs on the website as well. Don't forget to wear you bandanna around your head.<br>";
 
-    $GLOBALS['Mail']->SimpleMail($to, $subject, $body);
+    $text = "Hello,\r\nYou were just turned into a Zombie on the ".UNIVERSITY." HvZ website (Someone entered your Secret Game ID)! You can now start tagging humans and reporting their Secret Game IDs on the website as well. Don't forget to wear you bandanna around your head.\r\n";
+    $GLOBALS['Mail']->HTMLMail($to, $subject, $body);
     
     // Set the person who got turned into a zombie as a zombie role on forum
     $GLOBALS['User']->AddForumRoleZombie($target_uid);
@@ -1266,9 +1267,10 @@ class Game {
           
           // Now send them an email
           $subject = "".UNIVERSITY." HvZ {$game['name']} Has Officially Begun!";
-          $body = "Hello,<br>This email is to inform you that the Humans vs. Zombies {$game['name']} has officially begun! Remember you must carry two Game IDs and bandanna with you at all times. Good Luck.";
+          $html = "Hello,<br>This email is to inform you that the Humans vs. Zombies {$game['name']} has officially begun! Remember you must carry two Game IDs and bandanna with you at all times. Good Luck.";
+          $text = "Hello,\r\nThis email is to inform you that the Humans vs. Zombies {$game['name']} has officially begun! Remember you must carry two Game IDs and bandanna with you at all times. Good Luck.";
              
-          $GLOBALS['Mail']->SimpleMail($to, $subject, $body, true, false);
+          $GLOBALS['Mail']->HTMLMail($to, $subject, $html, $text, true, false);
           
           // mark game active
           $this->UpdateGameColumn($game['gid'], 'active', '1');
@@ -1325,9 +1327,10 @@ class Game {
     {
       // Now send them an email
       $subject = "".UNIVERSITY." HvZ You Have Starved!";
-      $body = "Hello,<br>Because you have not fed on a human for 60 hours, you have starved! This means you are no longer a zombie and cannot register kills on the website. Thank you for playing! We hope you'll play again next game.<br>";
-         
-      $GLOBALS['Mail']->SimpleMail($to, $subject, $body);
+      $html = "Hello,<br>Because you have not fed on a human for 60 hours, you have starved! This means you are no longer a zombie and cannot register kills on the website. Thank you for playing! We hope you'll play again next game.<br>";
+      $text = "Hello,\r\nBecause you have not fed on a human for 60 hours, you have starved! This means you are no longer a zombie and cannot register kills on the website. Thank you for playing! We hope you'll play again next game.\r\n";   
+
+      $GLOBALS['Mail']->HTMLMail($to, $subject, $html, $text);
     }
 
   }

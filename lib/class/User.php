@@ -382,17 +382,19 @@ class User {
     
     if ($update)
     {
-    $body = "Hello,<br>An account was recently updated for $email at ".DOMAIN.".<br>To use this new email address, you must confirm it by visiting the following website address:<br><a href='".DOMAIN."/emailconfirm/$hash'>".DOMAIN."/emailconfirm/$hash</a><br>Note, if you cannot click on the link above, you may need to copy and paste it into your web browser.<br>If you did not request an account to be created, you may safely ignore this email.";
+    $html = "Hello,<br>An account was recently updated for $email at ".DOMAIN.".<br>To use this new email address, you must confirm it by visiting the following website address:<br><a href='".DOMAIN."/emailconfirm/$hash'>".DOMAIN."/emailconfirm/$hash</a><br>Note, if you cannot click on the link above, you may need to copy and paste it into your web browser.<br>If you did not request an account to be created, you may safely ignore this email.";
+    $text = "Hello,\r\nAn account was recently updated for $email at ".DOMAIN.".\r\nTo use this new email address, you must confirm it by visiting the following website address:\r\n".DOMAIN."/emailconfirm/$hash".DOMAIN."\nNote, if you cannot click on the link above, you may need to copy and paste it into your web browser.\r\nIf you did not request an account to be created, you may safely ignore this email.";
     }
     else
     {
-    $body = "Hello,<br>An account was recently created for $email at ".DOMAIN.".<br>To activate your account and join games each semester, you must confirm your email by visiting the following website address:<br><a href='".DOMAIN."/emailconfirm/$hash'>".DOMAIN."/emailconfirm/$hash</a><br>Note, if you cannot click on the link above, you may need to copy and paste it into your web browser.<br>If you did not request an account to be created, you may safely ignore this email.";
+    $html = "Hello,<br>An account was recently created for $email at ".DOMAIN.".<br>To activate your account and join games each semester, you must confirm your email by visiting the following website address:<br><a href='".DOMAIN."/emailconfirm/$hash'>".DOMAIN."/emailconfirm/$hash</a><br>Note, if you cannot click on the link above, you may need to copy and paste it into your web browser.<br>If you did not request an account to be created, you may safely ignore this email.";
+    $text = "Hello,\nAn account was recently created for $email at ".DOMAIN.".\r\nTo activate your account and join games each semester, you must confirm your email by visiting the following website address:\r\n".DOMAIN."/emailconfirm/$hash\r\nNote, if you cannot click on the link above, you may need to copy and paste it into your web browser.\r\nIf you did not request an account to be created, you may safely ignore this email.";
     }
     $footer = true;
     $bcc = false;
     $opt = array('o:campaign' => 'confirmation',);
     
-    if (!$GLOBALS['Mail']->SimpleMail($to, $subject, $body, $footer, $bcc, $opt))
+    if (!$GLOBALS['Mail']->HTMLMail($to, $subject, $html, $text, $footer, $bcc, $opt))
       return false;
    
     return true;
@@ -478,8 +480,9 @@ class User {
     $to = $email;
     $subject = "".UNIVERSITY." HvZ Password Reset Link";
     $body = "Hello,<br>A password reset was recently requested for $email from IP address {$_SERVER['REMOTE_ADDR']}<br>To reset your password, please visit the following website address:<br>".DOMAIN."/lostpassword/reset/$hash <br>Note, if you cannot click on the link above, you may need to copy and paste it into your web browser.<br>If you received this email in error or did not request your password to be reset, you may safely ignore this email.<br>";
+    $text = "Hello,\r\nA password reset was recently requested for $email from IP address {$_SERVER['REMOTE_ADDR']}\r\nTo reset your password, please visit the following website address:\r\n".DOMAIN."/lostpassword/reset/$hash\r\nNote, if you cannot click on the link above, you may need to copy and paste it into your web browser.\r\nIf you received this email in error or did not request your password to be reset, you may safely ignore this email.\r\n";
              
-    if (!$GLOBALS['Mail']->SimpleMail($to, $subject, $body))
+    if (!$GLOBALS['Mail']->HTMLMail($to, $subject, $body, $text))
     {
       return false;
     }
@@ -570,9 +573,10 @@ class User {
 
     // Mail user at email address
     $subject = "".UNIVERSITY." HvZ Password Changed";
-    $body = "Hello,<br>The password to your ".UNIVERSITY." Humans vs. Zombies account was recently changed. If you did not request a password change, please alert a Moderator.<br>";
-             
-    $GLOBALS['Mail']->SimpleMail($to, $subject, $body);
+    $html = "Hello,<br>The password to your ".UNIVERSITY." Humans vs. Zombies account was recently changed. If you did not request a password change, please alert a Moderator.<br>";
+    $text = "Hello,\r\nThe password to your ".UNIVERSITY." Humans vs. Zombies account was recently changed. If you did not request a password change, please alert a Moderator.\r\n";     
+    
+    $GLOBALS['Mail']->HTMLMail($to, $subject, $html, $text);
     
     return true;
     
