@@ -14,7 +14,7 @@
         OSUndead &copy <?php echo date("Y"); ?>
         </div>
         <div id="footer_design">
-        Using the <a class="footer" href="https://github.com/mikeknoop/knoopvszombies">KnoopVsZombies</a> game engine by <a class="footer" href="http://mikeknoop.com">Mike Knoop</a>
+        Using the <a class="footer" href="https://github.com/rylinks/knoopvszombies">KnoopVsZombies</a> game engine by <a class="footer" href="http://mikeknoop.com">Mike Knoop</a>
         </div>
       </div>
 
