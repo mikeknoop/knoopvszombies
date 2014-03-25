@@ -42,7 +42,7 @@
   </div>
   
   <div class="joingame_header">
-    <p>You are now ready to play! Grab your Nerf Gun and your socks and get ready to take on the zombie horde! We will have email announcments closer to game time so stay tuned.</p> 
+    <p>You are now ready to play! Grab your Nerf Blaster and your socks and get ready to take on the zombie horde! We will have email announcments closer to game time so stay tuned.</p> 
   </div>
   
 

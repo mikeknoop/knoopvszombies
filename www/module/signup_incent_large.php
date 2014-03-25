@@ -8,7 +8,7 @@
   <li>Make new friends and meet new people</li>
   <li>Get some intense workouts</li>
   <li>Experience week long, 24/7 paranoia</li>
-  <li>An excuse to carry your awesome Nerf Gun around</li>
+  <li>An excuse to carry your awesome Nerf Blaster around</li>
   </ol>
   
   <p>Not convinced yet? Check out the <a target="_new" href="http://vimeo.com/1956330"><span class="accent_color">epic HvZ documentary</span></a> then come back and <a href="http://<?php echo DOMAIN; ?>/signup"><span class="accent_color">sign up</span></a>.</p>
