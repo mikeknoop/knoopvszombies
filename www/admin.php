@@ -112,6 +112,10 @@
                   require 'module/admin_email.php';
                 break;
                 
+                case 'htmlemail':
+                  require 'module/admin_htmlemail.php';
+                break;
+
                 case 'game':
                   require 'module/admin_game.php';
                 break;

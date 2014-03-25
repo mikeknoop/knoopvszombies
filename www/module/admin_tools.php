@@ -24,6 +24,10 @@
     <a class="admin_tool_link" href="http://<?php echo DOMAIN; ?>/admin/email"><li <?php if (isset($_GET['view'])) { if ($_GET['view'] == 'email') { echo "class=\"admin_tool_highlight\""; } }?>>Send Email</li></a>
     <?php endif ?>
 
+    <?php if ($GLOBALS['Misc']->StringWithin('htmlemail', $_SESSION['privileges'])): ?>
+    <a class="admin_tool_link" href="http://<?php echo DOMAIN; ?>/admin/htmlemail"><li <?php if (isset($_GET['view'])) { if ($_GET['view'] == 'htmlemail') { echo "class=\"admin_tool_highlight\""; } }?>>Send Email(HTML)</li></a>
+    <?php endif ?>
+
     <?php if ($GLOBALS['Misc']->StringWithin('game', $_SESSION['privileges'])): ?>
     <a class="admin_tool_link" href="http://<?php echo DOMAIN; ?>/admin/game"><li <?php if (isset($_GET['view'])) { if ($_GET['view'] == 'game') { echo "class=\"admin_tool_highlight\""; } }?>>Edit/Create Games</li></a>
     <?php endif ?>
