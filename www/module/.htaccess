@@ -1,0 +1,8 @@
+Order deny,allow
+deny from all
+
+<files "_autocomplete_name.php">
+order deny,allow
+allow from all
+</files>
+
