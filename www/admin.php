@@ -60,6 +60,7 @@
   <link href="//<?php echo DOMAIN; ?>/css/page/admin.css" rel="stylesheet" type="text/css"/>
   <link href="//<?php echo DOMAIN; ?>/css/fb.css" rel="stylesheet" type="text/css"/>
   <link href="//<?php echo DOMAIN; ?>/css/page/playerlist.css" rel="stylesheet" type="text/css"/>
+  <link href="//<?php echo DOMAIN; ?>/css/page/feed.css" rel="stylesheet" type="text/css"/>
 
 </head>
 
@@ -94,6 +95,10 @@
               {
                 case 'playerlist':
                   require 'module/admin_playerlist.php';
+                break;
+
+                case 'feed':
+                  require 'module/admin_feed.php';
                 break;
 
                 case 'accounts':

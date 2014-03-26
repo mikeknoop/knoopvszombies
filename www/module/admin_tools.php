@@ -8,6 +8,10 @@
     <a class="admin_tool_link" href="http://<?php echo DOMAIN; ?>/admin/playerlist"><li <?php if (isset($_GET['view'])) { if ($_GET['view'] == 'playerlist') { echo "class=\"admin_tool_highlight\""; } } else { echo "class=\"admin_tool_highlight\""; } ?>>Edit Current Players</li></a>
     <?php endif ?>
 
+    <?php if ($GLOBALS['Misc']->StringWithin('feed', $_SESSION['privileges'])): ?>
+    <a class="admin_tool_link" href="http://<?php echo DOMAIN; ?>/admin/feed"><li <?php if (isset($_GET['view'])) { if ($_GET['view'] == 'feed') { echo "class=\"admin_tool_highlight\""; } }?>>Feed Cards</li></a>
+    <?php endif ?>
+
     <?php if ($GLOBALS['Misc']->StringWithin('accounts', $_SESSION['privileges'])): ?>
     <a class="admin_tool_link" href="http://<?php echo DOMAIN; ?>/admin/accounts"><li <?php if (isset($_GET['view'])) { if ($_GET['view'] == 'accounts') { echo "class=\"admin_tool_highlight\""; } }?>>Edit User Accounts</li></a>
     <?php endif ?>

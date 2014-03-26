@@ -972,6 +972,15 @@ class Game {
   }
   
   /**
+  * Returns an array of feed cards for the given game
+  *
+  * @return array
+  */
+  function GetFeedCards($gid){
+    $return = array();
+    return $return;
+  }
+  /**
   *
   *  Clears all game chache files (game*)
   *
