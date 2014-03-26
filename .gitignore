@@ -2,6 +2,7 @@
 !/cache/includedir
 !/cache/rate/
 !/cache/user/
+*.swp
 
 /cache/rate/*
 !/cache/rate/includedir
