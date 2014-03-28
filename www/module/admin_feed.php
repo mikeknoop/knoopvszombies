@@ -4,7 +4,7 @@
     $number = $_POST['number'];
     $hours  = $_POST['time'];
     $expiry = $_POST['expiry'];
-    $kill   = $_POST['kill'];
+    $kill   = (isset($_POST['kill'])) ? '1' : '0';
   
     if ($number > 500) {
       $message = 'Max 500 cards at once';
@@ -16,8 +16,6 @@
       $message = 'Invalid expiration date';
       goto error;
     }
-    
-    $kill = ($kill == 'on') ? '1' : '0'; 
     
     $ids = $GLOBALS['Game']->AddFeedCards($GLOBALS['state']['gid'], $number, $hours, $expiry, $kill);
     foreach ($ids as $id) {
