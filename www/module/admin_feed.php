@@ -1,27 +1,59 @@
 <?php 
-//Logic to handle submissions
-  $message = false;  
+  $message = false;
+  if (isset($_GET['action']) && $_GET['action'] == 'save') {
+    $number = $_POST['number'];
+    $hours  = $_POST['time'];
+    $expiry = $_POST['expiry'];
+    $kill   = $_POST['kill'];
+  
+    if ($number > 500) {
+      $message = 'Max 500 cards at once';
+      goto error;
+    }
+    $hours = floor($hours * 3600);
+
+    if ($expiry != '' && !$expiry = strtotime($expiry)){ //this is far too clever for my own good
+      $message = 'Invalid expiration date';
+      goto error;
+    }
+    
+    $kill = ($kill == 'on') ? '1' : '0'; 
+    
+    $ids = $GLOBALS['Game']->AddFeedCards($GLOBALS['state']['gid'], $number, $hours, $expiry, $kill);
+    foreach ($ids as $id) {
+      echo $id."<br>";
+    }
+    return;
+  }
+  
+  if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['target'])) {
+  	$GLOBALS['Game']->DeleteFeedCard($GLOBALS['state']['gid'], $_GET['target']);
+  	$message = 'Feed card deleted';
+  }
+  
+  error:
 ?>
 
   <div id="admin_title">
   Feed Cards
   </div>
+  <?php if ($message): ?>
+  <div class="admin_status">
+  <?php
+        echo($message);
+  ?>
+  </div>
+  <?php endif ?> 
   <div class="gameplay_block_title">
   Create:
   </div> 
-  <?php if ($message): ?>
-  <div class="admin_status">
-    <?php
-        echo($message);
-    ?>
-  </div>
-  <?php endif ?> 
+
   
-  <form class="playerlist_add_form" name="playerlist_add_form" action="http://<?php echo DOMAIN; ?>/admin/feed/save/" method="POST">
+  <form class="playerlist_add_form" name="playerlist_add_form" action="http://<?php echo DOMAIN; ?>/admin/feed/save" method="POST">
   
   <div class="admin_playerlist_edit_row_container">
     <div class="admin_playerlist_edit_row_label">
-    Number of cards:
+    Number of Cards:
     </div>
     <div class="admin_playerlist_edit_row_form">
       <input type="text" name="number" value="20" />
@@ -60,7 +92,7 @@
     Kill:
     </div>
     <div class="admin_playerlist_edit_row_form">
-      <input type="checkbox" name="current" checked="true"> 
+      <input type="checkbox" name="kill" checked="true"> 
     </div>
   </div>
 
@@ -87,7 +119,7 @@
 
     <table class="feed_table">
       <tr class="feed_table_row_headerfooter">
-        <td class="feed_table_cell feed_table_cell_id">id</td>
+        <td class="feed_table_cell feed_table_cell_id">Code</td>
         <td class="feed_table_cell feed_table_cell_time">Hours</td>
         <td class="feed_table_cell feed_table_cell_kill">Kill</td>
         <td class="feed_table_cell feed_table_cell_expiry">Expiry</td>
@@ -100,12 +132,31 @@
           <tr class="feed_table_row">
             <td class="feed_table_cell">
               <?php 
-                  echo $fc['fid'];
+                  echo $fc['secret'];
               ?>
             </td>
             <td class="feed_table_cell">
               <?php 
-                  echo 60 *  $fc['time'];
+                  echo $fc['feedtime']/3600;
+              ?>
+            </td>
+            </td>
+            <td class="feed_table_cell">
+              <?php
+                  $kill = ($fc['kl']) ? 'yes' : 'no';
+                  echo $kill;
+              ?>
+            </td>
+            <td class="feed_table_cell">
+              <?php 
+                  $expire = ($fc['expiration']) ? date('Y-m-d H:i:s', $fc['expiration']) : 'none';
+                  echo $expire;
+              ?>
+            </td>
+            <td class="feed_table_cell">
+              <?php
+                  $used = ($fc['used_by']) ? $fc['used_by'] : 'unused';
+                  echo $used;
               ?>
             </td>
             <td class="feed_table_cell">

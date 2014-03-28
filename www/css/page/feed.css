@@ -45,6 +45,7 @@
 {
   padding:      5px 5px 5px 8px;
   vertical-align:middle;
+  font-size: 12px;
 }
 
 .feed_table_row_headerfooter
@@ -57,7 +58,7 @@
 
 .feed_table_row
 {
-  height:       90px;
+  height:       45px;
 }
 
 .feed_table_cell_picture
