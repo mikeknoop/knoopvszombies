@@ -58,7 +58,7 @@
 
 .feed_table_row
 {
-  height:       45px;
+ height:       25px;
 }
 
 .feed_table_cell_picture
@@ -68,7 +68,7 @@
 
 .feed_table_cell_id
 {
-  width:        250px;
+  width:        150px;
 }
 
 .feed_table_cell_time
@@ -92,7 +92,7 @@
 
 .feed_table_cell_expiry
 {
-  width:        200px;
+  width:        300px;
 }
 
 .table_cell_center
