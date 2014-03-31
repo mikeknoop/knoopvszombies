@@ -279,7 +279,7 @@
                         if ($player['status'] == 'human' || $player['zombie_feed_timer'] == 0 || ($GLOBALS['state']['oz_hidden'] && $player['oz']))
                           echo "--";
                         else
-                          echo date("D m/d, g:iA", $player['zombie_feed_timer'] + 172800);
+                          echo date("D m/d, g:iA", $player['zombie_feed_timer'] + ZOMBIE_MAX_FEED_TIMER);
                       ?>
                     </td>
                   </tr>

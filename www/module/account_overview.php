@@ -87,7 +87,7 @@
       <?php 
         $time = $GLOBALS['User']->GetUserFromGame($user['uid']);
         $time = $time['zombie_feed_timer']; 
-        $seconds = $time + 172800 - date("U");
+        $seconds = $time + ZOMBIE_MAX_FEED_TIMER - date("U");
          $hours = floor($seconds / 3600);
          $mins = floor(($seconds - ($hours*3600)) / 60);
          echo $hours.":".$mins;
