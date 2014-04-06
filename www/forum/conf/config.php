@@ -7,7 +7,7 @@ $Configuration['Conversations']['Version'] = '2.0.16';
 $Configuration['Database']['Name'] = 'hvz_lab';
 $Configuration['Database']['Host'] = 'mysql.osundead.com';
 $Configuration['Database']['User'] = 'webengine';
-$Configuration['Database']['Password'] = 'amberlamps';
+$Configuration['Database']['Password'] = DATABASE_PASS_FOR_WEB;
 
 // EnabledApplications
 $Configuration['EnabledApplications']['Skeleton'] = 'skeleton';
