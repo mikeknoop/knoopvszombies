@@ -15,9 +15,8 @@ class Mail {
    *
    * @return  bool
    */
-  function SimpleMail($to, $subject, $body, $attachFooter = true, $bcc = false, $opt = false) {
-   
-   $mg_from = "".UNIVERSITY." Humans vs. Zombies <".EMAIL.">";
+  function SimpleMail($to, $subject, $body, $attachFooter = true, $bcc = false, $opt = false, $from = false) {
+   $mg_from = ($from ? $from : "".UNIVERSITY." Humans vs. Zombies <".EMAIL.">");
    $sig = "\r\nThanks,\n".UNIVERSITY." Humans vs. Zombies";
    $mg_api = MAILGUN_API_KEY;
    $mg_version = 'api.mailgun.net/v2/';
@@ -60,9 +59,8 @@ class Mail {
     
   }
 
-  function HTMLMail($to, $subject, $html, $plaintext, $attachFooter = true, $bcc = false, $opt = false) {
-
-   $mg_from = "".UNIVERSITY." Humans vs. Zombies <".EMAIL.">";
+  function HTMLMail($to, $subject, $html, $plaintext, $attachFooter = true, $bcc = false, $opt = false, $from = false) {
+   $mg_from = ($from ? $from : "".UNIVERSITY." Humans vs. Zombies <".EMAIL.">");
    $sig = "\r\nThanks,\n".UNIVERSITY." Humans vs. Zombies";
    $mg_api = MAILGUN_API_KEY;
    $mg_version = 'api.mailgun.net/v2/';

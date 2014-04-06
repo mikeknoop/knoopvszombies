@@ -8,6 +8,7 @@
         $subject = $_POST['email_subject'];
         $html = $_POST['email_html'];
         $text = $_POST['email_text'];
+        $from = ( isset($_POST['email_from']) ? $POST['email_from'] : false);
 
         $send_error = null;
         try
@@ -100,6 +101,12 @@
     <div class="email_block">
       <div class="email_form_label">Subject:</div>
       <div class="email_form"><input class="email_form_subject" type="textbox" name="email_subject" value="<?php echo UNIVERSITY; ?> HvZ" /></div>
+      <div class="clearfix"></div>
+    </div>
+    
+   <div class="email_block">
+      <div class="email_form_label">From (blank for default):</div>
+      <div class="email_form"><input class="email_form_subject" type="textbox" name="email_from"/></div>
       <div class="clearfix"></div>
     </div>
 
