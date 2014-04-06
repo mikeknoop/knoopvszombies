@@ -14,7 +14,8 @@ ol.rules
 }
 ol.rules ol
 {
-	list-style-type: decimal;
+	list-style-type: lower-alpha;
+        padding: 10px;
 }
 
 .even
