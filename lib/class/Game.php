@@ -971,6 +971,52 @@ class Game {
     
   }
   
+  function AddFeedCards($gid, $number, $time, $expiry, $kill) {
+    $words = file(DOCUMENT_ROOT.'/lib/wordlist.txt');
+    $ids   = array();
+
+    for ($ii=0; $ii < $number; $ii++) {
+      do {
+        $word = trim($words[(rand(0, count($words)))]);
+        $num1 = rand(10,99);
+        $num2 = rand(100,999);
+        $id = $num1.$word.$num2;
+
+        $dupe = false;
+        if (in_array($id, $ids, true)) { $dupe = true; }
+        
+        $sql = "SELECT fid FROM feed_cards WHERE secret = '$id' AND gid = '$gid'";
+        $results = $GLOBALS['Db']->GetRecords($sql);
+        if (is_array($results) && count($results) > 0) { $dupe = true; }
+      } while ($dupe);
+      
+      $ids[$ii] = $id;
+      if ($expiry == '') {
+      	$sql = "INSERT INTO feed_cards (gid,secret,feedtime,kl,expiration) VALUES('$gid', '$id', '$time', '$kill', NULL)";
+      } else {
+        $sql = "INSERT INTO feed_cards (gid,secret,feedtime,kl,expiration) VALUES('$gid', '$id', '$time', '$kill', $expiry)";
+      }
+      $GLOBALS['Db']->Execute($sql);
+    } 
+    return $ids;
+  }
+  /**
+  * Returns an array of feed cards for the given game
+  *
+  * @return array
+  */
+  function GetFeedCards($gid){
+    $sql = "SELECT fid,secret,feedtime,kl,expiration,used_by FROM feed_cards WHERE gid = '$gid'";
+    $results = $GLOBALS['Db']->GetRecords($sql);
+    return $results;
+  }
+  
+  function DeleteFeedCard($gid, $fid) {
+  	$sql = "DELETE FROM feed_cards WHERE fid='$fid'";
+  	$result = $GLOBALS['Db']->Execute($sql);
+  	return $result;
+  }
+  
   /**
   *
   *  Clears all game chache files (game*)
