@@ -722,7 +722,7 @@ class Game {
     // Check that feed1 is a player
     if ($GLOBALS['User']->IsValidUser($feed1))
     {
-      $sql = "SELECT game_xref.uid, game_xref.status, game_xref.zombie_feed_timer, game_xref.zombied_time, user.name FROM game_xref LEFT JOIN user ON game_xref.uid = user.uid WHERE secret='$secret' AND gid='$gid'";
+      $sql = "SELECT game_xref.uid, game_xref.status, game_xref.zombie_feed_timer, game_xref.zombied_time, user.name FROM game_xref LEFT JOIN user ON game_xref.uid = user.uid WHERE user.uid='$feed1' AND gid='$gid'";
 
       $results = $GLOBALS['Db']->GetRecords($sql);
       $share = $results[0];
@@ -748,7 +748,7 @@ class Game {
     // Check that feed2 is a player
     if ($GLOBALS['User']->IsValidUser($feed2))
     {
-      $sql = "SELECT game_xref.uid, game_xref.status, game_xref.zombie_feed_timer, game_xref.zombied_time, user.name FROM game_xref LEFT JOIN user ON game_xref.uid = user.uid WHERE secret='$secret' AND gid='$gid'";
+      $sql = "SELECT game_xref.uid, game_xref.status, game_xref.zombie_feed_timer, game_xref.zombied_time, user.name FROM game_xref LEFT JOIN user ON game_xref.uid = user.uid WHERE user.uid='$feed2' AND gid='$gid'";
 
       $results = $GLOBALS['Db']->GetRecords($sql);
       $share = $results[0];
