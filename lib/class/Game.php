@@ -310,7 +310,7 @@ class Game {
           $return[1] = 'The secret game ID belonged to '.$results[0]['name'].' but they received a new secret from the moderators. Your tag has not been counted and '.$results[0]['name'].' is still human. This is likely due to you taking too long to enter the secret game ID. Remember, all tags must be reported within 3 hours. If you think is in error, <a class="accent_color" href="mailto:'.EMAIL.'">contact a moderator</a> and send them the secret game ID.';
         }
       }
-      elseif (is_array($fcresults) && count($fcresults >0)){
+      elseif (is_array($fcresults) && count($fcresults) > 0){
         
         if ($fcresults[0]['used_by'] != null){
           $return[0] = false;
