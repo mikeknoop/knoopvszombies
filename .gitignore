@@ -23,6 +23,7 @@
 
 /www/img/Thumbs.db
 /www/img/mods/Thumbs.db
+/www/img/email/*
 
 /www/img/user/*
 !/www/img/user/includedir

@@ -256,6 +256,10 @@ class Game {
     
     $results = $GLOBALS['Db']->GetRecords($sql);
     
+
+    $sql = "SELECT secret, used_by, expiration FROM feed_cards WHERE secret='$secret' AND gid='$gid'";
+    $fcresults = $GLOBALS['Db']->GetRecords($sql);
+
     if (is_array($results) && count($results) > 0)
     {
       // Row exists
@@ -304,6 +308,19 @@ class Game {
           // Row exists, which means user is likely trying to enter an ID of a person more than 3 hours later. But it could be the owner of the ID is giving out their old ID
           $return[0] = false;
           $return[1] = 'The secret game ID belonged to '.$results[0]['name'].' but they received a new secret from the moderators. Your tag has not been counted and '.$results[0]['name'].' is still human. This is likely due to you taking too long to enter the secret game ID. Remember, all tags must be reported within 3 hours. If you think is in error, <a class="accent_color" href="mailto:'.EMAIL.'">contact a moderator</a> and send them the secret game ID.';
+        }
+      }
+      elseif (is_array($fcresults) && count($fcresults >0)){
+        
+        if ($fcresults[0]['used_by'] != null){
+          $return[0] = false;
+          $return[1] = 'This feed card has already been used. If you think this is an error, contact the moderators.';
+        } elseif ($fcresults[0]['expiration'] < date("U") && $fcresults[0]['expiration']) {
+          $return[0] = false;
+          $return[1] = 'This feed card expired on '.date('F j H:i:s', $fcresults[0]['expiration']).'. If you think this is an error, contact the moderators.';
+        } else {
+          $return[0] = true;
+          $return[1] = 'The feed card was sucessfully entered.';
         }
       }
       else
@@ -625,7 +642,7 @@ class Game {
   *
   *
   */
-  function RegisterKill($gid, $zombie_uid, $targetSecret, $feed1=null, $feed2=null, $location_x=null, $location_y=null)
+  function RegisterKill($gid, $zombie_uid, $targetSecret, $feed1=null, $feed2=null, $location_x=null, $location_y=null, $self_time=ZOMBIE_MAX_FEED_TIMER)
   {
     $zombie_uid = addslashes($zombie_uid);
     $targetSecret = strtolower(trim(addslashes($targetSecret)));
@@ -634,23 +651,39 @@ class Game {
     $location_x = addslashes($location_x);
     $location_y = addslashes($location_y);
     $time = date("U");
-
+  
     // First, update game_xref for target
     // Need to get the UID of the target
-    $sql = "SELECT uid FROM game_xref WHERE secret='$targetSecret'";
+    $sql = "SELECT uid FROM game_xref WHERE secret='$targetSecret' AND gid='$gid'";
     $results = $GLOBALS['Db']->GetRecords($sql);
+    $sql = "SELECT fid, feedtime, kl, expiration FROM feed_cards WHERE secret='$targetSecret' AND gid='$gid'";
+    $fcresults = $GLOBALS['Db']->GetRecords($sql);
+
     if (is_array($results) && count($results) > 0)
     {
       $target_uid = $results[0]['uid'];
       $target_user = $GLOBALS['User']->GetUser($target_uid);
+      $feed_type = 'player';
+      $feed_time = ZOMBIE_MAX_FEED_TIMER;
     }
+    elseif (is_array($fcresults) && count($fcresults) > 0) {
+      $target_fid = $fcresults[0]['fid'];
+      $feed_type = 'feed_card';
+      $feed_card = $fcresults[0];
+      $feed_time = $feed_card['feedtime'];
+    } 
     else
     {
       return false;
     }
     
     // update status, zombied_time, zombie_feed_timer, zombie_killed_by
-    $sql = "UPDATE game_xref SET status='zombie', zombied_time='$time', zombie_feed_timer='$time', zombie_killed_by='$zombie_uid', zombied_where_x='$location_x', zombied_where_y='$location_y' WHERE gid='$gid' AND uid='$target_uid'";
+    
+    if ($feed_type == 'player') {$sql = "UPDATE game_xref SET 
+                                              status='zombie', zombied_time='$time', zombie_feed_timer='$time', zombie_killed_by='$zombie_uid', zombied_where_x='$location_x', zombied_where_y='$location_y' 
+                                              WHERE gid='$gid' AND uid='$target_uid'";}
+    if ($feed_type == 'feed_card') {$sql = "UPDATE feed_cards SET used_by = '$zombie_uid' WHERE fid = '$target_fid'";}
+
     if (!$GLOBALS['Db']->Execute($sql))
     {
       return false;
@@ -658,86 +691,126 @@ class Game {
     $GLOBALS['Db']->Commit();
     
     // Now update zombie
-    // update zombie_kills, zombie_feed_timer
-    if ($GLOBALS['User']->IsValidUser($feed1)) {
-    $sql = "UPDATE game_xref SET zombie_kills=zombie_kills+1, zombie_feed_timer=LEAST('$time', zombie_feed_timer + 86400) WHERE gid='$gid' AND uid='$zombie_uid'";
-    } else {
-    $sql = "UPDATE game_xref SET zombie_kills=zombie_kills+1, zombie_feed_timer='$time' WHERE gid='$gid' AND uid='$zombie_uid'";
+    // update zombie_kills
+    if ($feed_type == 'player' || $feed_card['kl']) {
+      $sql = "UPDATE game_xref SET zombie_kills=zombie_kills+1 WHERE gid='$gid' AND uid='$zombie_uid'";
+
+      if (!$GLOBALS['Db']->Execute($sql))
+      {
+        return false;
+      }
+      $GLOBALS['Db']->Commit();
+    }
+    // update first feed
+    $killer = $GLOBALS['User']->GetUserFromGame($zombie_uid);
+    
+    $self_time = ($self_time > ZOMBIE_MAX_FEED_TIMER ? ZOMBIE_MAX_FEED_TIMER : $self_time);
+    $set_time = $time - (ZOMBIE_MAX_FEED_TIMER - $self_time);
+    $time_given = $set_time - $killer['zombie_feed_timer'];
+    $time_given = ($time_given > $feed_time ? $feed_time : $time_given); 
+
+    if ($time_given > 0){
+      $sql = "UPDATE game_xref SET zombie_feed_timer=zombie_feed_timer + $time_given WHERE gid='$gid' AND uid='$zombie_uid'";
+      if (!$GLOBALS['Db']->Execute($sql))
+      {
+        return false;
+      }
+      $GLOBALS['Db']->Commit();
+      $feed_time -= $time_given;
     }
 
-    if (!$GLOBALS['Db']->Execute($sql))
-    {
-      return false;
-    }
-    $GLOBALS['Db']->Commit();
-    
     // Check that feed1 is a player
     if ($GLOBALS['User']->IsValidUser($feed1))
     {
-      // Now mark them as fed
-      $sql = "UPDATE game_xref SET zombie_feed_timer=LEAST('$time', zombie_feed_timer + 86400) WHERE gid='$gid' AND uid='$feed1'";
-      if (!$GLOBALS['Db']->Execute($sql))
-      {
-        return false;
+      $share = $GLOBALS['User']->GetUserFromGame($feed1);
+      $time_given = $time - $share['zombie_feed_timer'];
+      $time_given = ($time_given > $feed_time ? $feed_time : $time_given);
+      if ($time_given >0){
+        $sql = "UPDATE game_xref SET zombie_feed_timer=zombie_feed_timer + $time_given WHERE gid='$gid' AND uid='$feed1'";
+        if (!$GLOBALS['Db']->Execute($sql))
+        {
+          return false;
+        }
+        $GLOBALS['Db']->Commit();
+        $feed_time -= $time_given;
+        $user=$GLOBALS['User']->GetUser($feed1);
+        $email = $user['email']; 
+        $text = "Hello\r\nYou have recieved a feed share.";
+        $GLOBALS['Mail']->SimpleMail($email, UNIVERSITY." HVZ Feed Share", $text);
+        $cache_id = $feed1.'_game';
+        $GLOBALS['UserCache']->RemoveFromCache($cache_id);
       }
-      $GLOBALS['Db']->Commit();
     }
     
     // Check that feed2 is a player
-    if (false && $GLOBALS['User']->IsValidUser($feed2))
+    if ($GLOBALS['User']->IsValidUser($feed2))
     {
-      // Now mark them as fed
-      $sql = "UPDATE game_xref SET zombie_feed_timer='$time' WHERE gid='$gid' AND uid='$feed2'";
-      if (!$GLOBALS['Db']->Execute($sql))
-      {
-        return false;
+      $share=$GLOBALS['User']->GetUserFromGame($feed2);
+      $time_given = $time - $share['zombie_feed_timer'];
+      $time_given = ($time_given > $feed_time ? $feed_time : $time_given);
+
+    
+      if ($time_given >0){
+        $sql = "UPDATE game_xref SET zombie_feed_timer=zombie_feed_timer + $time_given WHERE gid='$gid' AND uid='$feed2'";
+        if (!$GLOBALS['Db']->Execute($sql))
+        {
+          return false;
+        }
+        $GLOBALS['Db']->Commit();
+        $feed_time -= $time_given;
+        $user=$GLOBALS['User']->GetUser($feed2);
+        $email = $user['email'];
+        $text = "Hello\r\nYou have recieved a feed share.";
+        $GLOBALS['Mail']->SimpleMail($email, UNIVERSITY." HVZ Feed Share", $text);
+        $cache_id = $feed2.'_game';
+        $GLOBALS['UserCache']->RemoveFromCache($cache_id);
+
       }
-      $GLOBALS['Db']->Commit();
     }
-
     // Send an email to the person turned into a zombie
-    $to = $target_user['email'];
-    $subject = "".UNIVERSITY." HvZ You are now a Zombie!";
-    $html = "Hello,<br>You were just turned into a Zombie on the ".UNIVERSITY." HvZ website (Someone entered your Secret Game ID)! You can now start tagging humans and reporting their Secret Game IDs on the website as well. Don't forget to wear you bandanna around your head.<br>";
+    if ($feed_type == 'player'){
+      $to = $target_user['email'];
+      $subject = "".UNIVERSITY." HvZ You are now a Zombie!";
+      $html = "Hello,<br>You were just turned into a Zombie on the ".UNIVERSITY." HvZ website (Someone entered your Secret Game ID)! You can now start tagging humans and reporting their Secret Game IDs on the website as well. Don't forget to wear you bandanna around your head.<br>";
 
-    $text = "Hello,\r\nYou were just turned into a Zombie on the ".UNIVERSITY." HvZ website (Someone entered your Secret Game ID)! You can now start tagging humans and reporting their Secret Game IDs on the website as well. Don't forget to wear you bandanna around your head.\r\n";
-    $GLOBALS['Mail']->HTMLMail($to, $subject, $body);
+      $text = "Hello,\r\nYou were just turned into a Zombie on the ".UNIVERSITY." HvZ website (Someone entered your Secret Game ID)! You can now start tagging humans and reporting their Secret Game IDs on the website as well. Don't forget to wear you bandanna around your head.\r\n";
+      $GLOBALS['Mail']->SimpleMail($to, $subject, $text);
     
-    // Set the person who got turned into a zombie as a zombie role on forum
-    $GLOBALS['User']->AddForumRoleZombie($target_uid);
+      // Set the person who got turned into a zombie as a zombie role on forum
+      $GLOBALS['User']->AddForumRoleZombie($target_uid);
     
-    // Twitter integration
-    $sql = "SELECT name FROM user WHERE uid='{$target_uid}'";
-    $results = $GLOBALS['Db']->GetRecords($sql);
-    if (is_array($results) && count($results) > 0) {
-      $human = $results[0]['name'];
-    }
-    $sql = "SELECT name FROM user WHERE uid='{$zombie_uid}'";
-    $results = $GLOBALS['Db']->GetRecords($sql);
-    if (is_array($results) && count($results) > 0) {
-      $zombie = $results[0]['name'];
-    }
+      // Twitter integration
+      $sql = "SELECT name FROM user WHERE uid='{$target_uid}'";
+      $results = $GLOBALS['Db']->GetRecords($sql);
+      if (is_array($results) && count($results) > 0) {
+        $human = $results[0]['name'];
+      }
+      $sql = "SELECT name FROM user WHERE uid='{$zombie_uid}'";
+      $results = $GLOBALS['Db']->GetRecords($sql);
+      if (is_array($results) && count($results) > 0) {
+        $zombie = $results[0]['name'];
+      }  
     
-    if (isset($GLOBALS['state']['oz_hidden']) && $GLOBALS['state']['oz_hidden']) {
+      if (isset($GLOBALS['state']['oz_hidden']) && $GLOBALS['state']['oz_hidden']) {
 			// OZs hidden
 			$sql = "SELECT oz FROM game_xref WHERE uid='$zombie_uid' AND gid='$gid'";
 			$results = $GLOBALS['Db']->GetRecords($sql);
 			if (is_array($results) && count($results) > 0) {
 				$oz = $results[0]['oz'];
-      }
-      if ($oz) {
+        }
+        if ($oz) {
 				$GLOBALS['Twitter']->send("{$human} has been infected by an OZ.");
 			} else {
 				$GLOBALS['Twitter']->send("{$human} has been infected by {$zombie}");
 			}
-    } else {
+      } else {
 			// OZs not hidden
 			$GLOBALS['Twitter']->send("{$human} has been infected by {$zombie}");    
+      }
     }
-    
     // Clear caches
-    $cache_id = $target_uid.'_game';
-    $GLOBALS['UserCache']->RemoveFromCache($cache_id);
+    if ($feed_type=='player') {$cache_id = $target_uid.'_game';}
+    if ($feed_type=='player') {$GLOBALS['UserCache']->RemoveFromCache($cache_id);}
     $cache_id = $zombie_uid.'_game';
     $GLOBALS['UserCache']->RemoveFromCache($cache_id);
     $cache_id = 'game_'.$gid.'_playercount';

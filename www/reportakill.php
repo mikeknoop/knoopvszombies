@@ -55,8 +55,16 @@
                 $location_x = $_POST['location_x'];
                 $location_y = $_POST['location_y'];
               }
-                
-              $GLOBALS['Game']->RegisterKill($GLOBALS['state']['gid'], $zombie, $targetSecret, $feed1, $feed2, $location_x, $location_y);
+              if (isset($_POST['self_time'])){
+                if ($_POST['self_time'] === '0'){
+                  $self_time = 0;
+                } else {
+                  $self_time = intval($_POST['self_time'])*3600;
+                  $self_time = ( $self_time == 0 ? ZOMBIE_MAX_FEED_TIMER : $self_time);
+                }
+              }
+                   
+              $GLOBALS['Game']->RegisterKill($GLOBALS['state']['gid'], $zombie, $targetSecret, $feed1, $feed2, $location_x, $location_y, $self_time);
               $error = false;
             }
             else
@@ -162,7 +170,7 @@
             </div>
                        
             <div class="reportakill_header">
-              <p>Remember, every zombie must feed once every 48 hours otherwise they starve. You can share your kill with two other zombies to reset their feed timers. If the secret game ID you received does not work, contact a moderator. Secret Game IDs are <span class="bold">not</span> case sensitive.</p>
+              <p>Remember, every zombie must feed once every 60 hours otherwise they starve. You can share your kill with two other zombies. Your starve timer will be set to the number of hours you indicate (if you enter fewer hours than you currently have on your starve timer, you won't get any time at all). Remaining time from the kill will go to the first feed until they hit the maximum, and then any remaining time after that will go to the second feed. If the secret game ID you received does not work, contact a moderator. Secret Game IDs are <span class="bold">not</span> case sensitive.</p>
             </div>
 
             <div class="reportakill_header">

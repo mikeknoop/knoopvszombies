@@ -8,7 +8,7 @@
         $subject = $_POST['email_subject'];
         $html = $_POST['email_html'];
         $text = $_POST['email_text'];
-        $from = ( isset($_POST['email_from']) ? $POST['email_from'] : false);
+        $from = ( isset($_POST['email_from']) ? $_POST['email_from'] : false);
 
         $send_error = null;
         try
@@ -19,7 +19,7 @@
           $opt = false;
           if (isset($_POST['campaign']) && $_POST['campaign'] != '') {$opt = array('o:campaign' => $_POST['campaign'],);}
           
-          $GLOBALS['Mail']->HTMLMail($to, $subject, $html, $text, $attachFooter, $bcc, $opt);
+          $GLOBALS['Mail']->HTMLMail($to, $subject, $html, $text, $attachFooter, $bcc, $opt, $from);
         }
         catch (Exception $e)
         {

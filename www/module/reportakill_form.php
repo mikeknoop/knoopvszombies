@@ -17,6 +17,13 @@
   </div>
   
   <div class="reportakill_row">
+    <div class="reportakill_label"> What your timer will be:</div>
+    <div class="reportakill_form">
+        <input type="text" name="self_time" value = "60" class="reportakill_form_input">
+    </div>
+<div class="clearfix"></div>
+  </div>
+  <div class="reportakill_row">
     <div class="reportakill_label">
       Zombie to Feed (#1):
     </div>
@@ -34,7 +41,7 @@
                 if (($GLOBALS['state']['oz_hidden'] && !$player['oz']) || !$GLOBALS['state']['oz_hidden'])
                 {
                   $now = date("U");
-                  $starve_time = $player['zombie_feed_timer'] + (60*60*48);
+                  $starve_time = $player['zombie_feed_timer'] + ZOMBIE_MAX_FEED_TIMER;
                   $hours_left = ceil(($starve_time - $now) / (60*60));
                   $kills = $player['zombie_kills'];
                   
@@ -46,15 +53,14 @@
         ?>
       </select>
     </div>
-    <div class="clearfix"></div>
-  </div>
-  
-  <!-- <div class="reportakill_row">
-    <div class="reportakill_label">
-      Zombie to Feed (#2):
+<div class="clearfix"></div>
     </div>
-              
-    <div class="reportakill_form">
+    <div class ="reportakill_row">  
+      <div class="reportakill_label">
+      Zombie to Feed (#2):
+      </div>
+
+      <div class="reportakill_form">
       <select name="feed2" class="reportakill_form_select">
         <option value="">Choose Player</option>
         <?php
@@ -67,20 +73,23 @@
                 if (($GLOBALS['state']['oz_hidden'] && !$player['oz']) || !$GLOBALS['state']['oz_hidden'])
                 {
                   $now = date("U");
-                  $starve_time = $player['zombie_feed_timer'] + (60*60*48);
+                  $starve_time = $player['zombie_feed_timer'] + ZOMBIE_MAX_FEED_TIMER;
                   $hours_left = ceil(($starve_time - $now) / (60*60));
-                  
-                  echo "<option value='{$player['uid']}'>{$player['name']} ($hours_left hours left)</option>";
+                  $kills = $player['zombie_kills'];
+
+                  echo "<option value='{$player['uid']}'>{$player['name']} ($hours_left hours left, $kills kills)</option>";
                 }
               }
             }
-          }       
+          }
         ?>
       </select>
+
+ 
     </div>
     <div class="clearfix"></div>
   </div>
-  -->
+  
   <div class="reportakill_row">
     <div class="reportakill_label">
       Where did the kill occur?
