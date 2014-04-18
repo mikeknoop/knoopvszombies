@@ -1,9 +1,9 @@
 <?php 
   $message = false;
   if (isset($_GET['action']) && $_GET['action'] == 'save') {
-    $number = $_POST['number'];
-    $hours  = $_POST['time'];
-    $expiry = $_POST['expiry'];
+    $number = addslashes($_POST['number']);
+    $hours  = addslashes($_POST['time']);
+    $expiry = addslashes($_POST['expiry']);
     $kill   = (isset($_POST['kill'])) ? '1' : '0';
   
     if ($number > 500) {
