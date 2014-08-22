@@ -1142,15 +1142,11 @@ class Game {
     $sql = "SELECT gid FROM game WHERE 1 ORDER BY gid DESC";
     $results = $GLOBALS['Db']->GetRecords($sql);
     
-    $return = null;
     if (is_array($results) && count($results) > 0)
     {
       $gid = $results[0]['gid'];
     }
-    else
-    {
       return $gid;
-    }
   }
 
   /*
