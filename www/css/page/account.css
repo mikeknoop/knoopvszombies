@@ -14,6 +14,30 @@
   max-width:        200px;
 }
 
+#achievements_bar
+{
+	float:			left;
+	margin:			0 0 0 0;
+	max-width: 		200px;
+}
+
+#achievements_bar h1
+{
+  font-family:    'blue-bold', 'sans-serif';
+  font-size:      36px;
+  line-height:    16px;
+  float:          inline-block;
+  height:         40px;
+  margin:         10px 10px 0 10px;
+}
+
+#achievements_bar td
+{
+	padding: 0px .5px 0px .5px;
+	margin: 0px;
+	float: left;
+}
+
 #account_links
 {
   float:            right;

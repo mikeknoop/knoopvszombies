@@ -221,6 +221,50 @@
 
           <div id="account_picture">
             <img src="<?php echo $view_account_img_src ?>" />
+            	
+            	<div id ="achievements_bar">  		
+          		 <h1>Achievements</h1>
+          		 <table>
+          		 	<tr>
+          		 	<td>
+          		 		<?php 
+          		 		if ($ta_minutes!=0 || $ta_hours!=0 || $ta_days!=0) {
+          		 			echo '<img src="/knoopvszombies/www/img/veteran1.png" alt="Played at least one game of HvZ" title="Played at least one game of HvZ"</td>';
+						} else{
+							echo '<img src="/knoopvszombies/www/img/veteran1_not.png" alt="Play one game of HvZ" title="Play at least one game of HvZ"</td>';
+						}
+						?>
+          		 	<td>
+          		 		<?php 
+          		 		if ($historical['zombie_kills']!=0) {
+          		 			echo '<img src="/knoopvszombies/www/img/zombie_kill1.png" alt="Killed humans during a game of HvZ" title="Killed ' . $historical['zombie_kills'] .' humans in HvZ"</td>';
+						} else{
+							echo '<img src="/knoopvszombies/www/img/zombie_kill1_not.png" alt="Kill at least 1 human during HvZ" title="Kill at least 1 human during a game of HvZ"</td>';
+						}
+						?>
+				   </td>
+          		 		<td>
+          		 			<?php 
+          		 		if ($user['squad_name']!='') {
+          		 			echo '<img src="/knoopvszombies/www/img/squad_joined.png" alt="Joined a squad for HvZ" title="You joined ' . $user['squad_name'] .'"</td>';
+						} else{
+							echo '<img src="/knoopvszombies/www/img/squad_joined_not.png" alt="Join a squad" title="Join a squad"</td>';
+						}
+						?>
+          		 		</td>
+          		 		<td>
+          		 			<?php 
+          		 		if ($user['privileges']!='') {
+          		 			echo '<img src="/knoopvszombies/www/img/moderator.png" alt="You are a moderator for HvZ" title="You are a moderator of HvZ!"</td>';
+						} else{
+							echo '<img src="/knoopvszombies/www/img/moderator_not.png" alt="Become a moderator" title="Become a moderator of HvZ"</td>';
+						}
+						?>
+						</td>
+          		 	</tr>
+          		 </table>
+            </div>
+         
           </div>
                     
           <div id="account_container">
