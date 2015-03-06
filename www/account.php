@@ -261,6 +261,15 @@
 						}
 						?>
 						</td>
+						<td>
+          		 			<?php 
+          		 		if ($user['exceptional_user']=='1') {
+          		 			echo '<img src="/knoopvszombies/www/img/exceptional_player.png" alt="Recognized for outstanding conduct" title="Recognized for outstanding conduct"</td>';
+						} else{
+							echo '<img src="/knoopvszombies/www/img/exceptional_player_not.png" alt="Become an outstanding player" title="Become an outstanding player"</td>';
+						}
+						?>
+						</td>
           		 	</tr>
           		 </table>
             </div>

@@ -139,6 +139,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `liability_waiver` varchar(100) DEFAULT NULL,
   `active_game` tinyint(1) DEFAULT '0',
   `active_squad` tinyint(1) DEFAULT '0',
+  `exceptional_user` tinyint(1) DEFAULT '0',
   `squad_name` varchar(30) DEFAULT NULL,
   `created` bigint(20) DEFAULT NULL,
   `email_confirmed` tinyint(1) DEFAULT '0',

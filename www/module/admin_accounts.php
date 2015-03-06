@@ -53,6 +53,11 @@
       {
         $_POST['privilege'] = '';
       }
+        
+      if (isset($_POST['exceptional_user']) && $_POST['exceptional_user'] == 'on')
+      {
+		$_POST['exceptional_user'] = '1';
+      }
       
       // validate and save the user form
       $save = array();
@@ -211,7 +216,11 @@
                 $email_changes['Waiver'] = $value;
               */
               break;
-
+	
+			case'exceptional_user':
+				$save[$key] = $value;
+				break;
+				
             case 'approved':
               $save[$key] = $value;
               if ($user[$key] != $value)
@@ -443,6 +452,15 @@
     </div>
     <div class="admin_playerlist_edit_row_form">
       <input type="checkbox" name="approved" <?php if ($user['approved']) echo "checked=true"; ?> />
+    </div>
+  </div>
+  
+  <div class="admin_playerlist_edit_row_container">
+    <div class="admin_playerlist_edit_row_label">
+    Mark as exceptional player:
+    </div>
+    <div class="admin_playerlist_edit_row_form">
+      <input type="checkbox" name="exceptional_user" <?php if ($user['exceptional_user']) echo "checked=true"; ?> />
     </div>
   </div>
   
