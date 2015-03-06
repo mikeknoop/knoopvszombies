@@ -121,7 +121,7 @@ class User {
       // cache file was empty (0 bytes) or corrupt
     }
     
-    $sql = "SELECT uid, email, password, fb_id, using_fb, admin, privileges, name, code_of_conduct, liability_waiver, active_game, active_squad, squad_name, created, email_confirmed, approved, forum_privileges,exceptional_user FROM user WHERE uid='$uid'";
+    $sql = "SELECT uid, email, password, fb_id, using_fb, admin, privileges, name, code_of_conduct, liability_waiver, active_game, active_squad, squad_name, created, email_confirmed, approved, forum_privileges,exceptional_user, commend_send, commend_recieve_friendly, commend_recieve_teamwork FROM user WHERE uid='$uid'";
     $results = $GLOBALS['Db']->GetRecords($sql);
     
     if (is_array($results) && count($results) > 0)

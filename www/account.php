@@ -246,7 +246,7 @@
           		 		<td>
           		 			<?php 
           		 		if ($user['squad_name']!='') {
-          		 			echo '<img src="/knoopvszombies/www/img/squad_joined.png" alt="Joined a squad for HvZ" title="You joined ' . $user['squad_name'] .'"</td>';
+          		 			echo '<img src="/knoopvszombies/www/img/squad_joined.png" alt="Joined a squad for HvZ" title="Member of squad ' . $user['squad_name'] .'"</td>';
 						} else{
 							echo '<img src="/knoopvszombies/www/img/squad_joined_not.png" alt="Join a squad" title="Join a squad"</td>';
 						}
@@ -270,10 +270,60 @@
 						}
 						?>
 						</td>
+						<td>
+          		 			<?php 
+          		 		if ($user['commend_send']==6) {
+          		 			echo '<img src="/knoopvszombies/www/img/commend_send_not.png" alt="Use the commend button on another profile" title="Use the commend button on another profile"</td>';
+						 }else{
+							echo '<img src="/knoopvszombies/www/img/commend_send.png" alt="Commended another player" title="You have commended ' . (6-$user['commend_send']) . ' times!"</td>';
+						}
+						?>
+						</td>
+						<td>
+          		 			<?php 
+          		 		if ($user['commend_recieve_friendly']!=0) {
+          		 			echo '<img src="/knoopvszombies/www/img/commend_friendly.png" alt="Outstanding Friendliness" title="You have been commended '.$user['commend_recieve_friendly'].' times for friendliness"</td>';
+						 }else{
+							echo '<img src="/knoopvszombies/www/img/commend_friendly_not.png" alt="Commended another player" title="Be commended for outstanding friendliness by another player"</td>';
+						}
+						?>
+						</td>
+						<td>
+          		 		<?php 
+          		 		if ($user['commend_recieve_teamwork']!=0) {
+          		 			echo '<img src="/knoopvszombies/www/img/commend_teamwork.png" alt="Outstanding Teamwork" title="You have been commended '.$user['commend_recieve_teamwork'].' times for teamwork"</td>';
+						 }else{
+							echo '<img src="/knoopvszombies/www/img/commend_teamwork_not.png" alt="Outstanding Teamwork" title="Be commended for outstanding teamwork by another player"</td>';
+						}
+						?>
+						</td>
           		 	</tr>
           		 </table>
+          		 <?php
+          		 	if($viewing_self=='true'){
+          		 		echo '<p>You can give out '.$user['commend_send'].' more commends';
+          		 	}else if ($_SESSION['commend_send']==0){
+          				echo '<p>You are out of commends!';
+          		 	}else{
+          		 		echo '<h5>Commend this Player?</h5>';
+						echo '<form id="form" action="../module/commend_process.php" method="post"
+							  <label for="yes"><input type="radio" name="bi" id="friendly" required value="friendly"/>Friendly</label>
+						      <label for="no"><input type="radio" name="bi" id="teamwork" value="teamwork"/>Teamwork</label>
+						      <input type="hidden" name="giver" value="'.$user["uid"].'">
+						      <input type="hidden" name="sender" value="'.$_SESSION["uid"].'">
+							  <input type="submit" name="submit" id="submit" value="COMMEND" onclick="return makesure();"/>';
+          		 	}
+          		 	?>
             </div>
-         
+			<script type="text/javascript">
+				function makesure() {
+					if (confirm('You only have 6 lifetime commends to give. Proceed?')) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+		  </script>
           </div>
                     
           <div id="account_container">
